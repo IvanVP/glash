@@ -1,9 +1,18 @@
 class DeviseCreateUsers < ActiveRecord::Migration
-  def change
+  def self.up
     create_table(:users) do |t|
+      t.string :fname,              limit: 30
+      t.string :mname,              limit: 70
+      t.string :lname,              limit: 50
+      t.string :name,               limit: 50
+
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+
+      t.boolean :terms,             default: false
+
 
       ## Recoverable
       t.string   :reset_password_token
@@ -36,7 +45,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, :name,                 unique: true
+
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
+  end
+
+  def self.down
+    drop_table :users
   end
 end

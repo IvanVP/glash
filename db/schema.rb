@@ -14,8 +14,13 @@
 ActiveRecord::Schema.define(version: 20140426100820) do
 
   create_table "users", force: true do |t|
+    t.string   "fname",                  limit: 30
+    t.string   "mname",                  limit: 70
+    t.string   "lname",                  limit: 50
+    t.string   "name",                   limit: 50
     t.string   "email",                             default: "",    null: false
     t.string   "encrypted_password",                default: "",    null: false
+    t.boolean  "terms",                             default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -26,10 +31,6 @@ ActiveRecord::Schema.define(version: 20140426100820) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "fname",                  limit: 30
-    t.string   "lname",                  limit: 50
-    t.boolean  "terms",                             default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
