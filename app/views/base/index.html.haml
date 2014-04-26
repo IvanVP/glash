@@ -1,0 +1,8 @@
+%h1 Base#index 
+%h1 Authorized
+%p Find me in app/views/base/index.html.erb
+= link_to "Sign up", new_registration_path(:user)
+%br/
+- if user_signed_in?
+  = link_to 'Sign Out', destroy_user_session_path, method: |
+    :delete                                                |
