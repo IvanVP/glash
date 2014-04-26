@@ -7,9 +7,11 @@ ru:
           fname: Имя
           lname: Фамилия
           name: Логин
+          login: Логин или email
           email: Email
           password: Пароль
           password_confirmation: Подтверждение пароля
+          remember_me: Запомнить меня
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.
@@ -58,7 +60,7 @@ ru:
       unlocked: Ваша учётная запись разблокирована. Теперь вы вошли в систему.
   errors:
     messages:
-      already_confirmed: 'уже подтверждена. Пожалуйста, попробуйте войти в систему'
+      already_confirmed: 'уже подтвержден. Пожалуйста, попробуйте войти в систему'
       confirmation_period_expired: 'должен быть подтвержден в течение %{period}, пожалуйста, повторите запрос'
       expired: 'устарела. Пожалуйста, запросите новую'
       not_found: не найдена

@@ -9,9 +9,11 @@ en:
           fname: First name
           lname: Last name
           name: Username
+          login: Login
           email: Email
           password: Password
           password_confirmation: Password confirmation
+          remember_me: Remember me
   devise:
     confirmations:
       confirmed: "Your account was successfully confirmed."
