@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    babosa (0.3.11)
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -69,6 +70,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -164,6 +167,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babosa (~> 0.3.11)
   better_errors
   binding_of_caller
   capistrano
@@ -171,6 +175,7 @@ DEPENDENCIES
   devise (~> 3.2.4)
   devise-i18n (~> 0.10.3)
   figaro (~> 0.7.0)
+  friendly_id (~> 5.0.0)
   haml (~> 4.0.5)
   i18n (~> 0.6.9)
   jbuilder (~> 1.2)

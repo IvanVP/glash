@@ -13,7 +13,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.boolean :terms,             default: false
 
-
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
@@ -39,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      t.string :slug,               :null => false
 
       t.timestamps
     end
@@ -48,6 +48,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :name,                 unique: true
     add_index :users, :confirmation_token,   unique: true
 
+    add_index :users, :slug,                 unique: true
     # add_index :users, :unlock_token,         unique: true
   end
 

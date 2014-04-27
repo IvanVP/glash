@@ -12,6 +12,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'friendly_id', '~> 5.0.0'
+gem 'babosa', '~> 0.3.11'
+
 
 group :development do
   gem 'thin', '~> 1.6.2'
