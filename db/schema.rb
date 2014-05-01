@@ -11,20 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427050947) do
-
-  create_table "friendly_id_slugs", force: true do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "users", force: true do |t|
     t.string   "fname",                  limit: 30
@@ -34,6 +21,12 @@ ActiveRecord::Schema.define(version: 20140427050947) do
     t.string   "email",                             default: "",    null: false
     t.string   "encrypted_password",                default: "",    null: false
     t.boolean  "terms",                             default: false
+    t.date     "birthday"
+    t.boolean  "show_birthday",                     default: true
+    t.string   "gender",                 limit: 1
+    t.boolean  "show_gender",                       default: true
+    t.string   "foto"
+    t.text     "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

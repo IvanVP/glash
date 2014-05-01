@@ -12,6 +12,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
 
       t.boolean :terms,             default: false
+      
+      t.date    :birthday 
+      t.boolean :show_birthday,      default: true
+
+      t.string  :gender,             limit: 1 
+      t.boolean :show_gender,        default: true
+      t.string  :foto
+      t.text    :description
+
 
       ## Recoverable
       t.string   :reset_password_token
