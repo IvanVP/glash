@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
+  has_one :contact, :dependent => :destroy
+
   attr_accessor :login
   
   # Include default devise modules. Others available are:

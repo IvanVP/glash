@@ -1,7 +1,7 @@
 class CreateContacts < ActiveRecord::Migration
   def self.up
     create_table(:contacts) do |t|
-      t.integer  :user_id
+      t.integer  :user_id,           :null => false
       t.string   :phone
       t.string   :phone2
       t.string   :skype,              limit: 50
@@ -16,8 +16,6 @@ class CreateContacts < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :contacts, :user_id,    unique: true
   end
 
   def self.down
