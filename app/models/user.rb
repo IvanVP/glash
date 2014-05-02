@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
   
-  friendly_id :slug_candidates, use:  [:slugged, :history]
+  friendly_id :slug_candidates, use:  [:slugged, :finders, :history]
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

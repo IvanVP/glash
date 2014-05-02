@@ -1,12 +1,12 @@
 %h1 Base#index 
-%h1 Authorized
+%h1 Страница для АВТОРИЗОВАННЫХ пользователей
 
 
 %p 
   Вошли как 
-  =current_user.fullname  
+  = link_to current_user.fullname, edit_registration_path(current_user) 
 - unless user_signed_in?
-  = link_to "Войти", new_registration_path(:user)
+  = link_to t(:sign_in), new_registration_path(:user)
   %br/
 - else
-  = link_to 'Выйти', destroy_user_session_path, method: :delete 
+  = link_to t(:sign_out), destroy_user_session_path, method: :delete 

@@ -13,8 +13,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.boolean :terms,             default: false
       
-      t.date    :birthday 
-      t.boolean :show_birthday,      default: true
+      t.date    :birthdate 
+      t.boolean :show_birthdate,      default: true
 
       t.string  :gender,             limit: 1 
       t.boolean :show_gender,        default: true
