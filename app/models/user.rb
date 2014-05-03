@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
 
   has_one :contact, :dependent => :destroy
+  before_create :build_default_info
 
   attr_accessor :login
   
@@ -41,6 +42,17 @@ class User < ActiveRecord::Base
 
   def normalize_friendly_id(text)
     text.to_slug.normalize! :transliterations => :russian #[:russian, :latin]
+  end
+
+  def is_admin?
+    self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
+  end
+
+  private
+
+  def build_default_info
+    build_contact
+    true
   end
 
 end

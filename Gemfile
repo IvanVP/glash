@@ -28,6 +28,8 @@ end
 gem 'devise', '~> 3.2.4'
 gem 'devise-i18n', '~> 0.10.3' 
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

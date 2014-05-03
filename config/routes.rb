@@ -1,4 +1,5 @@
 Glash::Application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'contacts/index'
 
   get 'contacts/show'
