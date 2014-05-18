@@ -1,0 +1,112 @@
+%footer#footer
+  .container
+    .row
+      .col-md-3
+        .logo.push-bottom= link_to image_tag('logo-footer.png', alt: "Glash!"), root_path
+        %p
+          Это сайт о дизайне и разных полезных и умных изобретениях. Присылайте нам свои идеи, комментируйте идеи других и зарабатывайте с нами!
+          = link_to root_path, class: "btn-flat btn-xs" do
+            Подробнее
+            %i.icon.icon-arrow-right
+        .contact-details
+          %ul.contact
+            %li
+              %p
+                %i.icon.icon-map-marker
+                %strong Информация
+            %li
+              %p
+                %i.icon.icon-phone
+                %strong Телефон
+                (123) 456-7890
+            %li
+              %p
+                %i.icon.icon-envelope
+                %strong Email:
+                %a{href: "mailto:mail@example.com"} mail@example.com
+      .col-md-3
+        %h4 Блог
+        %ul.nav.nav-list.primary
+          %li
+            %a{href: root_path, title: "Подставка для компьютера"} Подставка для компьютера ...
+          %li
+            %a{href: root_path, title: "Управляемый по Iphone кондиционер"} Управляемый по Iphone кондиционер...
+          %li
+            %a{href: root_path, title: "Супер-штопор"} Супер-штопор...
+          %li
+            %a{href: root_path, title: "Фотообъектив для телефона"} Фотообъектив для телефона...
+          %li
+            %a{href: root_path, title: "Уникальный ящик для инструмента"} Уникальный ящик для инструмента...
+        %a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: root_path}
+          Еще записи
+          %i.icon.icon-arrow-right
+      .col-md-3
+        %h4 Информация
+        %ul.nav.nav-list.primary
+          %li
+            %a{href: root_path, title: "Как это все работает"} Как это все работает
+          %li
+            %a{href: root_path, title: "Правила сайта"} Правила сайта
+          %li
+            %a{href: root_path, title: "Блог"} Блог
+          %li
+            %a{href: root_path, title: "Вопросы и ответы"} Вопросы и ответы
+          %li
+            %a{href: root_path, title: "Предложите идею"} Предложите идею
+        -#
+          %h4 Recent Tweets
+          #tweet.twitter{"data-account-id" => ""}
+            %p Please wait...
+
+      .col-md-3
+        %h4 Новые Идеи
+        %ul.list-unstyled.recent-work
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-1.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-9.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-3.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-4.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-5.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-11.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-2.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-6.jpg'), width: "78"}/
+          %li
+            %a.thumb-info{href: root_path}
+              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-7.jpg'), width: "78"}/
+        %a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: root_path}
+          Еще Идеи
+          %i.icon.icon-arrow-right
+  .footer-copyright
+    .container
+      .row
+        .col-md-6
+          %p Glash! © 2014
+        .col-md-6
+          %ul.social-icons
+            %li
+              %a{href: "http://www.twitter.com/", rel: "tooltip", target: "_blank", title: "Twitter"}
+                %i.icon.icon-twitter
+            %li
+              %a{href: "http://www.facebook.com/", rel: "tooltip", target: "_blank", title: "Facebook"}
+                %i.icon.icon-facebook
+            %li
+              %a{href: "http://www.google.com/", rel: "tooltip", target: "_blank", title: "Google+"}
+                %i.icon.icon-google-plus
+            %li
+              %a{href: "http://www.linkedin.com/", rel: "tooltip", target: "_blank", title: "Linkedin"}
+                %i.icon.icon-linkedin

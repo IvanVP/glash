@@ -1,0 +1,104 @@
+-# Ivan
+%header
+  .container
+    %h1.logo
+      /%a{href: home_path}
+      =link_to "http://localhost:3000" do
+        %img{alt: "Glash", "data-small-height" => "44", src: image_path('logo.png') }
+    .navbar-collapse.nav-main-collapse.collapse
+      #headerSearch.search
+        %a#headerSearchOpen{href: "#"}
+          %i.icon.icon-search
+        .search-input
+          %form#headerSearchForm{action: "page-search-results.html", method: "get"}
+            .input-group
+              %input#q.form-control.search{name: "q", placeholder: "Search...", type: "text"}/
+              %span.input-group-btn
+                %button.btn.btn-primary{type: "button"}
+                  %i.icon.icon-search
+      %nav.nav-main.mega-menu
+        %ul#mainMenu.nav.nav-pills.nav-main
+          %li.dropdown.active
+            %a.dropdown-toggle{href: "index.html"}
+              Home
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: "index.html"} Home without login
+              %li
+                %a{href: "index-basic.html"} Home1
+              %li
+                %a{href: "index-video.html"} Home2
+              %li
+                %a{href: "index-blog.html"} Home - Blog
+          %li
+            %a{href: "shortcodes.html"}
+              Ideas
+          %li
+            %a{href: "shortcodes.html"}
+              Projects
+          %li.dropdown
+            %a.dropdown-toggle{href: "#"}
+              Competition
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: "portfolio-4-columns.html"} First
+              %li
+                %a{href: "portfolio-3-columns.html"} Second
+              %li
+                %a{href: "portfolio-lightbox.html"} Third
+              %li
+                %a{href: "portfolio-timeline.html"} All
+          %li.dropdown
+            %a.dropdown-toggle{href: "#"}
+              Shop
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: "page-about-us.html"} About Us
+              %li
+                %a{href: "page-about-me.html"} About Me
+              %li
+                %a{href: "page-full-width.html"} Full width
+              %li
+                %a{href: "page-left-sidebar.html"} Left sidebar
+              %li
+                %a{href: "page-right-sidebar.html"} Right sidebar
+              %li.dropdown-submenu
+                %a{href: "#"} Custom Header
+                %ul.dropdown-menu
+                  %li
+                    %a{href: "page-custom-header.html"} Product - Header
+                  %li
+                    %a{href: "page-custom-header-basic.html"} Basic - Header
+                  %li
+                    %a{href: "page-custom-header-video.html"} Video - Header
+                  %li
+                    %a{href: "page-custom-header-overlay.html"} Overlay - Header
+                  %li
+                    %a{href: "page-custom-header-parallax.html"} Parallax - Header
+                  %li
+                    %a{href: "page-custom-header-slideshow.html"} Slideshow - Header
+              %li
+                %a{href: "page-404.html"} 404 Error
+              %li
+                %a{href: "page-team.html"} Team
+              %li
+                %a{href: "page-services.html"} Services
+              %li
+                %a{href: "page-faq.html"} FAQ
+          %li.dropdown
+            %a.dropdown-toggle{href: "#"}
+              Contact Us
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: "contact-us.html"} Version 1
+              %li
+                %a{href: "contact-us-2.html"} Version 2
+
+          = render 'shared/menu_item'         
+   
+    %button.btn.btn-responsive-nav.btn-inverse{"data-target" => ".nav-main-collapse", "data-toggle" => "collapse"}
+      %i.icon.icon-bars

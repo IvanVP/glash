@@ -1,0 +1,68 @@
+-@page_title= t(:sign_up)
+.container
+  .row
+    .col-md-12
+      .row.featured-boxes
+        .col-md-8
+          .featured-box.default
+            .box-content
+              %h4= t(:sign_up)
+              %p
+                Все поля обязательны для заполнения
+              = semantic_form_for @user, :html => {:id => 'contactForm'} do |f|
+                .row
+                  = f.inputs do
+                    .form-group
+                      .col-md-12                      
+                        = f.input :fname, :label => t(:fname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false
+                    .form-group
+                      .col-md-12                      
+                        = f.input :lname, :label => t(:lname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false
+                    .form-group
+                      .col-md-12                      
+                        = f.input :name, :label => t(:name, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "username"
+                    .form-group
+                      .col-md-12                      
+                        = f.input :email, :label => t(:email, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "mail@example.ru"
+                    .form-group
+                      .col-md-12
+                        = f.input :password, :label => t(:password, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "минимум 8 символов"
+                    .form-group
+                      .col-md-12
+                        = f.input :password_confirmation, :label => t(:password_confirmation, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false
+                    .form-group
+                      .col-md-12
+                        = f.input :terms, as: :boolean, :inline_label => t(:terms, scope: "activerecord.attributes.user"), :input_html => {:class => "boolean-control"}, :required => false
+                  = f.actions do
+                    .form-group
+                      .col-md-12
+                        = f.action :submit, :label => t(:sign_up), :button_html => {:class => "input btn btn-primary pull-right push-bottom"}
+        .col-md-4
+          .featured-box.default
+            .box-content
+              %h4
+                Помощь
+              %p
+                После регистрации на Ваш email придет письмо с инструкциями по активации
+                %br
+                Просто перейдите по ссылке, присланной в письме, для подтверждения регистрации.
+              
+              = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
+
+            .box-content
+              %ul.nav.nav-list
+              %h4
+                Зачем нужна регистрация
+              %p 
+                Регистрация – это авторизация, позволяющая:
+              %li 
+                право принимать участия в различных дискуссиях
+              %li 
+                оставлять свои сообщения, комментарии, выражать свое мнение,
+              %li 
+                право для скачивания различного рода информации
+              %li 
+                возможность пользоваться всеми услугами сайта.
+              %p Одним словом - регистрация нужна.
+
+            

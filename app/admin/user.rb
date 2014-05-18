@@ -1,9 +1,14 @@
 ActiveAdmin.register User do
 
   index do
+    column "Имя, Фамилия", :fullname
     column :name
+    column :birthdate 
+    column :gender
     column :email
     column :slug
+    column :sign_in_count
+    default_actions
   end
 
 

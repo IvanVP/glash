@@ -1,7 +1,8 @@
-%h1 Base#default 
-%h1 Страница для неавторизованых пользователей
-
-= link_to t(:sign_in), new_session_path(:user)
-%br/
-= link_to t(:sign_up), new_registration_path(:user)
-%br/
+= render :partial => 'greeting/rev_slider'
+= render :partial => 'greeting/text_blocks4'
+= render :partial => 'greeting/parallax'
+=# render :partial => 'greeting/round_stars'
+=# render :partial => 'greeting/text_blocks'
+= render :partial => 'greeting/text'
+= render :partial => 'greeting/portfolio'
+= render :partial => 'greeting/scores'

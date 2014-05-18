@@ -16,7 +16,7 @@ ru:
           login: Логин или email
           email: Email
           password: Пароль
-          password_confirmation: Подтверждение пароля
+          password_confirmation: Еще раз пароль
           remember_me: Запомнить меня
           terms: Согласен с правилами сайта 
   devise:
@@ -24,7 +24,7 @@ ru:
       confirmed: Ваша учётная запись подтверждена.
       send_instructions: В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи.
       send_paranoid_instructions: 'Если ваш адрес e-mail есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи.'
-      resend_confirmation_instructions: Отправить инструкции для подтверждения регистрации
+      resend_confirmation_instructions: Отправить инструкции для подтверждения регистрации еще раз
     failure:
       already_authenticated: Вы уже вошли в систему.
       inactive: Ваша учётная запись ещё не активирована.

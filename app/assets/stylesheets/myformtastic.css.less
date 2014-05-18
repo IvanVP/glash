@@ -1,0 +1,75 @@
+@import 'colors';
+
+.formtastic {
+    ol{
+      padding-top: .4em;
+    }
+    input {
+      font-size: 1.4em;
+      font-family: 'Open Sans';
+    }
+
+    .input {
+      padding: 0.5em 1.2em 0;
+
+    .inline-hints{
+        color: #87919F;
+      }
+    }
+
+    .actions{
+      float: none; 
+      padding: 0;
+    }
+
+    .input .label {
+      color: @textColor;
+      font-size: 1.4em;  
+      padding: 0.8em 0.5em 0.8em;
+      text-align: right;
+    }
+
+    .boolean {
+      font-size: 1.2em;
+    }
+    .form-control{
+      padding-left: 0.5em;
+    }
+
+}
+
+
+
+.formtastic .btn {
+      border-color: @primaryColor - #555555;
+      background-color: @primaryColor;
+      color: #FFF;
+      padding: 0.5em 1.2em;
+
+      &:hover {
+        border-color: lighten(@primaryColor, 8%);
+        background-color: lighten(@primaryColor, 8%);
+      }
+
+      &:focus {
+        border-color: darken(@primaryColor, 8%);
+        background-color: darken(@primaryColor, 8%);
+      }
+}
+
+li#user_submit_action {
+  float: right;
+  padding-right: 2.6em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  }
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.form-group{
+  margin-bottom: 0;
+}
+
+

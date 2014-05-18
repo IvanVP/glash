@@ -1,16 +1,6 @@
-%h1 Base#index 
 %h1 Страница для АВТОРИЗОВАННЫХ пользователей
 
 
 %p 
   Вошли как 
-  = link_to current_user.fullname, edit_registration_path(current_user) 
-%br 
-- if current_user.is_admin?
-  = link_to 'Admin', admin_dashboard_path
-
-- unless user_signed_in?
-  = link_to t(:sign_in), new_registration_path(:user)
-  %br/
-- else
-  = link_to t(:sign_out), destroy_user_session_path, method: :delete 
+  = current_user.fullname

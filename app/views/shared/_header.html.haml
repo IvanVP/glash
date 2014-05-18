@@ -1,0 +1,124 @@
+-# Ivan
+%header
+  .container
+    %h1.logo
+      /%a{href: home_path}
+      =link_to root_path do
+        %img{alt: "Glash", "data-small-height" => "44", src: image_path('logo.png') }
+    .navbar-collapse.nav-main-collapse.collapse
+      #headerSearch.search
+        %a#headerSearchOpen{href: root_path}
+          %i.icon.icon-search
+        .search-input
+          %form#headerSearchForm{action: "", method: "get"}
+            .input-group
+              %input#q.form-control.search{name: "q", placeholder: "Поиск...", type: "text"}/
+              %span.input-group-btn
+                %button.btn.btn-primary{type: "button"}
+                  %i.icon.icon-search
+      %nav.nav-main.mega-menu
+        %ul#mainMenu.nav.nav-pills.nav-main
+          -#
+            %li.dropdown.active
+            %a.dropdown-toggle{href: root_path}
+              Главная
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+          %li
+            %a{href: root_path}
+              Идеи
+          %li
+            %a{href: root_path}
+              Проекты
+          %li.dropdown
+            %a.dropdown-toggle{href: root_path}
+              Конкурсы
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый  
+              %li
+                %a{href:root_path} Второй
+              %li
+                %a{href: root_path} Третий
+              %li
+                %a{href: root_path} Все
+
+          -#
+            %li.dropdown
+            %a.dropdown-toggle{href: root_path}
+              Магазин
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li.dropdown-submenu
+                %a{href: root_path} Первый
+                %ul.dropdown-menu
+                  %li
+                    %a{href: root_path} Первый
+                  %li
+                    %a{href: root_path} Первый
+                  %li
+                    %a{href: root_path} Первый
+                  %li
+                    %a{href:root_path} Первый
+                  %li
+                    %a{href: root_path} Первый
+                  %li
+                    %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+          - if current_page?(users_path)
+            - css_class_users = 'active'
+          -else 
+            - css_class_users = ''
+          %li{:class => 'dropdown ' + css_class_users}
+            %a.dropdown-toggle{href: users_path}
+              Сообщество
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+          %li.dropdown
+            %a.dropdown-toggle{href: root_path}
+              Контакты
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Второй
+
+          = render 'shared/menu_item'         
+   
+    %button.btn.btn-responsive-nav.btn-inverse{"data-target" => ".nav-main-collapse", "data-toggle" => "collapse"}
+      %i.icon.icon-bars

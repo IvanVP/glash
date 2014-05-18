@@ -1,0 +1,30 @@
+-@page_title= t(:resend_confirmation_instructions, scope: 'devise.confirmations')
+.container
+  .row
+    .col-md-12
+      .row.featured-boxes
+        .col-md-8
+          .featured-box.default
+            .box-content
+              %h4= t(:resend_confirmation_instructions, scope: 'devise.confirmations')
+              = semantic_form_for @user, url: confirmation_path(@user), :html => {:id => 'contactForm'} do |f|
+                .row
+                  = f.inputs do
+                    .form-group
+                      .col-md-12
+                        = f.input :email, :label => t(:email, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "email"
+                    
+                  = f.actions do
+                    .form-group
+                      .col-md-12
+                        = f.action :submit, :label => "Отправить", :button_html => {:class => "input btn btn-primary pull-right push-bottom"}
+               
+      
+        .col-md-4
+          .featured-box.default
+            .box-content
+              %h4
+                Помощь
+              %p  
+                = link_to t(:forgot_password, scope: 'devise.passwords'), new_password_path(resource_name)
+              

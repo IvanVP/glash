@@ -1,0 +1,27 @@
+#user_birthday_1i{
+  width: 30%;
+  display: inline-block;
+  text-align: center
+  }
+
+#user_birthday_2i{
+  width: 43.5%;
+  display: inline-block;
+  text-align: center
+ }
+
+
+#user_birthday_3i{
+  width: 25%;
+  display: inline-block;
+  text-align: center
+  }
+
+.help-inline {
+  display: block;
+  
+}
+
+.help-inline.error-message {
+  color: red;
+}

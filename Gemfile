@@ -10,10 +10,23 @@ gem 'haml', '~> 4.0.5'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
+
 gem 'turbolinks'
 
 gem 'friendly_id', '~> 5.0.0'
 gem 'babosa', '~> 0.3.11'
+
+# gem 'simple_form'
+# gem 'country_select'
+
+gem 'formtastic', '~> 2.3.0.rc3'
+# gem 'formtastic-plus-bootstrap', '~> 1.1.7'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'less', '~> 2.5.0'
+gem 'therubyracer', '~> 0.12.1'
+
 
 
 group :development do
