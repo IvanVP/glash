@@ -17,8 +17,5 @@
 
 # Ignore application configuration
 /config/application.yml
-/config/database.yml.secret
+/config/database.example.yml
 
-/config/unicorn.rb
-/config/deploy.rb
-/config/deploy/
