@@ -37,9 +37,9 @@ desc "Restart the application"
 task :restart, :roles => :app, :except => { :no_release => true } do
 run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 end
-desc "Copy the database.yml file into the latest release"
-task :copy_in_database_yml do
-run "cp #{shared_path}/config/database.yml #{latest_release}/config/"
-end
+# desc "Copy the database.yml file into the latest release"
+# task :copy_in_database_yml do
+# run "cp #{shared_path}/config/database.yml #{latest_release}/config/"
+# end
 end
 before "deploy:assets:precompile", "deploy:copy_in_database_yml"
