@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore application configuration
-/config/application.yml
+/config/application.example.yml
 /config/database.example.yml
 /config/deploy.rb
 
