@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
@@ -31,7 +31,13 @@ gem 'therubyracer', '~> 0.12.1'
 
 group :development do
   gem 'thin', '~> 1.6.2'
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.15.5'
+  gem 'rvm-capistrano'
+  # gem 'capistrano-rails', '~> 1.1.1'
+  # gem 'capistrano-bundler', '~> 1.1.2'
+  # gem 'capistrano-rvm'
+  # gem 'rvm1-capistrano3', require: false
+  # # gem 'sshkit', '~> 1.4.0'
   gem 'debugger'
   gem 'quiet_assets'
   gem "better_errors"
@@ -59,5 +65,3 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
-
-gem 'capistrano'
