@@ -3,6 +3,7 @@ require "bundler/capistrano"
 
 set :application, "glash"
 set :scm, :git
+set :scm_username, "IvanVP"
 set :repository, "git://github.com/IvanVP/glash.git"
 server "glash.ru", :web, :app, :db, :primary => true
 set :port, 30000 
