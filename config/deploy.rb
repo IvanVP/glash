@@ -5,6 +5,7 @@ set :application, "glash"
 set :scm, :git
 set :scm_username, "IvanVP"
 set :repository, "git://github.com/IvanVP/glash.git"
+set :branch, "master"
 server "glash.ru", :web, :app, :db, :primary => true
 set :port, 30000 
 # ssh_options[:port] = 30000
@@ -34,11 +35,12 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
+    run "mkdir -p #{shared_path}/config/initializers"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     put File.read("config/application.example.yml"), "#{shared_path}/config/application.yml"
 
     put File.read("config/initializers/devise.example.rb"), "#{shared_path}/config/initializers/devise.rb"
-    put File.read("config/initializers/secret_token.rb"), "#{shared_path}/config/initializers/secret_token.rb"
+    put File.read("config/initializers/secret_token.example.rb"), "#{shared_path}/config/initializers/secret_token.rb"
 
     puts "Now edit the config files in #{shared_path}."
   end
