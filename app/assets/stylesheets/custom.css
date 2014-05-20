@@ -1,3 +1,7 @@
+section.parallax{background-image: url( image-path('par.jpg');}
+
+
+
 #user_birthday_1i{
   width: 30%;
   display: inline-block;
