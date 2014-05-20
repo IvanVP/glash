@@ -36,7 +36,7 @@
         %li= link_to :my_clippings.l, user_clippings_path(current_user)
         %li= link_to :my_friends.l, accepted_user_friendships_path(current_user)
       %li.divider
-      %li= link_to t(:sign_out), destroy_user_session_path, method: :delete 
+      %li= link_to t(:sign_out), destroy_user_session_path, :method => :delete 
 -else
   - if controller_name == 'registrations' && action_name == 'new' 
     - css_class_sign_up = 'active'
