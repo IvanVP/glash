@@ -32,7 +32,7 @@
 //= require masonry
 //= require twitter
 
-//= require owl.carousel
+//  owl.carousel
 //= require magnific-popup 
 //
 //  -- Current Page Scripts --
@@ -41,13 +41,11 @@
 //
 //  Theme Initializer 
 //= require theme
-
-//= require theme
 //= require custom
 //
 //
 //  VideoJS
-//= require video.dev
-//= require video
+//  video.dev
+//  video
 //
 

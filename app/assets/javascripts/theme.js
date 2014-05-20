@@ -984,7 +984,7 @@ ready = function() {
 	};
 //now works with Turbolinks
 $(document).ready(ready);
-$(document).on('page:load', ready);
+// $(document).on('page:load', ready);
 
 
 })();
