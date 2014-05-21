@@ -13,11 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+// 
 //= require bootstrap
-
+// 
 //= require plugins
-
+// 
 //= require jquery.easing
 //= require jquery.appear
 //= require jquery.cookie
@@ -27,11 +27,15 @@
 //= require jquery.isotope
 //= require jquery.themepunch.plugins.min
 //= require jquery.themepunch.revolution
-
-
+// 
+// 
+// 
+//= require turbolinks
+// 
+// 
 //= require masonry
-//= require twitter
-
+//   require twitter
+// 
 //  owl.carousel
 //= require magnific-popup 
 //

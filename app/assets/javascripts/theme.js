@@ -912,29 +912,29 @@
 				$(".parallax").addClass("parallax-init");
 
 			};
-			// $(document).ready(ready1);
+			$(document).ready(ready1);
 			$(document).on('page:load', ready1);
 
 		},
 
-		latestTweets: function() {
+		// latestTweets: function() {
 
-			var wrapper = $("#tweet"),
-				accountId = wrapper.data("account-id");
+		// 	var wrapper = $("#tweet"),
+		// 		accountId = wrapper.data("account-id");
 
-			if(wrapper.get(0) && accountId != "") {
-				getTwitters("tweet", {
-					id: accountId,
-					count: 2
-				});
+		// 	if(wrapper.get(0) && accountId != "") {
+		// 		getTwitters("tweet", {
+		// 			id: accountId,
+		// 			count: 2
+		// 		});
 
-				wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
+		// 		wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
 
-			} else {
-				wrapper.empty();
-			}
+		// 	} else {
+		// 		wrapper.empty();
+		// 	}
 
-		},
+		// },
 
 		masonry: function() {
 
@@ -984,7 +984,7 @@ ready = function() {
 	};
 //now works with Turbolinks
 $(document).ready(ready);
-// $(document).on('page:load', ready);
+$(document).on('page:load', ready);
 
 
 })();
