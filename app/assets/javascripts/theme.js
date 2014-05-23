@@ -64,7 +64,7 @@
 			this.toggle();
 
 			// Twitter
-			this.latestTweets();
+			// this.latestTweets();
 
 			// Lightbox
 			this.lightbox();
@@ -870,26 +870,26 @@
 				return false;
 			}
 
-			$(window).load(function () {
+			// $(window).load(function () {
 
-				if($(".parallax").get(0)) {
-					if(!Modernizr.touch) {
-						$(window).stellar({
-							responsive:true,
-							scrollProperty: 'scroll',
-							parallaxElements: false,
-							horizontalScrolling: false,
-							horizontalOffset: 0,
-							verticalOffset: 0
-						});
-					} else {
-						$(".parallax").addClass("disabled");
-					}
-				}
+			// 	if($(".parallax").get(0)) {
+			// 		if(!Modernizr.touch) {
+			// 			$(window).stellar({
+			// 				responsive:true,
+			// 				scrollProperty: 'scroll',
+			// 				parallaxElements: false,
+			// 				horizontalScrolling: false,
+			// 				horizontalOffset: 0,
+			// 				verticalOffset: 0
+			// 			});
+			// 		} else {
+			// 			$(".parallax").addClass("disabled");
+			// 		}
+			// 	}
 
-				$(".parallax").addClass("parallax-init");
+			// 	$(".parallax").addClass("parallax-init");
 
-			});
+			// });
 
 			var ready1;
 			ready1 = function() {
