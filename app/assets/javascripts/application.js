@@ -30,7 +30,7 @@
 // 
 // 
 // 
-//= require turbolinks
+
 // 
 // 
 //= require masonry
@@ -52,4 +52,4 @@
 //  video.dev
 //  video
 //
-
+//= require turbolinks

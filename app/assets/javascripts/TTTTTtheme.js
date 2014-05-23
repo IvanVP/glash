@@ -1,9 +1,3 @@
-/*
-Name: 			Core Initializer
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
-*/
-
 (function() {
 
 	"use strict";
@@ -70,7 +64,7 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 			this.toggle();
 
 			// Twitter
-			this.latestTweets();
+			// this.latestTweets();
 
 			// Lightbox
 			this.lightbox();
@@ -358,7 +352,7 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 					shadow: 0,
 					fullWidth: "on",
 					onHoverStop: "off",
-					videoJsPath: "/assets/"
+					videoJsPath: "vendor/rs-plugin/videojs/"
 				}
 
 				var config = $.extend({}, defaults, options, slider.data("plugin-options"));
@@ -876,7 +870,29 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 				return false;
 			}
 
-			$(window).load(function () {
+			// $(window).load(function () {
+
+			// 	if($(".parallax").get(0)) {
+			// 		if(!Modernizr.touch) {
+			// 			$(window).stellar({
+			// 				responsive:true,
+			// 				scrollProperty: 'scroll',
+			// 				parallaxElements: false,
+			// 				horizontalScrolling: false,
+			// 				horizontalOffset: 0,
+			// 				verticalOffset: 0
+			// 			});
+			// 		} else {
+			// 			$(".parallax").addClass("disabled");
+			// 		}
+			// 	}
+
+			// 	$(".parallax").addClass("parallax-init");
+
+			// });
+
+			var ready1;
+			ready1 = function() {
 
 				if($(".parallax").get(0)) {
 					if(!Modernizr.touch) {
@@ -895,28 +911,33 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 
 				$(".parallax").addClass("parallax-init");
 
-			});
+			};
+			// $(document).ready(ready1);
+			$(document).on('page:load', ready1);
 
 		},
 
-		latestTweets: function() {
+		// $(document).ready(parallax);
+		// $(document).on('page:load', parallax);
 
-			var wrapper = $("#tweet"),
-				accountId = wrapper.data("account-id");
+		// latestTweets: function() {
 
-			if(wrapper.get(0) && accountId != "") {
-				getTwitters("tweet", {
-					id: accountId,
-					count: 2
-				});
+		// 	var wrapper = $("#tweet"),
+		// 		accountId = wrapper.data("account-id");
 
-				wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
+		// 	if(wrapper.get(0) && accountId != "") {
+		// 		getTwitters("tweet", {
+		// 			id: accountId,
+		// 			count: 2
+		// 		});
 
-			} else {
-				wrapper.empty();
-			}
+		// 		wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
 
-		},
+		// 	} else {
+		// 		wrapper.empty();
+		// 	}
+
+		// },
 
 		masonry: function() {
 
@@ -954,7 +975,8 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 
 	Core.initialize();
 
-	$(window).load(function () {
+	var ready;
+	ready = function() {
 
 		// Sticky Meny
 		Core.stickyMenu();
@@ -962,6 +984,10 @@ Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
 		// Masonry
 		Core.masonry();
 
-	});
+	};
+//now works with Turbolinks
+// $(document).ready(ready);
+// $(document).on('page:load', ready);
+
 
 })();
