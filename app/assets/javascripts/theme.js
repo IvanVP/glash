@@ -912,8 +912,8 @@
 				$(".parallax").addClass("parallax-init");
 
 			};
-			$(document).ready(ready1);
-			$(document).on('page:load', ready1);
+			// $(document).ready(ready1);
+			// $(document).on('page:load', ready1);
 
 		},
 
