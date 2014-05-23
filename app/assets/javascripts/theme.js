@@ -913,9 +913,12 @@
 
 			};
 			// $(document).ready(ready1);
-			// $(document).on('page:load', ready1);
+			$(document).on('page:load', ready1);
 
 		},
+
+		// $(document).ready(parallax);
+		$(document).on('page:load', parallax);
 
 		// latestTweets: function() {
 
