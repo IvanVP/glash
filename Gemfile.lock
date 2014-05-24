@@ -146,6 +146,7 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -252,6 +253,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   less (~> 2.5.0)
+  pg
   quiet_assets
   rails (= 4.1.0)
   rvm-capistrano
