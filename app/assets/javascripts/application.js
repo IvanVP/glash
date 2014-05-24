@@ -33,7 +33,7 @@
 
 // 
 // 
-//= require masonry
+// require masonry
 //   require twitter
 // 
 //  owl.carousel
@@ -52,4 +52,4 @@
 //  video.dev
 //  video
 //
-//= require turbolinks
+//  require turbolinks
