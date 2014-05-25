@@ -33,10 +33,10 @@
 
 // 
 // 
-// require masonry
-//   require twitter
+//    masonry
+//    twitter
 // 
-//  owl.carousel
+//    owl.carousel
 //= require magnific-popup 
 //
 //  -- Current Page Scripts --
@@ -52,4 +52,4 @@
 //  video.dev
 //  video
 //
-//  require turbolinks
+//  turbolinks
