@@ -1,13 +1,5 @@
 
 
-/**************************************************************************
- * jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider
- * @version: 4.1.2 (12.12.2013)
- * @requires jQuery v1.7 or later (tested on 1.9)
- * @author ThemePunch
-**************************************************************************/
-
-
 (function(jQuery,undefined){
 
 

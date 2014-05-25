@@ -1,8 +1,3 @@
-/*
-Name: 			View - Home
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		2.0
-*/
 
 (function() {
 

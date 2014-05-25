@@ -1,8 +1,4 @@
-/*
-Plugin Name: 	BrowserSelector
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		0.1
-*/
+
 
 (function($) {
 	$.extend({
@@ -36,22 +32,7 @@ Version: 		0.1
 	});
 })(jQuery);
 
-/*
-Plugin Name: 	smoothScroll for jQuery.
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		0.1
 
-Based on:
-
-	SmoothScroll v1.2.1
-	Licensed under the terms of the MIT license.
-
-	People involved
-	 - Balazs Galambosi (maintainer)
-	 - Patrick Brunner  (original idea)
-	 - Michael Herf     (Pulse Algorithm)
-
-*/
 (function($) {
 	$.extend({
 
@@ -573,12 +554,7 @@ Based on:
 			 * PULSE
 			 ***********************************************/
 
-			/**
-			 * Viscous fluid with a pulse for part and decay for the rest.
-			 * - Applies a fixed force over an interval (a damped acceleration), and
-			 * - Lets the exponential bleed away the velocity over a longer interval
-			 * - Michael Herf, http://stereopsis.com/stopping/
-			 */
+			
 			function pulse_(x) {
 				var val, start, expx;
 				// test
@@ -615,11 +591,7 @@ Based on:
 	});
 })(jQuery);
 
-/*
-Plugin Name: 	Count To
-Written by: 	Matt Huggins - https://github.com/mhuggins/jquery-countTo
 
-*/
 (function ($) {
 	$.fn.countTo = function (options) {
 		options = options || {};
@@ -701,11 +673,7 @@ Written by: 	Matt Huggins - https://github.com/mhuggins/jquery-countTo
 	}
 }(jQuery));
 
-/*
-Plugin Name: 	waitForImages jQuery Plugin - v1.5.0 - 2013-07-20
-Written by: 	https://github.com/alexanderdickson/waitForImages
 
-*/
 ;(function ($) {
     // Namespace all events.
     var eventNamespace = 'waitForImages';
@@ -840,12 +808,7 @@ Written by: 	https://github.com/alexanderdickson/waitForImages
     };
 }(jQuery));
 
-/*
-Plugin Name: 	afterResize.js
-Written by: 	https://github.com/mcshaman/afterResize.js
-Description: 	Simple jQuery plugin designed to emulate an 'after resize' event.
 
-*/
 ( function( $ ) {
 	"use strict";
 

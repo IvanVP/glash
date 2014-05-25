@@ -1,8 +1,3 @@
-/*
-Name: 			Core Initializer
-Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		1.1.0 - Fri Jan 31 2014 18:12:18
-*/
 
 (function() {
 
