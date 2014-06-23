@@ -10,6 +10,12 @@
     .body
       = render :partial => 'shared/header'
       .main{role: "main"}
+      -if user_signed_in?
+        .container
+          .row
+            .col-md-12
+              = yield
+      -else
         = yield
         /= render :partial => 'layouts/page_left_sidebar'
       = render :partial => 'shared/footer'
