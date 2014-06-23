@@ -8,7 +8,7 @@
     %hr.visible-sm.visible-xs.tall/
   .col-md-9
     %h2= @user.fullname
-    -if @user.show_birthdate
+    -if @user.show_birthdate&&@user.birthdate
       Родился:&nbsp;
       =@user.birthdate 
     %br/
