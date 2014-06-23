@@ -18,7 +18,8 @@
   %meta{content: "glash.ru", name: "author"}/
 
 
-%title -# page_title
+%title= (yield(:title).empty? ? "Glash - Претвори мечту в реальность!" : yield(:title))
+  
 -if @meta
   -@meta.each do |key|
     %meta{:name=>key[0], :content=>key[1]}
