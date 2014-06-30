@@ -67,3 +67,6 @@ end
 gem 'unicorn'
 
 gem 'pg'
+
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"

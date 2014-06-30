@@ -3,51 +3,61 @@
   Изменить данные #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
-  %div
-    = f.label :fname
+
+  .col-md-4
+    = image_tag @user.avatar.url(:medium)
+    = f.file_field :avatar
+
+  .col-md-4
+    %div
+      = f.label :fname
+      %br/
+      = f.text_field :fname, autofocus: true
+    %div
+      = f.label :mname
+      %br/
+      = f.text_field :mname, autofocus: true
+    %div
+      = f.label :lname
+      %br/
+      = f.text_field :lname, autofocus: true
+    %div
+      = f.label :name
+      %br/
+      = f.text_field :name, autofocus: true
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true
     %br/
-    = f.text_field :fname, autofocus: true
-  %div
-    = f.label :mname
+
+  .col-md-4
+    %div
+      = f.label :birthdate
+      %br/
+      = f.date_select :birthdate, autofocus: true
+      %br/
+      = f.check_box :show_birthdate
+      = f.label :show_birthdate
     %br/
-    = f.text_field :mname, autofocus: true
-  %div
-    = f.label :lname
+    %div
+      = f.label :gender
+      %br/
+      = f.radio_button :gender, true, autofocus: true
+      = f.label :gender, "Мужской"
+      = f.radio_button :gender, false, autofocus: true
+      = f.label :gender, "Женский"
+      %br/
+      = f.check_box :show_gender, autofocus: true
+      = f.label :show_gender
     %br/
-    = f.text_field :lname, autofocus: true
-  %div
-    = f.label :name
+    %div
+      = f.label :description
+      %br/
+      = f.text_area :description, autofocus: true
     %br/
-    = f.text_field :name, autofocus: true
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  %br/
-  %div
-    = f.label :birthdate
-    %br/
-    = f.date_select :birthdate, autofocus: true
-    %br/
-    = f.check_box :show_birthdate
-    = f.label :show_birthdate
-  %br/
-  %div
-    = f.label :gender
-    %br/
-    = f.radio_button :gender, true, autofocus: true
-    = f.label :gender, "Мужской"
-    = f.radio_button :gender, false, autofocus: true
-    = f.label :gender, "Женский"
-    %br/
-    = f.check_box :show_gender, autofocus: true
-    = f.label :show_gender
-  %br/
-  %div
-    = f.label :description
-    %br/
-    = f.text_area :description, autofocus: true
-  %br/
+
+  
   %div
     = f.label :slug
     %br/
@@ -76,3 +86,6 @@
 %p
   Удалить? #{button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
 = link_to "Назад", :back
+
+%br/
+%br/    
