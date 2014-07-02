@@ -5,7 +5,7 @@
   = devise_error_messages!
 
   .col-md-4
-    = image_tag @user.avatar.url(:medium)
+    = image_tag @user.avatar.url(:large)
     = f.file_field :avatar
 
   .col-md-4
@@ -82,10 +82,13 @@
     %br/
     = f.password_field :current_password, autocomplete: "off"
   %div= f.submit "Изменить данные"
-%h3 Удалить меня
-%p
-  Удалить? #{button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
-= link_to "Назад", :back
-
 %br/
-%br/    
+%br/ 
+-#  
+  %h3 Удалить меня
+  %p
+    Удалить? #{button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
+  = link_to "Назад", :back
+
+  %br/
+  %br/    

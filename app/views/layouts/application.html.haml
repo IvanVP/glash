@@ -19,7 +19,8 @@
         = yield
         /= render :partial => 'layouts/page_left_sidebar'
       = render :partial => 'shared/footer'
-    = javascript_include_tag 'application', "data-turbolinks-track" => true 
+    
+    = yield :head_js
     = render :partial => 'shared/se_analytics'
 
     

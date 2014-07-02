@@ -46,3 +46,4 @@
       = auto_discovery_link_tag :rss, feed[:url], :title => "Subscribe to '#{feed[:title]}'"
 
 = yield :head_css
+= javascript_include_tag 'application', "data-turbolinks-track" => true
