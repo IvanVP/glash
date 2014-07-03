@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
 
   has_one :contact, :dependent => :destroy
   before_create :build_default_info
+  after_update :reprocess_avatar, if: :cropping?
 
-  has_attached_file :avatar, :styles => { :large => "500x500", :medium => "300x300", :thumb => "100x100" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :large => "500x500>", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png", :processors => [:cropper]
   # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates_attachment :avatar, 
     :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
   attr_accessor :login
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :processing
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -53,6 +55,15 @@ class User < ActiveRecord::Base
     self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
   end
 
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+  end
+
   private
 
   def build_default_info
@@ -60,4 +71,11 @@ class User < ActiveRecord::Base
     true
   end
 
+  def reprocess_avatar
+    return unless (cropping? && !processing)
+    self.processing = true
+    avatar.reprocess!
+    self.processing = false
+  end
+  
 end
