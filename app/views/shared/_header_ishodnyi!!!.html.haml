@@ -35,10 +35,10 @@
           %li
             %a{href: root_path}
               Идеи
-          -#%li
+          %li
             %a{href: root_path}
               Проекты
-          -#%li.dropdown
+          %li.dropdown
             %a.dropdown-toggle{href: root_path}
               Конкурсы
               %i.icon.icon-caret-down
@@ -95,10 +95,20 @@
             - css_class_users = 'active'
           -else 
             - css_class_users = ''
-          %li
-            %a{href: users_path}
+          %li{:class => 'dropdown ' + css_class_users}
+            %a.dropdown-toggle{href: users_path}
               Сообщество
-          -#%li.dropdown
+              %i.icon.icon-caret-down
+            %ul.dropdown-menu
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+              %li
+                %a{href: root_path} Первый
+          %li.dropdown
             %a.dropdown-toggle{href: root_path}
               Контакты
               %i.icon.icon-caret-down
