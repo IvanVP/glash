@@ -109,6 +109,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    faker (1.4.2)
+      i18n (~> 0.5)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -164,6 +166,7 @@ GEM
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.4)
+    populator (1.0.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -258,6 +261,7 @@ DEPENDENCIES
   debugger
   devise (~> 3.2.4)
   devise-i18n (~> 0.10.3)
+  faker
   figaro (~> 0.7.0)
   formtastic (~> 2.3.0.rc3)
   friendly_id (~> 5.0.0)
@@ -269,6 +273,7 @@ DEPENDENCIES
   less (~> 2.5.0)
   paperclip!
   pg
+  populator
   quiet_assets
   rails (= 4.1.0)
   rvm-capistrano

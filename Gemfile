@@ -42,6 +42,10 @@ group :development do
   gem 'quiet_assets'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'populator'
+  gem 'faker'
+
+
 end
 
 gem 'devise', '~> 3.2.4'
