@@ -44,6 +44,7 @@ group :development do
   gem "binding_of_caller"
   gem 'populator'
   gem 'faker'
+  gem 'vydumschik'
 
 
 end

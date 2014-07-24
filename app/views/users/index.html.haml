@@ -1,3 +1,4 @@
+-title "Сообщество"
 .row
   -if notice
     .alert.alert-success
@@ -6,13 +7,11 @@
   -@users.each do |user|
     .col-md-4.users
       .col-md-4
-
-        = image_tag user.avatar.url(:thumb), {class: "img-thumbnail img-responsive avatar"}
-      
+        =link_to image_tag(user.avatar.url(:thumb), {class: "img-thumbnail img-responsive avatar"}), user
       .col-md-8
-        %h4= user.fullname
-        %h6= user.slug
-        
+        =link_to user do
+          %h4= user.fullname
+          %h6= user.name
 %br/
 %br/
 
