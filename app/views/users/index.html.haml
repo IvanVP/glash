@@ -3,7 +3,9 @@
   -if notice
     .alert.alert-success
       %p#notice= notice
-  
+  %h1
+    Наше сообщество
+
   -@users.each do |user|
     .col-md-4.users
       .col-md-4
@@ -11,7 +13,8 @@
       .col-md-8
         =link_to user do
           %h4= user.fullname
-          %h6= user.name
+          %h6= user.description
+
 %br/
 %br/
 
