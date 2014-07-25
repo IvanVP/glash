@@ -271,6 +271,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  kaminari
   less (~> 2.5.0)
   paperclip!
   pg

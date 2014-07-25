@@ -1,0 +1,8 @@
+$("#users").append("<%= escape_javascript(render(@users)) %>");
+
+<% if @products.next_page %>
+  $('.pagination').replaceWith('<%= escape_javascript(render(@users)) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

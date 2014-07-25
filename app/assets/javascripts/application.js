@@ -28,7 +28,7 @@
 //= require jquery.isotope
 //= require jquery.themepunch.plugins.min
 //= require jquery.themepunch.revolution
-// 
+//= require jquery.infinitescroll
 // 
 // 
 
@@ -47,6 +47,8 @@
 //  Theme Initializer 
 //= require theme
 //= require custom
+
+
 //
 //
 //  VideoJS
