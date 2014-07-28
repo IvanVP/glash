@@ -26,7 +26,7 @@ namespace :db do
 
     Faker::Config.locale = :ru
     
-    User.populate 1 do |user|
+    User.populate 5 do |user|
     # 5.times do |user|
       # user.fname    = Vydumschik::Name.first_name(:female)
       user.fname    = Faker::Name.male_first_name
@@ -43,7 +43,7 @@ namespace :db do
       user.created_at = 2.months.ago..Time.now
       user.confirmed_at = 1.day.ago..Time.now
       user.sign_in_count = 1..5
-      user.slug = Faker::Lorem.word
+      user.slug = user.lname
       Contact.populate 1 do |contact|
         contact.user_id = user.id
         # user.contact.site = Faker::Internet.url

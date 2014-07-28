@@ -7,20 +7,11 @@
     Наше сообщество
   #users
     -@users.each do |user|
-      .col-md-4.users
-        .col-md-4
-          =link_to image_tag(user.avatar.url(:thumb), {class: "img-thumbnail img-responsive avatar"}), user
-        .col-md-8
-          =link_to user do
-            %h4= user.fullname
-            %p.users= user.description.truncate(55) unless user.description.blank?
-    = paginate @users
-%br/
-
+      =render user
+.clearfix
+.userspagination
+  = paginate @users
 
 -content_for :head_js do
   =javascript_include_tag "users"
-
-%br/
-%br/
 

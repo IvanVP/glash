@@ -28,7 +28,7 @@
 //= require jquery.isotope
 //= require jquery.themepunch.plugins.min
 //= require jquery.themepunch.revolution
-//= require jquery.infinitescroll
+//         jquery.infinitescroll
 // 
 // 
 
@@ -54,5 +54,5 @@
 //  VideoJS
 //  video.dev
 //  video
-//
-// turbolinks
+// 
+//=require turbolinks
