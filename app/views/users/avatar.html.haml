@@ -22,15 +22,14 @@
     $("#crop_h").val(Math.round(coords.h * ratio));
   }
 
- 
-
-
 .row
-  =image_tag @user.avatar.url(:large), id: 'avatarcrop'
-  =# f.file_field :avatar
+  .col-md-12
+    .col-md-6
+      =image_tag @user.avatar.url(:large), id: 'avatarcrop'
+      =# f.file_field :avatar
+    .col-md-6
 
-  =form_for @user do |f|
-    -for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
-      =f.hidden_field attribute, id: attribute
-    =f.submit 'Обрезать'
-
+      =form_for @user do |f|
+        -for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+          =f.hidden_field attribute, id: attribute
+        = f.submit "Обрезать",  {:class => "input btn btn-primary"}

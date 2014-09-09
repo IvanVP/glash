@@ -1,24 +1,19 @@
-.row
-  -if notice
-    .alert.alert-success
-      %p#notice= notice
-
-  .col-md-3
-    = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar"}
-    %hr.visible-sm.visible-xs.tall/
-  .col-md-1
-  .col-md-8
-    %h2= @user.fullname
-    -if @user.show_birthdate&&@user.birthdate
-      Родился:&nbsp;
-      =@user.birthdate 
-    %br/
-    -if @user.description
-      Немного о себе:&nbsp;
-      =@user.description
-    %br/
-    -if @user.contact.site
-      Сайт:&nbsp;
-      =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
+.col-md-3
+  = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar"}
+  %hr.visible-sm.visible-xs.tall/
+.col-md-1
+.col-md-8
+  %h2= @user.fullname
+  -if @user.show_birthdate&&@user.birthdate
+    Родился:&nbsp;
+    =@user.birthdate 
+  %br/
+  -if @user.description
+    Немного о себе:&nbsp;
+    =@user.description
+  %br/
+  -if @user.contact.site
+    Сайт:&nbsp;
+    =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
 %br/
 %br/

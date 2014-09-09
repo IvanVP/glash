@@ -1,13 +1,9 @@
 -title "Сообщество"
-.row
-  -if notice
-    .alert.alert-success
-      %p#notice= notice
-  %h1
-    Наше сообщество
-  #users
-    -@users.each do |user|
-      =render user
+%h1
+  Наше сообщество
+#users
+  -@users.each do |user|
+    =render user
 .clearfix
 .userspagination
   = paginate @users

@@ -55,4 +55,4 @@
 //  video.dev
 //  video
 // 
-//=require turbolinks
+//
