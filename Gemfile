@@ -29,7 +29,7 @@ gem 'therubyracer', '~> 0.12.1'
 
 
 
-group :development do
+group :development, :test do
   gem 'thin', '~> 1.6.2'
   gem 'capistrano', '~> 2.15.5'
   gem 'rvm-capistrano'
@@ -45,6 +45,7 @@ group :development do
   gem 'populator'
   gem 'faker'
   gem 'vydumschik'
+  gem 'sqlite3'
 
 
 end
@@ -55,7 +56,7 @@ gem 'devise-i18n', '~> 0.10.3'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
