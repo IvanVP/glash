@@ -25,7 +25,7 @@
 //= require jquery.stellar
 //= require jquery.validate
 //   jquery.isotope
-//= require jquery.themepunch.plugins.min
+//   jquery.themepunch.plugins.min
 //   jquery.themepunch.revolution
 //   jquery.infinitescroll
 //    masonry
