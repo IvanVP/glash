@@ -12,32 +12,24 @@
 //
 //= require modernizr
 //= require jquery-2.1.1.min
-
 //= require jquery.turbolinks
 //= require jquery_ujs
-// 
 //= require bootstrap
 // 
 //= require plugins
 // 
-//= require jquery.easing
-//= require jquery.appear
+//  jquery.easing
+//  jquery.appear
 //= require jquery.cookie
-//= require jquery.knob
+//   jquery.knob
 //= require jquery.stellar
 //= require jquery.validate
-//= require jquery.isotope
+//   jquery.isotope
 //= require jquery.themepunch.plugins.min
-//= require jquery.themepunch.revolution
-//         jquery.infinitescroll
-// 
-// 
-
-// 
-// 
+//   jquery.themepunch.revolution
+//   jquery.infinitescroll
 //    masonry
 //    twitter
-// 
 //    owl.carousel
 //= require magnific-popup 
 //
@@ -48,9 +40,6 @@
 //  Theme Initializer 
 //= require theme
 //= require custom
-
-
-//
 //
 //  VideoJS
 //  video.dev
