@@ -11,5 +11,17 @@ class RegistrationsController < Devise::RegistrationsController
         :slug, :password, :password_confirmation, :current_password)}
   end
 
+  # user_path(current_user)
+
+  protected
+
+  def after_sign_up_path_for(resource)
+    greetings_path
+  end
+
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
+
 end
 
