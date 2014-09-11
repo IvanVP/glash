@@ -17,6 +17,7 @@
 
 # Ignore application configuration
 /config/application.example.yml
+/config/application.yml
 /config/database.example.yml
 /config/deploy.rb
 /config/initializers/devise.example.rb

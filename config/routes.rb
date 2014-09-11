@@ -1,19 +1,22 @@
 Glash::Application.routes.draw do
+  # Static Pages
+  scope controller: :pages do
+    get 'greetings' => :greetings, as: :greetings
+    get 'faq' => :faq,  as: :faq
+    get 'help' =>:help,  as: :help
+    get 'terms' =>:terms,  as: :terms
+    get 'load_avatar' =>:load_avatar,  as: :load_avatar
+  end
+   
   ActiveAdmin.routes(self)
+
   get 'contacts/index'
-
   get 'contacts/show'
-
   get 'contacts/new'
-
   get 'contacts/create'
-
   get 'contacts/edit'
-
   get 'contacts/update'
-
-  # get 'base/index'
-  # get 'base/default'
+  
 
   authenticated :user do
     root to: "base#index", :as => "base"
