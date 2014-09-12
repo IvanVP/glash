@@ -14,6 +14,7 @@
   function update_crop(coords) {
     
     var ratio = "#{@user.avatar_geometry(:original).width / @user.avatar_geometry(:large).width}";
+     
     $("#crop_x").val(Math.round(coords.x * ratio));
     $("#crop_y").val(Math.round(coords.y * ratio));
     $("#crop_w").val(Math.round(coords.w * ratio));
@@ -23,10 +24,11 @@
 .row
   .col-md-12
     .col-md-6.col-md-offset-3.avatarimg
-      =image_tag @user.avatar.url(:large), id: 'avatarcrop'
+      =image_tag @user.avatar.url(:original), id: 'avatarcrop', width: "500px"
       =# f.file_field :avatar
     .col-md-6.col-md-offset-3.avatarbtn
       =form_for @user do |f|
         -for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
           =f.hidden_field attribute, id: attribute
         = f.submit "Обрезать",  {:class => "input btn btn-primary pull-left"}
+

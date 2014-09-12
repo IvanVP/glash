@@ -1,36 +1,29 @@
 -title t(:change_password, scope: 'devise.passwords')
-.container
-  .row
-    .col-md-12
-      .row.featured-boxes
-        .col-md-8
-          .featured-box.default
-            .box-content
-              %h4= t(:change_password, scope: 'devise.passwords')
-              = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
-              
-                .row
-                  = f.hidden_field :reset_password_token #unless signed_in?
-                  = f.semantic_errors
-                  = f.inputs do
-                    .form-group
-                      .col-md-12
-                        = f.input :password, :label => t(:new_password, scope: 'devise.passwords'), autofocus: true, :input_html => {:class => "form-control"}, autocomplete: "off", :required => false
-                    .form-group
-                      .col-md-12
-                        = f.input :password_confirmation, :label => "Еще раз пароль", autofocus: true, :input_html => {:class => "form-control"}, autocomplete: "off", :required => false
-                    
-                  = f.actions do
-                    .form-group
-                      .col-md-12
-                        = f.action :submit, :label => "Изменить пароль", :button_html => {:class => "input btn btn-primary pull-right push-bottom"}
-               
-      
-        .col-md-4
-          .featured-box.default
-            .box-content
-              %h4
-                Помощь
-              %p  
-                = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
+.row.featured-boxes
+  .col-md-8
+    .featured-box.default
+      .box-content
+        %h4= t(:change_password, scope: 'devise.passwords')
+        = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+          .row
+            = f.hidden_field :reset_password_token #unless signed_in?
+            = f.semantic_errors
+            = f.inputs do
+              .form-group
+                .col-md-12
+                  = f.input :password, :label => t(:new_password, scope: 'devise.passwords'), autofocus: true, :input_html => {:class => "form-control"}, autocomplete: "off", :required => false
+              .form-group
+                .col-md-12
+                  = f.input :password_confirmation, :label => "Еще раз пароль", autofocus: true, :input_html => {:class => "form-control"}, autocomplete: "off", :required => false
+            = f.actions do
+              .form-group
+                .col-md-12
+                  = f.action :submit, :label => "Изменить пароль", :button_html => {:class => "input btn btn-primary pull-right push-bottom"}
+  .col-md-4
+    .featured-box.default
+      .box-content
+        %h4
+          Помощь
+        %p  
+          = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
               

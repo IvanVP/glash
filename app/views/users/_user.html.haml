@@ -1,7 +1,8 @@
 .col-md-4.users  
-  .col-md-4
+  .col-md-5
     =link_to image_tag(user.avatar.url(:thumb), {class: "img-thumbnail img-responsive avatar"}), user
-  .col-md-8
+  .col-md-7
     =link_to user do
       %h4= user.fullname
-      %p.users= user.description.truncate(55) unless user.description.blank?
+      -# %h4= user.lname
+      %p.users= user.description.truncate(50) unless user.description.blank?

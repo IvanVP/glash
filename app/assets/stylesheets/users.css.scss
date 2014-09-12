@@ -3,15 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .users {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   h4{
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 1.2em;
   }
 }
 
 p.users {
-  margin-bottom: 0;
+  margin-bottom: 0px;
   font-size: 12px;
 }
 
@@ -22,8 +23,12 @@ nav.pagination {
   margin-right: auto;
 }
 
-img.uslod {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+// img.avatar {
+//   margin-bottom: 20px;
+// }
+
+// img.uslod {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }

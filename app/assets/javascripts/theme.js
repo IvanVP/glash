@@ -38,22 +38,22 @@
 			this.pageTop();
 
 			// Animations
-			this.animations();
+			// this.animations();
 
 			// Word Rotate
-			this.wordRotate();
+			// this.wordRotate();
 
 			// Newsletter
-			this.newsletter();
+			// this.newsletter();
 
 			// Featured Boxes
-			this.featuredBoxes();
+			// this.featuredBoxes();
 
 			// Thumb Info
 			this.thumbInfo();
 
 			// Owl Carousel
-			this.owlCarousel();
+			// this.owlCarousel();
 
 			// Tooltips
 			$("a[rel=tooltip]").tooltip();
@@ -65,10 +65,10 @@
 			this.toggle();
 
 			// Twitter
-			this.latestTweets();
+			// this.latestTweets();
 
 			// Lightbox
-			this.lightbox();
+			// this.lightbox();
 
 			// Parallax
 			this.parallax();
@@ -81,16 +81,16 @@
 			$(window).afterResize(function() {
 
 				// Featured Boxes
-				Core.featuredBoxes();
+				// Core.featuredBoxes();
 
 				// Revolution Slider Fix
-				Core.fixRevolutionSlider();
+				// Core.fixRevolutionSlider();
 
 				// Isotope
-				$(".isotope").isotope('reLayout');
+				// $(".isotope").isotope('reLayout');
 
 				// Masonry
-				Core.masonry();
+				// Core.masonry();
 
 			});
 
@@ -369,218 +369,218 @@
 
 		},
 
-		animations: function() {
+		// animations: function() {
 
-			// Animation Appear
-			$("[data-appear-animation]").each(function() {
+		// 	// Animation Appear
+		// 	$("[data-appear-animation]").each(function() {
 
-				var $this = $(this);
+		// 		var $this = $(this);
 
-				$this.addClass("appear-animation");
+		// 		$this.addClass("appear-animation");
 
-				if(!$("html").hasClass("no-csstransitions") && $(window).width() > 767) {
+		// 		if(!$("html").hasClass("no-csstransitions") && $(window).width() > 767) {
 
-					$this.appear(function() {
+		// 			$this.appear(function() {
 
-						var delay = ($this.attr("data-appear-animation-delay") ? $this.attr("data-appear-animation-delay") : 1);
+		// 				var delay = ($this.attr("data-appear-animation-delay") ? $this.attr("data-appear-animation-delay") : 1);
 
-						if(delay > 1) $this.css("animation-delay", delay + "ms");
-						$this.addClass($this.attr("data-appear-animation"));
+		// 				if(delay > 1) $this.css("animation-delay", delay + "ms");
+		// 				$this.addClass($this.attr("data-appear-animation"));
 
-						setTimeout(function() {
-							$this.addClass("appear-animation-visible");
-						}, delay);
+		// 				setTimeout(function() {
+		// 					$this.addClass("appear-animation-visible");
+		// 				}, delay);
 
-					}, {accX: 0, accY: -150});
+		// 			}, {accX: 0, accY: -150});
 
-				} else {
+		// 		} else {
 
-					$this.addClass("appear-animation-visible");
+		// 			$this.addClass("appear-animation-visible");
 
-				}
+		// 		}
 
-			});
+		// 	});
 
-			// Animation Progress Bars
-			$("[data-appear-progress-animation]").each(function() {
+		// 	// Animation Progress Bars
+		// 	$("[data-appear-progress-animation]").each(function() {
 
-				var $this = $(this);
+		// 		var $this = $(this);
 
-				$this.appear(function() {
+		// 		$this.appear(function() {
 
-					var delay = ($this.attr("data-appear-animation-delay") ? $this.attr("data-appear-animation-delay") : 1);
+		// 			var delay = ($this.attr("data-appear-animation-delay") ? $this.attr("data-appear-animation-delay") : 1);
 
-					if(delay > 1) $this.css("animation-delay", delay + "ms");
-					$this.addClass($this.attr("data-appear-animation"));
+		// 			if(delay > 1) $this.css("animation-delay", delay + "ms");
+		// 			$this.addClass($this.attr("data-appear-animation"));
 
-					setTimeout(function() {
+		// 			setTimeout(function() {
 
-						$this.animate({
-							width: $this.attr("data-appear-progress-animation")
-						}, 1500, "easeOutQuad", function() {
-							$this.find(".progress-bar-tooltip").animate({
-								opacity: 1
-							}, 500, "easeOutQuad");
-						});
+		// 				$this.animate({
+		// 					width: $this.attr("data-appear-progress-animation")
+		// 				}, 1500, "easeOutQuad", function() {
+		// 					$this.find(".progress-bar-tooltip").animate({
+		// 						opacity: 1
+		// 					}, 500, "easeOutQuad");
+		// 				});
 
-					}, delay);
+		// 			}, delay);
 
-				}, {accX: 0, accY: -50});
+		// 		}, {accX: 0, accY: -50});
 
-			});
+		// 	});
 
-			// Count To
-			$(".counters [data-to]").each(function() {
+		// 	// Count To
+		// 	$(".counters [data-to]").each(function() {
 
-				var $this = $(this);
+		// 		var $this = $(this);
 
-				$this.appear(function() {
+		// 		$this.appear(function() {
 
-					$this.countTo({});
+		// 			$this.countTo({});
 
-				}, {accX: 0, accY: -150});
+		// 		}, {accX: 0, accY: -150});
 
-			});
+		// 	});
 
-			/* Circular Bars - Knob */
-			if(typeof($.fn.knob) != "undefined") {
-				$(".knob").knob({});
-			}
+		// 	/* Circular Bars - Knob */
+		// 	if(typeof($.fn.knob) != "undefined") {
+		// 		$(".knob").knob({});
+		// 	}
 
-		},
+		// },
 
-		wordRotate: function() {
+		// wordRotate: function() {
 
-			$(".word-rotate").each(function() {
+		// 	$(".word-rotate").each(function() {
 
-				var $this = $(this),
-					itemsWrapper = $(this).find(".word-rotate-items"),
-					items = itemsWrapper.find("> span"),
-					firstItem = items.eq(0),
-					firstItemClone = firstItem.clone(),
-					itemHeight = 0,
-					currentItem = 1,
-					currentTop = 0;
+		// 		var $this = $(this),
+		// 			itemsWrapper = $(this).find(".word-rotate-items"),
+		// 			items = itemsWrapper.find("> span"),
+		// 			firstItem = items.eq(0),
+		// 			firstItemClone = firstItem.clone(),
+		// 			itemHeight = 0,
+		// 			currentItem = 1,
+		// 			currentTop = 0;
 
-				itemHeight = firstItem.height();
+		// 		itemHeight = firstItem.height();
 
-				itemsWrapper.append(firstItemClone);
+		// 		itemsWrapper.append(firstItemClone);
 
-				$this
-					.height(itemHeight)
-					.addClass("active");
+		// 		$this
+		// 			.height(itemHeight)
+		// 			.addClass("active");
 
-				setInterval(function() {
+		// 		setInterval(function() {
 
-					currentTop = (currentItem * itemHeight);
+		// 			currentTop = (currentItem * itemHeight);
 
-					itemsWrapper.animate({
-						top: -(currentTop) + "px"
-					}, 300, "easeOutQuad", function() {
+		// 			itemsWrapper.animate({
+		// 				top: -(currentTop) + "px"
+		// 			}, 300, "easeOutQuad", function() {
 
-						currentItem++;
+		// 				currentItem++;
 
-						if(currentItem > items.length) {
+		// 				if(currentItem > items.length) {
 
-							itemsWrapper.css("top", 0);
-							currentItem = 1;
+		// 					itemsWrapper.css("top", 0);
+		// 					currentItem = 1;
 
-						}
+		// 				}
 
-					});
+		// 			});
 
-				}, 2000);
+		// 		}, 2000);
 
-			});
+		// 	});
 
-		},
+		// },
 
-		newsletter: function() {
+		// newsletter: function() {
 
-			$("#newsletterForm").validate({
-				submitHandler: function(form) {
+		// 	$("#newsletterForm").validate({
+		// 		submitHandler: function(form) {
 
-					$.ajax({
-						type: "POST",
-						url: $("#newsletterForm").attr("action"),
-						data: {
-							"email": $("#newsletterForm #email").val()
-						},
-						dataType: "json",
-						success: function (data) {
-							if (data.response == "success") {
+		// 			$.ajax({
+		// 				type: "POST",
+		// 				url: $("#newsletterForm").attr("action"),
+		// 				data: {
+		// 					"email": $("#newsletterForm #email").val()
+		// 				},
+		// 				dataType: "json",
+		// 				success: function (data) {
+		// 					if (data.response == "success") {
 
-								$("#newsletterSuccess").removeClass("hidden");
-								$("#newsletterError").addClass("hidden");
+		// 						$("#newsletterSuccess").removeClass("hidden");
+		// 						$("#newsletterError").addClass("hidden");
 
-								$("#newsletterForm #email")
-									.val("")
-									.blur()
-									.closest(".control-group")
-									.removeClass("success")
-									.removeClass("error");
+		// 						$("#newsletterForm #email")
+		// 							.val("")
+		// 							.blur()
+		// 							.closest(".control-group")
+		// 							.removeClass("success")
+		// 							.removeClass("error");
 
-							} else {
+		// 					} else {
 
-								$("#newsletterError").html(data.message);
-								$("#newsletterError").removeClass("hidden");
-								$("#newsletterSuccess").addClass("hidden");
+		// 						$("#newsletterError").html(data.message);
+		// 						$("#newsletterError").removeClass("hidden");
+		// 						$("#newsletterSuccess").addClass("hidden");
 
-								$("#newsletterForm #email")
-									.blur()
-									.closest(".control-group")
-									.removeClass("success")
-									.addClass("error");
+		// 						$("#newsletterForm #email")
+		// 							.blur()
+		// 							.closest(".control-group")
+		// 							.removeClass("success")
+		// 							.addClass("error");
 
-							}
-						}
-					});
+		// 					}
+		// 				}
+		// 			});
 
-				},
-				rules: {
-					email: {
-						required: true,
-						email: true
-					}
-				},
-	            errorPlacement: function(error, element) {
+		// 		},
+		// 		rules: {
+		// 			email: {
+		// 				required: true,
+		// 				email: true
+		// 			}
+		// 		},
+	 //            errorPlacement: function(error, element) {
 
-	            },
-				highlight: function (element) {
-					$(element)
-						.closest(".control-group")
-						.removeClass("success")
-						.addClass("error");
-				},
-				success: function (element) {
-					$(element)
-						.closest(".control-group")
-						.removeClass("error")
-						.addClass("success");
-				}
-			});
+	 //            },
+		// 		highlight: function (element) {
+		// 			$(element)
+		// 				.closest(".control-group")
+		// 				.removeClass("success")
+		// 				.addClass("error");
+		// 		},
+		// 		success: function (element) {
+		// 			$(element)
+		// 				.closest(".control-group")
+		// 				.removeClass("error")
+		// 				.addClass("success");
+		// 		}
+		// 	});
 
-		},
+		// },
 
-		featuredBoxes: function() {
+		// featuredBoxes: function() {
 
-			$("div.featured-box").css("height", "auto");
+		// 	$("div.featured-box").css("height", "auto");
 
-			$("div.featured-boxes").each(function() {
+		// 	$("div.featured-boxes").each(function() {
 
-				var wrapper = $(this);
-				var minBoxHeight = 0;
+		// 		var wrapper = $(this);
+		// 		var minBoxHeight = 0;
 
-				$("div.featured-box", wrapper).each(function() {
-					if($(this).height() > minBoxHeight)
-						minBoxHeight = $(this).height();
-				});
+		// 		$("div.featured-box", wrapper).each(function() {
+		// 			if($(this).height() > minBoxHeight)
+		// 				minBoxHeight = $(this).height();
+		// 		});
 
-				$("div.featured-box", wrapper).height(minBoxHeight);
+		// 		$("div.featured-box", wrapper).height(minBoxHeight);
 
-			});
+		// 	});
 
-		},
+		// },
 
 		thumbInfo: function() {
 
@@ -602,98 +602,98 @@
 
 		},
 
-		owlCarousel: function(options) {
+		// owlCarousel: function(options) {
 
-			var total = $("div.owl-carousel:not(.manual)").length,
-				count = 0;
+		// 	var total = $("div.owl-carousel:not(.manual)").length,
+		// 		count = 0;
 
-			$("div.owl-carousel:not(.manual)").each(function() {
+		// 	$("div.owl-carousel:not(.manual)").each(function() {
 
-				var slider = $(this);
+		// 		var slider = $(this);
 
-				var defaults = {
-					 // Most important owl features
-					items : 5,
-					itemsCustom : false,
-					itemsDesktop : [1199,4],
-					itemsDesktopSmall : [980,3],
-					itemsTablet: [768,2],
-					itemsTabletSmall: false,
-					itemsMobile : [479,1],
-					singleItem : true,
-					itemsScaleUp : false,
+		// 		var defaults = {
+		// 			 // Most important owl features
+		// 			items : 5,
+		// 			itemsCustom : false,
+		// 			itemsDesktop : [1199,4],
+		// 			itemsDesktopSmall : [980,3],
+		// 			itemsTablet: [768,2],
+		// 			itemsTabletSmall: false,
+		// 			itemsMobile : [479,1],
+		// 			singleItem : true,
+		// 			itemsScaleUp : false,
 
-					//Basic Speeds
-					slideSpeed : 200,
-					paginationSpeed : 800,
-					rewindSpeed : 1000,
+		// 			//Basic Speeds
+		// 			slideSpeed : 200,
+		// 			paginationSpeed : 800,
+		// 			rewindSpeed : 1000,
 
-					//Autoplay
-					autoPlay : false,
-					stopOnHover : false,
+		// 			//Autoplay
+		// 			autoPlay : false,
+		// 			stopOnHover : false,
 
-					// Navigation
-					navigation : false,
-					navigationText : ["<i class=\"icon icon-chevron-left\"></i>","<i class=\"icon icon-chevron-right\"></i>"],
-					rewindNav : true,
-					scrollPerPage : false,
+		// 			// Navigation
+		// 			navigation : false,
+		// 			navigationText : ["<i class=\"icon icon-chevron-left\"></i>","<i class=\"icon icon-chevron-right\"></i>"],
+		// 			rewindNav : true,
+		// 			scrollPerPage : false,
 
-					//Pagination
-					pagination : true,
-					paginationNumbers: false,
+		// 			//Pagination
+		// 			pagination : true,
+		// 			paginationNumbers: false,
 
-					// Responsive
-					responsive: true,
-					responsiveRefreshRate : 200,
-					responsiveBaseWidth: window,
+		// 			// Responsive
+		// 			responsive: true,
+		// 			responsiveRefreshRate : 200,
+		// 			responsiveBaseWidth: window,
 
-					// CSS Styles
-					baseClass : "owl-carousel",
-					theme : "owl-theme",
+		// 			// CSS Styles
+		// 			baseClass : "owl-carousel",
+		// 			theme : "owl-theme",
 
-					//Lazy load
-					lazyLoad : false,
-					lazyFollow : true,
-					lazyEffect : "fade",
+		// 			//Lazy load
+		// 			lazyLoad : false,
+		// 			lazyFollow : true,
+		// 			lazyEffect : "fade",
 
-					//Auto height
-					autoHeight : false,
+		// 			//Auto height
+		// 			autoHeight : false,
 
-					//JSON
-					jsonPath : false,
-					jsonSuccess : false,
+		// 			//JSON
+		// 			jsonPath : false,
+		// 			jsonSuccess : false,
 
-					//Mouse Events
-					dragBeforeAnimFinish : true,
-					mouseDrag : true,
-					touchDrag : true,
+		// 			//Mouse Events
+		// 			dragBeforeAnimFinish : true,
+		// 			mouseDrag : true,
+		// 			touchDrag : true,
 
-					//Transitions
-					transitionStyle : false,
+		// 			//Transitions
+		// 			transitionStyle : false,
 
-					// Other
-					addClassActive : false,
+		// 			// Other
+		// 			addClassActive : false,
 
-					//Callbacks
-					beforeUpdate : false,
-					afterUpdate : false,
-					beforeInit: false,
-					afterInit: false,
-					beforeMove: false,
-					afterMove: false,
-					afterAction: false,
-					startDragging : false,
-					afterLazyLoad : false
-				}
+		// 			//Callbacks
+		// 			beforeUpdate : false,
+		// 			afterUpdate : false,
+		// 			beforeInit: false,
+		// 			afterInit: false,
+		// 			beforeMove: false,
+		// 			afterMove: false,
+		// 			afterAction: false,
+		// 			startDragging : false,
+		// 			afterLazyLoad : false
+		// 		}
 
-				var config = $.extend({}, defaults, options, slider.data("plugin-options"));
+		// 		var config = $.extend({}, defaults, options, slider.data("plugin-options"));
 
-				// Initialize Slider
-				slider.owlCarousel(config).addClass("owl-carousel-init");
+		// 		// Initialize Slider
+		// 		slider.owlCarousel(config).addClass("owl-carousel-init");
 
-			});
+		// 	});
 
-		},
+		// },
 
 		sort: function() {
 
@@ -827,42 +827,42 @@
 
 		},
 
-		lightbox: function(options) {
+		// lightbox: function(options) {
 
-			if(typeof($.magnificPopup) == "undefined") {
-				return false;
-			}
+		// 	if(typeof($.magnificPopup) == "undefined") {
+		// 		return false;
+		// 	}
 
-			// Internationalization of Lightbox
-			$.extend(true, $.magnificPopup.defaults, {
-				tClose: 'Close (Esc)', // Alt text on close button
-				tLoading: 'Loading...', // Text that is displayed during loading. Can contain %curr% and %total% keys
-				gallery: {
-					tPrev: 'Previous (Left arrow key)', // Alt text on left arrow
-					tNext: 'Next (Right arrow key)', // Alt text on right arrow
-					tCounter: '%curr% of %total%' // Markup for "1 of 7" counter
-				},
-				image: {
-					tError: '<a href="%url%">The image</a> could not be loaded.' // Error message when image could not be loaded
-				},
-				ajax: {
-					tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
-				}
-			});
+		// 	// Internationalization of Lightbox
+		// 	$.extend(true, $.magnificPopup.defaults, {
+		// 		tClose: 'Close (Esc)', // Alt text on close button
+		// 		tLoading: 'Loading...', // Text that is displayed during loading. Can contain %curr% and %total% keys
+		// 		gallery: {
+		// 			tPrev: 'Previous (Left arrow key)', // Alt text on left arrow
+		// 			tNext: 'Next (Right arrow key)', // Alt text on right arrow
+		// 			tCounter: '%curr% of %total%' // Markup for "1 of 7" counter
+		// 		},
+		// 		image: {
+		// 			tError: '<a href="%url%">The image</a> could not be loaded.' // Error message when image could not be loaded
+		// 		},
+		// 		ajax: {
+		// 			tError: '<a href="%url%">The content</a> could not be loaded.' // Error message when ajax request failed
+		// 		}
+		// 	});
 
-			$(".lightbox").each(function() {
+		// 	$(".lightbox").each(function() {
 
-				var el = $(this);
+		// 		var el = $(this);
 
-				var config, defaults = {}
-				if(el.data("plugin-options"))
-					config = $.extend({}, defaults, options, el.data("plugin-options"));
+		// 		var config, defaults = {}
+		// 		if(el.data("plugin-options"))
+		// 			config = $.extend({}, defaults, options, el.data("plugin-options"));
 
-				$(this).magnificPopup(config);
+		// 		$(this).magnificPopup(config);
 
-			});
+		// 	});
 
-		},
+		// },
 
 		parallax: function() {
 
@@ -894,56 +894,56 @@
 
 		},
 
-		latestTweets: function() {
+		// latestTweets: function() {
 
-			var wrapper = $("#tweet"),
-				accountId = wrapper.data("account-id");
+		// 	var wrapper = $("#tweet"),
+		// 		accountId = wrapper.data("account-id");
 
-			if(wrapper.get(0) && accountId != "") {
-				getTwitters("tweet", {
-					id: accountId,
-					count: 2
-				});
+		// 	if(wrapper.get(0) && accountId != "") {
+		// 		getTwitters("tweet", {
+		// 			id: accountId,
+		// 			count: 2
+		// 		});
 
-				wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
+		// 		wrapper.before($("<a />").addClass("twitter-account").html("@" + accountId).attr("href", "http://www.twitter.com/" + accountId).attr("target", "_blank"));
 
-			} else {
-				wrapper.empty();
-			}
+		// 	} else {
+		// 		wrapper.empty();
+		// 	}
 
-		},
+		// },
 
-		masonry: function() {
+		// masonry: function() {
 
-			var $container;
+		// 	var $container;
 
-			$(".masonry-list").each(function() {
+		// 	$(".masonry-list").each(function() {
 
-				var $container = $(this);
+		// 		var $container = $(this);
 
-				$container.waitForImages(function() {
+		// 		$container.waitForImages(function() {
 
-					$container.masonry({
-						itemSelector: '.masonry-item'
-					});
+		// 			$container.masonry({
+		// 				itemSelector: '.masonry-item'
+		// 			});
 
-					$container.addClass("init");
+		// 			$container.addClass("init");
 
-				});
+		// 		});
 
-			});
+		// 	});
 
-		},
+		// },
 
-		fixRevolutionSlider: function() {
+		// fixRevolutionSlider: function() {
 
-			$(".revslider-initialised").each(function() {
-				try{
-					$(this).revredraw();
-				} catch(e) {}
-			});
+		// 	$(".revslider-initialised").each(function() {
+		// 		try{
+		// 			$(this).revredraw();
+		// 		} catch(e) {}
+		// 	});
 
-		}
+		// }
 
 	};
 
@@ -955,7 +955,7 @@
 		Core.stickyMenu();
 
 		// Masonry
-		Core.masonry();
+		// Core.masonry();
 
 	});
 

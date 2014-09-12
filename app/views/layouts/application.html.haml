@@ -10,19 +10,26 @@
     .body
       = render :partial => 'shared/header'
       .main{role: "main"}
-        -if user_signed_in?
-          .container
-            .row
-              .col-md-12
-                = render :partial => "shared/notice_alert"
-                = yield
+        -unless action_name == "default"
+          =render :partial => 'shared/container'
         -else
           = yield
-          /= render :partial => 'layouts/page_left_sidebar'
+
+
+      -#
+        -if user_signed_in?
+          =render :partial => 'shared/container'
+        -else
+          -unless action_name == "default"
+            =render :partial => 'shared/container'
+          -else
+            = yield
+        -# render :partial => 'layouts/page_left_sidebar'
       = render :partial => 'shared/footer'
     
     = yield :head_js
     = render :partial => 'shared/se_analytics'
 
     
+       
      
