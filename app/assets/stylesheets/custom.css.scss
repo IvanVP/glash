@@ -61,3 +61,8 @@ section.parallax.middle{
 h1.greeting {
   padding-top: 100px;
 }
+
+.formtastic .boolean > p.inline-errors {
+  font-size: 0.8em;
+  margin-top: -2px;
+}

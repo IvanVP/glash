@@ -29,7 +29,7 @@
                   = f.input :password_confirmation, :label => t(:password_confirmation, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "повторите пароль"
               .form-group
                 .col-md-12
-                  = f.input :terms, as: :boolean, :inline_label => t(:terms, scope: "activerecord.attributes.user"), :input_html => {:class => "boolean-control"}, :required => false
+                  = f.input :terms, as: :boolean, :label => ("Согласен с  #{link_to('правилами сайта', terms_path, target: '_blank')}").html_safe, :input_html => {:class => "boolean-control"}, :required => false
             = f.actions do
               .form-group
                 .col-md-12

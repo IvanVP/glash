@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
+  validates :terms, acceptance: {:accept => true}
   
   friendly_id :slug_candidates, use:  [:slugged, :finders, :history]
 
@@ -35,6 +36,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  
   def slug_candidates
     [
       :lname,
@@ -64,6 +66,7 @@ class User < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
   end
 
+
   private
 
   def build_default_info
@@ -77,5 +80,6 @@ class User < ActiveRecord::Base
     avatar.reprocess!
     self.processing = false
   end
+
   
 end
