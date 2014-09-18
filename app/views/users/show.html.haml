@@ -16,5 +16,11 @@
   -if @user.contact.site
     Сайт:&nbsp;
     =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
+  %br/
+  -if @user.show_gender
+    =@user.gender 
+  %br/
+  -if @user.show_birthdate
+    =@user.birthdate.to_s
 %br/
 %br/

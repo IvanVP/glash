@@ -1,0 +1,14 @@
+-title "Загрузить аватар"
+%h2 Загрузите свой аватар
+.row
+  .col-md-12
+    .col-md-6.col-md-offset-1
+      = image_tag current_user.avatar.url(:medium), class: "img-thumbnail"
+      = form_for @user do |f|
+        %br
+        = f.file_field :avatar, autofocus: true, :required => true, :class => "backbtn"
+        %br
+        = f.submit "Загрузить аватар", :class => "input btn btn-primary backbtn"
+        &nbsp
+        &nbsp
+        = link_to "Отмена", :back, :class => "input btn backbtn"

@@ -1,14 +1,18 @@
 -title "Редактировать данные"
-%h2
-  Изменить данные #{resource_name.to_s.humanize}
+%h1
+  Редактировать данные
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
 
   .col-md-4
-    = image_tag @user.avatar.url(:medium)
-    = f.file_field :avatar
+    = image_tag @user.avatar.url(:thumb), class: "img-thumbnail", width: "190px"
+    %br
+    %br
+    =# f.file_field :avatar
+    =# link_to "Изменить аватар", {:controller => "users", :action => "load_avatar", id: current_user.slug},  :class => "input btn btn-primary backbtn"
+    = link_to "Изменить аватар", load_avatar_user_path(current_user) , :class => "input btn btn-primary backbtn"
 
-  .col-md-4
+  .col-md-8
     %div
       = f.label :fname
       %br/
@@ -31,7 +35,7 @@
       = f.email_field :email, autofocus: true
     %br/
 
-  .col-md-4
+  
     %div
       = f.label :birthdate
       %br/
@@ -58,32 +62,43 @@
     %br/
 
   
-  %div
-    = f.label :slug
-    %br/
-    = f.text_field :slug, autofocus: true
-  %br/
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  %div
-    = f.label :password
-    %i (Оставьте эти поля пустыми, если не хотите изменить пароль)
+      = f.label :slug
+      %br/
+      = f.text_field :slug, autofocus: true
     %br/
-    = f.password_field :password, autocomplete: "off"
-  %div
-    = f.label :password_confirmation
+
+  -# Редактирование пароля
+  -#
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %div
+      = f.label :password
+      %i (Оставьте эти поля пустыми, если не хотите изменить пароль)
+      %br/
+      = f.password_field :password, autocomplete: "off"
+    %div
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "off"
     %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  %br/
-  %div
-    = f.label :current_password
-    %i (Введите свой пароль, чтобы сохранить изменения)
-    %br/
-    = f.password_field :current_password, autocomplete: "off"
-  %div= f.submit "Изменить данные"
-%br/
-%br/ 
+
+
+  .col-md-8.col-md-offset-4
+    %hr/
+    %br/ 
+    %div
+      = f.label "Введите текущий пароль"
+      %br/
+      %i (Необходимо для сохранения изменений)
+      %br/
+      = f.password_field :current_password, autocomplete: "off"
+      %br/
+      %br/
+    %div= f.submit "Изменить данные", :class => "input btn btn-primary backbtn"
+
+
 -#  
   %h3 Удалить меня
   %p

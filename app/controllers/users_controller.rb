@@ -48,8 +48,12 @@ class UsersController < ApplicationController
 
   def avatar
     @user = current_user
-    
   end
+
+  def load_avatar
+    @user = current_user
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -61,4 +65,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:fname, :mname, :lname, :name, :email, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
     end
+
 end

@@ -14,7 +14,4 @@ class PagesController < ApplicationController
   def terms
   end
 
-  def load_avatar
-  end
-
 end

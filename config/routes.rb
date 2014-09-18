@@ -6,7 +6,6 @@ Glash::Application.routes.draw do
     get 'faq' => :faq,  as: :faq
     get 'help' =>:help,  as: :help
     get 'terms' =>:terms,  as: :terms
-    get 'load_avatar' =>:load_avatar,  as: :load_avatar
   end
    
   ActiveAdmin.routes(self)
@@ -28,6 +27,7 @@ Glash::Application.routes.draw do
   resources :users do
     member do
       get :avatar
+      get :load_avatar
     end
   end
 
