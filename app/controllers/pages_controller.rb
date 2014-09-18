@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   def greetings
   end
 
+  def goodbye
+  end
+
   def faq
   end
 

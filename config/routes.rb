@@ -2,6 +2,7 @@ Glash::Application.routes.draw do
   # Static Pages
   scope controller: :pages do
     get 'greetings' => :greetings, as: :greetings
+    get 'goodbye' => :goodbye, as: :goodbye
     get 'faq' => :faq,  as: :faq
     get 'help' =>:help,  as: :help
     get 'terms' =>:terms,  as: :terms

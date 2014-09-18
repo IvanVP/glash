@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def authenticate_admin_user!
     redirect_to new_user_session_path unless current_user.try(:is_admin?)
   end
+
+  def after_sign_out_path_for(resource)
+    goodbye_path
+  end
+  
 end
