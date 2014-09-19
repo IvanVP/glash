@@ -1,90 +1,96 @@
 -title "Редактировать данные"
 %h1
   Редактировать данные
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+=# form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :id => 'contactForm' }) do |f|
   = devise_error_messages!
 
-  .col-md-4
+  
+  
+  .col-md-3
     = image_tag @user.avatar.url(:thumb), class: "img-thumbnail", width: "190px"
     %br
     %br
     =# f.file_field :avatar
     =# link_to "Изменить аватар", {:controller => "users", :action => "load_avatar", id: current_user.slug},  :class => "input btn btn-primary backbtn"
     = link_to "Изменить аватар", load_avatar_user_path(current_user) , :class => "input btn btn-primary backbtn"
+      
+  .col-md-9
+    = f.inputs do
+      .form-group
+        .col-md-12                      
+          = f.input :fname, :label => t(:fname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "имя"
+      .form-group
+        .col-md-12                      
+          = f.input :mname, :label => t(:mname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "отчество"
+      .form-group
+        .col-md-12                      
+          = f.input :lname, :label => t(:lname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "фамилия"
+      .form-group
+        .col-md-12                      
+          = f.input :name, :label => t(:name, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "username"
+      .form-group
+        .col-md-12                      
+          = f.input :email, :label => t(:email, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, placeholder: "mail@example.ru"
+      .form-group
+        .col-md-12                      
+          = f.input :slug, :label => t(:slug, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, placeholder: "http://glash.ru/адрес"
+      .form-group
+        .col-md-12   
+          = f.input :birthdate, :as => :date_select, :start_year => Date.today.year - 18, :end_year => Date.today.year - 80, :default => Date.today.year - 30,  :include_blank => false, :input_html => {:class => "form-control"}
+          = f.input :show_birthdate, :as => :boolean
+      .form-group
+        .col-md-12                      
+          = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", true], ["Женский", false]]
+          = f.input :show_gender, :as => :boolean
+      %br
+      .form-group
+        .col-md-12                      
+          = f.input :description, as: :text, rows: 2, :label => t(:description, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 5, :maxlength => 250}, :required => false, placeholder: "напишите немного о себе \n(не более 250 символов)"
+      %hr
+      .form-group
+        .col-md-12
+          %h4 Введите текущий пароль
+          %p (Необходимо для сохранения изменений)
+          %br
+          = f.input :current_password, autocomplete: "off", :label => t(:password, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false
 
-  .col-md-8
-    %div
-      = f.label :fname
-      %br/
-      = f.text_field :fname, autofocus: true
-    %div
-      = f.label :mname
-      %br/
-      = f.text_field :mname, autofocus: true
-    %div
-      = f.label :lname
-      %br/
-      = f.text_field :lname, autofocus: true
-    %div
-      = f.label :name
-      %br/
-      = f.text_field :name, autofocus: true
-    %div
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true
-    %br/
+    %br
+    = f.actions do
+      .form-group
+        .col-md-12 
+          %br
+          = f.submit "Изменить данные", :class => "input btn btn-primary backbtn"
+          = link_to "Отмена", :back, :class => "input btn backbtn"
+     
 
-  
-    %div
-      = f.label :birthdate
-      %br/
-      = f.date_select :birthdate, autofocus: true
-      %br/
-      = f.check_box :show_birthdate
-      = f.label :show_birthdate
-    %br/
-    %div
-      = f.label :gender
-      %br/
-      = f.radio_button :gender, true, autofocus: true
-      = f.label :gender, "Мужской"
-      = f.radio_button :gender, false, autofocus: true
-      = f.label :gender, "Женский"
-      %br/
-      = f.check_box :show_gender, autofocus: true
-      = f.label :show_gender
-    %br/
-    %div
-      = f.label :description
-      %br/
-      = f.text_area :description, autofocus: true
-    %br/
-
-  
-    %div
-      = f.label :slug
-      %br/
-      = f.text_field :slug, autofocus: true
-    %br/
-
-  -# Редактирование пароля
-  -#
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %div
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
-    %div
-      = f.label :password
-      %i (Оставьте эти поля пустыми, если не хотите изменить пароль)
-      %br/
-      = f.password_field :password, autocomplete: "off"
-    %div
-      = f.label :password_confirmation
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "off"
-    %br/
+-#
+  t(:birthdate, scope: "activerecord.attributes.user")
+  :input_html => { :class => 'autogrow', :rows => 10, :cols => 20, :maxlength => 10  }
 
 
+        
+     
+
+-# Редактирование пароля
+-#
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: #{resource.unconfirmed_email}
+  %div
+    = f.label :password
+    %i (Оставьте эти поля пустыми, если не хотите изменить пароль)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  %div
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  %br/
+
+.clearfix
+
+-#
   .col-md-8.col-md-offset-4
     %hr/
     %br/ 
@@ -105,5 +111,5 @@
     Удалить? #{button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
   = link_to "Назад", :back
 
-  %br/
-  %br/    
+%br/
+%br/    

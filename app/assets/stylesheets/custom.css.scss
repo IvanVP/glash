@@ -74,3 +74,42 @@ h1.greeting {
 .backbtn {
   font-size: 1.4em;
 }
+
+legend {
+  border-bottom: none;
+}
+.formtastic legend {
+  white-space: pre;
+}
+
+.formtastic .fragments .label,
+.formtastic .choices  .label {
+  // float: right;
+  width:24%;
+  left:-126px;
+  text-align: right;
+  // position: relative;
+}
+.formtastic .choices  .label {
+  // float: right;
+  left:-28px;
+  // text-align: left;
+  // position: relative;
+}
+
+.formtastic .fragments-group {
+  width:100%;
+}
+
+.formtastic select,
+.formtastic textarea {
+  font-size: 1.4em;
+}
+
+.radio .choice {
+    display: inline-block;
+    padding-top: 0.6em;
+    padding-right: 1em;
+    font-size: 1.4em;
+}
+

@@ -1,13 +1,14 @@
 class PagesController < ApplicationController
+
+  def faq
+  end
+
   def greetings
   end
 
   def goodbye
   end
-
-  def faq
-  end
-
+  
   def help
   end
   

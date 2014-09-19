@@ -8,19 +8,21 @@
   -if @user.show_birthdate&&@user.birthdate
     Родился:&nbsp;
     =@user.birthdate 
-  %br/
-  -if @user.description
-    Немного о себе:&nbsp;
-    =@user.description
-  %br/
+    %br/
   -if @user.contact.site
     Сайт:&nbsp;
     =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
-  %br/
+    %br/
   -if @user.show_gender
-    =@user.gender 
-  %br/
-  -if @user.show_birthdate
-    =@user.birthdate.to_s
+    Пол: 
+    -if @user.gender 
+      Мужской
+    -else
+      Женский
+    %br/
+  -if @user.description
+    Немного о себе:&nbsp;
+    =@user.description
+    %br/
 %br/
 %br/

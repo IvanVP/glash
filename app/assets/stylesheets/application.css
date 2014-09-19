@@ -30,9 +30,10 @@
  ---- Skin CSS  vmesto default.css ispolzuem skin.less----
  *= require skin
  *= require theme-responsive
- 
+
  *= require myformtastic
  *= require custom
+
 
  *= require users
  *= require jquery.Jcrop.min

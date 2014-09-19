@@ -18,7 +18,8 @@ ru:
           password: Пароль
           password_confirmation: Еще раз пароль
           remember_me: Запомнить меня
-          terms: Согласен с правилами сайта 
+          terms: Согласен с правилами сайта
+          slug: Адрес URL 
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.
