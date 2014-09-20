@@ -3,7 +3,7 @@
   Редактировать данные
 =# form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
 = semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :id => 'contactForm' }) do |f|
-  = devise_error_messages!
+  =# devise_error_messages!
 
   
   
@@ -41,7 +41,7 @@
           = f.input :show_birthdate, :as => :boolean
       .form-group
         .col-md-12                      
-          = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", true], ["Женский", false]]
+          = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", "M"], ["Женский", "F"]]
           = f.input :show_gender, :as => :boolean
       %br
       .form-group

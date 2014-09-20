@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     "#{self.fname} #{self.lname}"
   end
 
+  def age
+    ((Date.today - self.birthdate) / 365).floor
+  end
+
   def normalize_friendly_id(text)
     text.to_slug.normalize! :transliterations => :russian #[:russian, :latin]
   end
