@@ -4,33 +4,31 @@ class User < ActiveRecord::Base
   # constants
 
   # attr related macros
-  attr_accessor :login, :crop_x, :crop_y,
-                :crop_w, :crop_h, :processing
+  attr_accessor :login, :crop_x, :crop_y, :crop_w, :crop_h, :processing
 
   #belongs_to
-
   has_one :contact, :dependent => :destroy
-  has_attached_file :avatar, :styles => { :large => "500x500>", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png", :processors => [:cropper]
 
-  # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'username'
-  
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
   validates :terms, acceptance: {:accept => true}
 
-  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates_attachment :avatar, 
-    :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
-  
   before_create :build_default_info
   after_update :reprocess_avatar, if: :cropping?
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+        :recoverable, :rememberable, :trackable, :validatable
 
+  has_attached_file :avatar, :styles => { :large => "500x500>", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png", :processors => [:cropper]
+
+  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment :avatar, 
+    :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+
+  friendly_id :slug_candidates, use:  [:slugged, :finders, :history]
+  
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -40,7 +38,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  
   def slug_candidates
     [
       :lname,
