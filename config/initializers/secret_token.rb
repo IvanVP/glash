@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Glash::Application.config.secret_key_base = '8302e070aa484a13a49d9f14e9968b36cfba3eb77a1aafecaf0c5ea312d15effaf5b9ddf14513b94a34d77e15e4c6d8ba203ced79104547421249ca6b7383bd0'
+Glash::Application.config.secret_key_base = ENV['SECRET_KEY']
