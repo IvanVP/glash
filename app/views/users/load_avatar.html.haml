@@ -6,9 +6,9 @@
       = image_tag current_user.avatar.url(:medium), class: "img-thumbnail"
       = form_for @user do |f|
         %br
-        = f.file_field :avatar, autofocus: true, :required => true, :class => "backbtn"
+        = f.file_field :avatar, autofocus: true, :required => true, :class => "loadbtn"
         %br
-        = f.submit "Загрузить аватар", :class => "input btn btn-primary backbtn"
+        = f.submit "Загрузить аватар", :class => "input btn btn-primary loadbtn"
         &nbsp
         &nbsp
         = link_to "Отмена", :back, :class => "input btn backbtn"

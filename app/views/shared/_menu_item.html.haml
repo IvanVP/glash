@@ -27,6 +27,8 @@
       -#
         %li= link_to "Изменить пароль", edit_password_path(current_user)
         %li= link_to "Посмотреть профиль", user_path(current_user)
+
+
         %li= link_to :edit_profile.l, edit_user_path(current_user)
         %li= link_to :edit_account.l, edit_account_user_path(current_user)
         %li= link_to :manage_posts.l, manage_user_posts_path(current_user)

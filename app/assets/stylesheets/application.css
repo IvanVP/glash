@@ -30,7 +30,7 @@
  ---- Skin CSS  vmesto default.css ispolzuem skin.less----
  *= require skin
  *= require theme-responsive
-
+ 
  *= require myformtastic
  *= require custom
 

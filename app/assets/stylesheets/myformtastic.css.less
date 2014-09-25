@@ -38,13 +38,13 @@
 
 }
 
-
-
-.formtastic .btn {
+// a.btn.btn-primary,
+.btn.btn-primary {
       border-color: @primaryColor - #555555;
       background-color: @primaryColor;
       color: #FFF;
-      padding: 0.5em 1.2em;
+      font-size: 1.4em;
+      padding: 0.5em 1.05em;
 
       &:hover {
         border-color: lighten(@primaryColor, 8%);
@@ -55,6 +55,31 @@
         border-color: darken(@primaryColor, 8%);
         background-color: darken(@primaryColor, 8%);
       }
+}
+
+.btn.backbtn {
+  font-size: 1.4em;
+  background: #FFF ;
+  border: 1px solid #72099d;
+  border-bottom: 3px solid #72099d;
+  color: #72099d;
+  padding: 0.5em 1.05em;
+
+    &:hover {
+      // background: #E3CEED;
+      // border-color: #C57AEB- #222222;
+      background-color: lighten(#7F5499, 32%);
+      border-color: lighten(#7F5499, 16%);
+      color: #72099d;
+    }
+
+    &:active {
+      // background: #E3CEED;
+      // border-color: #E3CEED;
+      background-color: lighten(#7F5499, 32%);
+      border-color: lighten(#7F5499, 32%);
+      color: #72099d;
+    }
 }
 
 li#user_submit_action {

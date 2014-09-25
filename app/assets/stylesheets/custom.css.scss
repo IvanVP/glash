@@ -71,7 +71,7 @@ h1.greeting {
   background-color: #EDEFF2;
 }
 
-.backbtn {
+.loadbtn {
   font-size: 1.4em;
 }
 
@@ -113,3 +113,33 @@ legend {
     font-size: 1.4em;
 }
 
+.derrors {
+  // margin: 15px 15px 30px;
+  margin: 0 15px 30px;
+
+
+  #error_explanation{
+    color: red;
+
+    h2{
+      font-size: 1.4em;
+      font-weight: 500;
+      color: red;
+      margin: 10px 0;
+    }
+    ul{
+      font-size: 1.1em;
+    }
+  }
+}
+
+.alert_waiting {
+  font-size: 1.2em;
+  // float: right;
+  // margin: 0 15px;
+  // padding: 0 20px;
+  span {
+    font-size: 1.4em;
+    font-weight: 800;
+  }
+}
