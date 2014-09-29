@@ -3,9 +3,9 @@ ActiveAdmin.register User do
   index do
     column "Имя, Фамилия", :fullname
     column :name
-    column :birthdate 
-    column :gender
     column :email
+    column :enabled
+    # column :role_id
     column :slug
     column :sign_in_count
     default_actions
@@ -27,4 +27,14 @@ ActiveAdmin.register User do
   #  permitted
   # end
   
+end
+
+ActiveAdmin.register Role do
+
+  index do
+    column :id
+    column :name
+    column :description
+  end
+
 end
