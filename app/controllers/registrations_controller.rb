@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :name, :email, :password, :remember_me) } 
     devise_parameter_sanitizer.for(:account_update) {
       |u| u.permit(:fname, :mname, :lname, :name, :email, :avatar,
-        :birthdate, :show_birthdate, :gender, :show_gender, :description, 
+        :birthdate, :show_birthdate, :gender, :show_gender, :country_id, :description, 
         :slug, :password, :password_confirmation, :current_password)}
   end
 

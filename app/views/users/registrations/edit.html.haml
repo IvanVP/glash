@@ -47,7 +47,9 @@
         .col-md-12                      
           = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", "M"], ["Женский", "F"]]
           = f.input :show_gender, :as => :boolean
-      %br
+      .form-group
+        .col-md-12                      
+          = f.input :country_id, :as => :select, :label => "Страна", autofocus: true, :input_html => {:class => "form-control"}, :required => false, :collection => Hash[Country.all.map{|b| [b.name,b.id]}], :default => :country 
       .form-group
         .col-md-12                      
           = f.input :description, as: :text, rows: 2, :label => t(:description, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 5, :maxlength => 250}, :required => false, placeholder: "напишите немного о себе\n (не более 250 символов)"
