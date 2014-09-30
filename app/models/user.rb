@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
   #belongs_to
   has_one :contact, :dependent => :destroy
-  belongs_to :roles
-  belongs_to :countries
+  belongs_to :role
+  belongs_to :country
 
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
