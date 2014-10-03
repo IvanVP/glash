@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 20140929150701) do
     t.boolean  "show_birthdate",                    default: true
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
-    t.string   "foto"
     t.text     "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
