@@ -1,4 +1,4 @@
--title "#{current_user.fullname}"
+-title "#{@user.fullname}"
 .col-md-3
   = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar"}
   %hr.visible-sm.visible-xs.tall/
@@ -8,6 +8,10 @@
   -if @user.show_birthdate && @user.birthdate
     Возраст:&nbsp; 
     =@user.age
+    %br/
+  -if @user.country
+    Страна:&nbsp;
+    =@user.country.name
     %br/
   -if @user.contact.site
     Сайт:&nbsp;

@@ -41,15 +41,15 @@
           = f.input :slug, :label => t(:slug, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, placeholder: "http://glash.ru/адрес"
       .form-group
         .col-md-12   
-          = f.input :birthdate, :as => :date_select, :start_year => Date.today.year - 18, :end_year => Date.today.year - 80, :default => Date.today.year - 30,  :include_blank => false, :input_html => {:class => "form-control"}
-          = f.input :show_birthdate, :as => :boolean
+          = f.input :birthdate, :as => :date_select, :start_year => Date.today.year - 18, :end_year => Date.today.year - 80, :default => Date.today.year - 30,  :include_blank => false, :input_html => {:class => "form-control"}, :required => false
+          = f.input :show_birthdate, :as => :boolean, autofocus: true, :required => false
       .form-group
         .col-md-12                      
-          = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", "M"], ["Женский", "F"]]
-          = f.input :show_gender, :as => :boolean
+          = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", "M"], ["Женский", "F"]], autofocus: true, :required => false
+          = f.input :show_gender, :as => :boolean, autofocus: true, :required => false
       .form-group
         .col-md-12                      
-          = f.input :country_id, :as => :select, :label => "Страна", autofocus: true, :input_html => {:class => "form-control"}, :required => false, :collection => Hash[Country.all.map{|b| [b.name,b.id]}], :default => :country 
+          = f.input :country_id, :as => :select, :collection => Hash[Country.all.map{|b| [b.name,b.id]}], :include_blank => false, :label => "Страна", autofocus: true, :input_html => {:class => "form-control"}, :required => false
       .form-group
         .col-md-12                      
           = f.input :description, as: :text, rows: 2, :label => t(:description, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 5, :maxlength => 250}, :required => false, placeholder: "напишите немного о себе\n (не более 250 символов)"

@@ -1,9 +1,11 @@
 -title "Загрузить аватар"
 %h2 Загрузите свой аватар
+%p.pages Размер изображения должен быть минимум 300х300 пикселов.
+%p.pages После загрузки Вы сможете редактировать изображение (см. пункт меню)
 .row
   .col-md-12
     .col-md-6.col-md-offset-1
-      = image_tag current_user.avatar.url(:medium), class: "img-thumbnail"
+      = image_tag @user.avatar.url(:medium), class: "img-thumbnail"
       = form_for @user do |f|
         %br
         = f.file_field :avatar, autofocus: true, :required => true, :class => "loadbtn"

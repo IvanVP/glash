@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates :terms, acceptance: {:accept => true}
 
   before_create :build_default_info
+  
   after_update :reprocess_avatar, if: :cropping?
 
   # Include default devise modules. Others available are:
@@ -41,11 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def slug_candidates
-    [
-      :lname,
-      [:fname, :lname],
-      :name
-    ]
+    [:lname, [:fname, :lname],:name]
   end
 
   def fullname
@@ -77,6 +74,8 @@ class User < ActiveRecord::Base
   private
 
   def build_default_info
+    self.country ||= Country.find_by(name: "Россия")
+    self.role ||= Role.find_by(name: "Member")
     build_contact
     true
   end
