@@ -3,24 +3,32 @@ ru:
     models:
       user: Пользователь
     attributes:
-        user:
-          fname: Имя
-          mname: Отчество
-          lname: Фамилия
-          birthdate: Дата рождения
-          show_birthdate: Показывать всем
-          gender: Пол
-          show_gender: Показывать всем
-          description: Немного о себе
-          name: Логин
-          login: Логин или email
-          email: Email
-          password: Пароль
-          password_confirmation: Еще раз пароль
-          current_password: Текущий пароль
-          remember_me: Запомнить меня
-          terms: Согласен с правилами сайта
-          slug: Адрес URL 
+      user:
+        fname: Имя
+        mname: Отчество
+        lname: Фамилия
+        birthdate: Дата рождения
+        show_birthdate: Показывать всем
+        gender: Пол
+        show_gender: Показывать всем
+        description: Немного о себе
+        name: Логин
+        login: Логин или email
+        email: Email
+        password: Пароль
+        password_confirmation: Еще раз пароль
+        current_password: Текущий пароль
+        remember_me: Запомнить меня
+        terms: Согласен с правилами сайта
+        slug: Адрес URL
+
+    models:
+      contact: Контакты
+    attributes:
+      contact:
+        phone: Телефон
+        phone2: Еще телефон
+        site: Сайт 
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.
