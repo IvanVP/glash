@@ -29,7 +29,7 @@
       =form_for @user do |f|
         -for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
           =f.hidden_field attribute, id: attribute
-        = f.submit "Обрезать",  {:class => "input btn btn-primary pull-left backbtn"}
+        = f.submit "Обрезать",  {:class => "input btn btn-primary pull-left"}
         &nbsp
         &nbsp
         = link_to "Отмена", :back, :class => "input btn backbtn"

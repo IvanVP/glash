@@ -1,11 +1,13 @@
 ActiveAdmin.register User do
+  menu priority: 1
 
   index do
     column "Имя, Фамилия", :fullname
     column :name
-    column :birthdate 
-    column :gender
     column :email
+    column :enabled
+    column :role
+    column :country
     column :slug
     column :sign_in_count
     default_actions
@@ -17,7 +19,8 @@ ActiveAdmin.register User do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+  permit_params :fname, :mname, :lname, :name, :email, :avatar, :birthdate,
+                :gender, :description, :slug, :role_id, :country_id
   #
   # or
   #
@@ -28,3 +31,11 @@ ActiveAdmin.register User do
   # end
   
 end
+# ActiveAdmin.register Role do
+
+#   index do
+#     column :id
+#     column :name
+#     column :description
+#   end
+

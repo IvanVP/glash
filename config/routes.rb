@@ -10,14 +10,6 @@ Glash::Application.routes.draw do
    
   ActiveAdmin.routes(self)
 
-  get 'contacts/index'
-  get 'contacts/show'
-  get 'contacts/new'
-  get 'contacts/create'
-  get 'contacts/edit'
-  get 'contacts/update'
-  
-
   authenticated :user do
     root to: "base#index", :as => "base"
   end
@@ -29,6 +21,8 @@ Glash::Application.routes.draw do
       get :avatar
       get :load_avatar
     end
+
+    resources :contacts
   end
 
   

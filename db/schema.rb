@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630105959) do
+ActiveRecord::Schema.define(version: 20140929150701) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20140630105959) do
     t.datetime "updated_at"
   end
 
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -58,6 +64,13 @@ ActiveRecord::Schema.define(version: 20140630105959) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "fname",                  limit: 30
     t.string   "mname",                  limit: 70
@@ -70,7 +83,6 @@ ActiveRecord::Schema.define(version: 20140630105959) do
     t.boolean  "show_birthdate",                    default: true
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
-    t.string   "foto"
     t.text     "description"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -90,6 +102,9 @@ ActiveRecord::Schema.define(version: 20140630105959) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "role_id"
+    t.integer  "country_id"
+    t.boolean  "enabled",                           default: true
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

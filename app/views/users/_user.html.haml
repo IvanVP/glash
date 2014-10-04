@@ -4,5 +4,4 @@
   .col-md-7
     =link_to user do
       %h4= user.fullname
-      -# %h4= user.lname
       %p.users= user.description.truncate(50) unless user.description.blank?

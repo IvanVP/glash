@@ -30,15 +30,3 @@
           = link_to t(:forgot_password, scope: 'devise.passwords'), new_password_path(resource_name)
         %p
           = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
-
-        
-        
--#  
-  -if configatron.auth_providers.to_hash.keys.any?      
-    -widget do
-      %ul.nav.nav-list
-        %li.nav-header= t 'sessions.new.omniauth.header'
-        -configatron.auth_providers.to_hash.keys.each do |provider|
-          -alt = t('sessions.new.omniauth.button_alt', :provider => provider)
-          %li= link_to(image_tag("auth/#{provider.to_s}_64.png", :alt => alt), "/auth/#{provider.to_s}", :title => alt)
-
