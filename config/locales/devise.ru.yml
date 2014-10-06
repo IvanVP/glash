@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       user: Пользователь
+      contact: Контакты
     attributes:
       user:
         fname: Имя
@@ -21,10 +22,6 @@ ru:
         remember_me: Запомнить меня
         terms: Согласен с правилами сайта
         slug: Адрес URL
-
-    models:
-      contact: Контакты
-    attributes:
       contact:
         phone: Телефон
         phone2: Еще телефон

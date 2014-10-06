@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
   private
 
     def check_user
-      unless User.friendly.find(params[:id]) == current_user
+      unless User.friendly.find(params[:user_id]) == current_user || Contact.find(params[:_id]) == current_user.contact.id 
         goto_root
       end
       @user = current_user
