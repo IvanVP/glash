@@ -26,6 +26,12 @@ ru:
         phone: Телефон
         phone2: Еще телефон
         site: Сайт 
+        skype: Skype
+        vk_url: В контакте
+        facebook_url: Facebook
+        odnoklassniki_url: Одноклассники
+        twitter_url: Twitter
+        linkedin_url: LinkedIn
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.

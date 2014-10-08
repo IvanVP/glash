@@ -38,9 +38,9 @@ class ContactsController < ApplicationController
 
     # # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:phone, :phone2)
+      params.require(:contact).permit(:phone, :phone2,
+        :skype, :site, :vk_url, :facebook_url, :odnoklassniki_url, :twitter_url, :linkedin_url)
     end
-
 
     def goto_root
       redirect_to root_path, notice: 'Вы не можете просматривать или редактировать приватные записи других членов сообщества.'
