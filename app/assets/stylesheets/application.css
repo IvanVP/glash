@@ -33,6 +33,7 @@
  
  *= require myformtastic
  *= require custom
+ *= require contacts
 
 
  *= require users

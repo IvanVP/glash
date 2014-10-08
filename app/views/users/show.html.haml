@@ -4,29 +4,31 @@
   %hr.visible-sm.visible-xs.tall/
 .col-md-1
 .col-md-8
-  %h2= @user.fullname
-  -if @user.show_birthdate && @user.birthdate
-    Возраст:&nbsp; 
-    =@user.age
-    %br/
-  -if @user.country
-    Страна:&nbsp;
-    =@user.country.name
-    %br/
-  -if @user.contact.site
-    Сайт:&nbsp;
-    =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
-    %br/
-  -if @user.show_gender && @user.gender
-    Пол: 
-    -if @user.gender == "M"
-      Мужской
-    -else
-      Женский
-    %br/
-  -if @user.description
-    Немного о себе:&nbsp;
-    =@user.description
-    %br/
+  %h2.show_user= @user.fullname
+  = render 'shared/social'
+  .info  
+    -if @user.show_birthdate && @user.birthdate
+      Возраст:&nbsp; 
+      =@user.age
+      %br/
+    -if @user.country
+      Страна:&nbsp;
+      =@user.country.name
+      %br/
+    -if @user.contact.site
+      Сайт:&nbsp;
+      =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
+      %br/
+    -if @user.show_gender && @user.gender
+      Пол: 
+      -if @user.gender == "M"
+        Мужской
+      -else
+        Женский
+      %br/
+    -if @user.description
+      Немного о себе:&nbsp;
+      =@user.description
+      %br/
 %br/
 %br/

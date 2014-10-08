@@ -2,16 +2,11 @@
 %h1
   Редактировать контакты
 = semantic_form_for(@contact, url: user_contact_path(@user, @contact), html: { method: :put }) do |f|
-  
   .col-md-3
     = image_tag @user.avatar.url(:thumb), class: "img-thumbnail", width: "192px"
     %br
-    
-    
-        
   .col-md-9
     = f.inputs do
-      
       .form-group
         .col-md-12                      
           = f.input :phone, as: :phone, :label => t(:phone, scope: "activerecord.attributes.contact"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "+7 (987) 123-4567"
@@ -27,69 +22,10 @@
         .col-md-12                      
           = f.input :site, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "site.ru"
           = f.input :vk_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "vk.com/username"
-          = f.input :facebook_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.facebook.com/username"
           = f.input :odnoklassniki_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "ok.ru/yourpage"
+          = f.input :facebook_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.facebook.com/username"
           = f.input :twitter_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "twitter.com/username"
           = f.input :linkedin_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.linkedin.com/yourpage"
-          
-          
-
-
-      -#
-        string   "phone"
-        string   "phone2"
-        string   "skype",      limit: 50
-        boolean  "show_skype"    default: true
-        string   "site"
-        t.boolean  "show_site",                    default: true
-        string   "vk_url"
-        string   "facebook_url"
-        t.string   "odnoklassniki_url"
-        t.string   "twitter_url"
-        t.string   "linkedin_url"
-        t.datetime "created_at"
-        t.datetime "updated_at"
-        .form-group
-          .col-md-12                      
-            = f.input :lname, :label => t(:lname, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "фамилия"
-        .form-group
-          .col-md-12                      
-            = f.input :name, :label => t(:name, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "username"
-        .form-group
-          .col-md-12                      
-            = f.input :email, :label => t(:email, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, placeholder: "mail@example.ru"
-        .form-group
-          .col-md-12                      
-            = f.input :slug, :label => t(:slug, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, placeholder: "http://glash.ru/адрес"
-        .form-group
-          .col-md-12   
-            = f.input :birthdate, :as => :date_select, :start_year => Date.today.year - 18, :end_year => Date.today.year - 80, :default => Date.today.year - 30,  :include_blank => false, :input_html => {:class => "form-control"}, :required => false
-            = f.input :show_birthdate, :as => :boolean, autofocus: true, :required => false
-        .form-group
-          .col-md-12                      
-            = f.input :gender, :as => :radio, :label => t(:gender, scope: "activerecord.attributes.user"), autofocus: true, :collection => [["Мужской", "M"], ["Женский", "F"]], autofocus: true, :required => false
-            = f.input :show_gender, :as => :boolean, autofocus: true, :required => false
-        .form-group
-          .col-md-12                      
-            = f.input :country_id, :as => :select, :collection => Hash[Country.all.map{|b| [b.name,b.id]}], :include_blank => false, :label => "Страна", autofocus: true, :input_html => {:class => "form-control"}, :required => false
-        .form-group
-          .col-md-12                      
-            = f.input :description, as: :text, rows: 2, :label => t(:description, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 5, :maxlength => 250}, :required => false, placeholder: "напишите немного о себе\n (не более 250 символов)"
-        %hr
-        .form-group
-          .col-md-12
-            %h4 Изменить пароль
-            %p (Оставьте эти поля пустыми, если Вы не хотите менять пароль)
-            %br
-            = f.input :password, autocomplete: "off", :label => t(:password, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, autocomplete: "off"
-            = f.input :password_confirmation, autocomplete: "off", :label => t(:password_confirmation, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, autocomplete: "off"
-        %hr
-        .form-group
-          .col-md-12
-            %h4 Введите текущий пароль
-            %p (Необходимо для сохранения изменений)
-            %br
-            = f.input :current_password, autocomplete: "off", :label => t(:password, scope: "activerecord.attributes.user"), autofocus: true,  :input_html => {:class => "form-control"}, :required => false, autocomplete: "off"
       %br
     = f.actions do
       .form-group
@@ -100,12 +36,3 @@
           &nbsp
           &nbsp
           = link_to "Отмена", :back, :class => "input btn backbtn"
-    
-  -#  
-    %h3 Удалить меня
-    %p
-      Удалить? #{button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete}
-    = link_to "Назад", :back
-
-    %br/
-    %br/    
