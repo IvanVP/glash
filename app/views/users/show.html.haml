@@ -5,32 +5,31 @@
 .col-md-1
 .col-md-8
   %h2.show_user= @user.fullname
+  #cga_info
+    .country{ class: "country_#{@user.country_id}"}
+    -if @user.show_gender && @user.gender
+      .gender{class: "#{@user.gender == 'M' ? 'man': 'woman'}"}
+    -if @user.show_birthdate && @user.birthdate
+      %p.pages
+        Возраст:&nbsp;
+        =@user.age
+    .clearfix 
+  
   = render 'shared/social'
-  .skype
-    -if @user.contact.show_skype && !@user.contact.skype.blank?
+  
+  -if @user.contact.show_skype && !@user.contact.skype.blank?
+    .skype
       %i.icon.icon-skype
       %strong 
       =@user.contact.skype
-  %p.pages
-    -if @user.contact.site
-      =link_to "Персональный сайт", url_with_protocol(@user.contact.site), :target => '_blank'
-  %p.pages  
-    -if @user.country
-      =@user.country.name
-      &nbsp;
-      &nbsp;
-    -if @user.show_birthdate && @user.birthdate
-      =@user.age
-      &nbsp;
-      &nbsp; 
-    -if @user.show_gender && @user.gender
-      -if @user.gender == "M"
-        Мужчина
-      -else
-        Женщина
       %br/
-  %p.pages  
-    -if @user.description
+  -unless @user.contact.site.blank?
+    %p.pages
+      =link_to "Мой сайт", url_with_protocol(@user.contact.site), :target => '_blank'
+      %br/
+  
+  -unless @user.description.blank?
+    %p.description  
       Немного о себе:&nbsp;
       =@user.description
       %br/

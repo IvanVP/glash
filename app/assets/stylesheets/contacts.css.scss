@@ -1,9 +1,14 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#social {
-  margin: 20px 0 35px;
 
+#cga_info {
+  margin: 10px 0 10px;
+
+}
+
+#social {
+  margin: 20px 0 30px;
 }
 
 #social.col-md-12 {
@@ -51,5 +56,47 @@ background-position: 0px 0px;
 .skype {
   font-size: 1.4em;
   color: #72099d;
-  margin-bottom: 10px;
+  margin: 10px 0 10px;
 }
+
+.country {
+  width: 40px;
+  height: 20px;
+  background-color: #EDEFF2;
+  background-image: image-url('social.png');
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 15px;
+}
+
+.country_1 {
+  background-position: 0px -42px;
+}
+.country_2 {
+  background-position: -42px -42px;
+}
+.country_3 {
+  background-position: -84px -42px;
+}
+
+.gender {
+  width: 10px;
+  height: 20px;
+  background-color: #EDEFF2;
+  background-image: image-url('social.png');
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 15px;
+}
+
+.man {
+  background-position: -130px -42px;
+}
+.woman {
+  background-position: -145px -42px;
+}
+
+p.description {
+  margin: 10px 0 10px;
+  font-size: 1.2em;
+}  

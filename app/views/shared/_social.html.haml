@@ -1,21 +1,22 @@
 -twitter = "twitter"
-.col-md-12#social
-  -unless @user.contact.vk_url.blank?
-    =link_to url_with_protocol(@user.contact.vk_url), :target => '_blank' do
-      .social.vk
-  -unless @user.contact.odnoklassniki_url.blank?
-    =link_to url_with_protocol(@user.contact.odnoklassniki_url), :target => '_blank' do
-      .social.odnoklassniki
-  -unless @user.contact.facebook_url.blank?
-    =link_to url_with_protocol(@user.contact.facebook_url), :target => '_blank' do
-      .social.facebook
-  -unless @user.contact.send("#{twitter}_url".to_sym).blank?
-    =link_to url_with_protocol(@user.contact.twitter_url), :target => '_blank' do
-      .social{class: "#{twitter}"}
-  -unless @user.contact.linkedin_url.blank?
-    =link_to url_with_protocol(@user.contact.linkedin_url), :target => '_blank' do
-      .social.linkedin
-.clearfix
+- unless @user.contact.vk_url.blank? && @user.contact.odnoklassniki_url.blank? && @user.contact.facebook_url.blank? && @user.contact.send("#{twitter}_url".to_sym).blank? && @user.contact.linkedin_url.blank?
+  .col-md-12#social
+    -unless @user.contact.vk_url.blank?
+      =link_to url_with_protocol(@user.contact.vk_url), :target => '_blank' do
+        .social.vk
+    -unless @user.contact.odnoklassniki_url.blank?
+      =link_to url_with_protocol(@user.contact.odnoklassniki_url), :target => '_blank' do
+        .social.odnoklassniki
+    -unless @user.contact.facebook_url.blank?
+      =link_to url_with_protocol(@user.contact.facebook_url), :target => '_blank' do
+        .social.facebook
+    -unless @user.contact.send("#{twitter}_url".to_sym).blank?
+      =link_to url_with_protocol(@user.contact.twitter_url), :target => '_blank' do
+        .social{class: "#{twitter}"}
+    -unless @user.contact.linkedin_url.blank?
+      =link_to url_with_protocol(@user.contact.linkedin_url), :target => '_blank' do
+        .social.linkedin
+  .clearfix
 -#
 / .vk
 / =image_tag image_url('social.png'), class: 'vk'

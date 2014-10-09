@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
 
     # # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:phone, :phone2,
+      params.require(:contact).permit(:phone, :phone2, :show_skype,
         :skype, :site, :vk_url, :facebook_url, :odnoklassniki_url, :twitter_url, :linkedin_url)
     end
 
