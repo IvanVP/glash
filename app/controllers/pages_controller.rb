@@ -12,6 +12,9 @@ class PagesController < ApplicationController
   
   def help
   end
+
+  def privacy_policy
+  end
   
   def terms
   end

@@ -6,29 +6,31 @@
 .col-md-8
   %h2.show_user= @user.fullname
   = render 'shared/social'
-  .info  
-    -if @user.show_birthdate && @user.birthdate
-      Возраст:&nbsp; 
-      =@user.age
-      %br/
-    -if @user.country
-      Страна:&nbsp;
-      =@user.country.name
-      %br/
+  .skype
+    -if @user.contact.show_skype && !@user.contact.skype.blank?
+      %i.icon.icon-skype
+      %strong 
+      =@user.contact.skype
+  %p.pages
     -if @user.contact.site
-      Сайт:&nbsp;
-      =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
-      %br/
+      =link_to "Персональный сайт", url_with_protocol(@user.contact.site), :target => '_blank'
+  %p.pages  
+    -if @user.country
+      =@user.country.name
+      &nbsp;
+      &nbsp;
+    -if @user.show_birthdate && @user.birthdate
+      =@user.age
+      &nbsp;
+      &nbsp; 
     -if @user.show_gender && @user.gender
-      Пол: 
       -if @user.gender == "M"
-        Мужской
+        Мужчина
       -else
-        Женский
+        Женщина
       %br/
+  %p.pages  
     -if @user.description
       Немного о себе:&nbsp;
       =@user.description
       %br/
-%br/
-%br/

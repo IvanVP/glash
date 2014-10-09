@@ -25,8 +25,9 @@ ru:
       contact:
         phone: Телефон
         phone2: Еще телефон
-        site: Сайт 
+        site: Личный сайт 
         skype: Skype
+        show_skype: skype виден всем
         vk_url: В контакте
         facebook_url: Facebook
         odnoklassniki_url: Одноклассники
