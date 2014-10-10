@@ -1,0 +1,8 @@
+- unless @user.contact.vkontakte.blank? && @user.contact.odnoklassniki.blank? && @user.contact.facebook.blank? && @user.contact.twitter.blank? && @user.contact.linkedin.blank?
+  .col-md-12#social
+    - %w/vkontakte odnoklassniki facebook twitter linkedin/.each  do |social|
+      -unless @user.contact.send("#{social}".to_sym).blank?
+        =link_to url_with_protocol(@user.contact.send("#{social}".to_sym)), :target => '_blank' do
+          .social{class: "#{social}"}
+      
+  .clearfix

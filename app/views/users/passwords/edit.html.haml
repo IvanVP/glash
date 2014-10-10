@@ -4,7 +4,7 @@
     .featured-box.default
       .box-content
         %h4= t(:change_password, scope: 'devise.passwords')
-        = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+        = semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }, :html => {:id => 'edit_password'}) do |f|
           .row
             = f.hidden_field :reset_password_token #unless signed_in?
             = f.semantic_errors

@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
     # Non devise paths - Edit User -> through Devise; Index, Show User - can all. Avatar -> current-user 
     def check_user
-      unless User.friendly.find(params[:id]) == current_user
+      unless User.friendly.find(params[:id]) == current_user 
         goto_root
       end
       @user = current_user

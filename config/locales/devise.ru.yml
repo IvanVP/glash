@@ -3,6 +3,7 @@ ru:
     models:
       user: Пользователь
       contact: Контакты
+      role: Роли
     attributes:
       user:
         fname: Имя
@@ -22,16 +23,23 @@ ru:
         remember_me: Запомнить меня
         terms: Согласен с правилами сайта
         slug: Адрес URL
+        enabled: Активен
+        warnings: Предупреждения
+        role: Роль
+        country: Страна
+        sign_in_count: Счетчик входов
       contact:
         phone: Телефон
         phone2: Еще телефон
-        site: Сайт 
+        site: Личный сайт 
         skype: Skype
-        vk_url: В контакте
-        facebook_url: Facebook
-        odnoklassniki_url: Одноклассники
-        twitter_url: Twitter
-        linkedin_url: LinkedIn
+        show_skype: skype виден всем
+        show_site: мой сайт виден всем
+        vkontakte: В контакте
+        facebook: Facebook
+        odnoklassniki: Одноклассники
+        twitter: Twitter
+        linkedin: LinkedIn
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.

@@ -4,29 +4,33 @@
   %hr.visible-sm.visible-xs.tall/
 .col-md-1
 .col-md-8
-  %h2= @user.fullname
-  -if @user.show_birthdate && @user.birthdate
-    Возраст:&nbsp; 
-    =@user.age
-    %br/
-  -if @user.country
-    Страна:&nbsp;
-    =@user.country.name
-    %br/
-  -if @user.contact.site
-    Сайт:&nbsp;
-    =link_to @user.contact.site, url_with_protocol(@user.contact.site), :target => '_blank' 
-    %br/
-  -if @user.show_gender && @user.gender
-    Пол: 
-    -if @user.gender == "M"
-      Мужской
+  %h2.show_user= @user.fullname
+  #cga_info
+    .country{ class: "country_#{@user.country_id}"}
+    -if @user.show_gender && @user.gender
+      .gender{class: "#{@user.gender == 'M' ? 'man': 'woman'}"}
+    -if @user.show_birthdate && @user.birthdate
+      %p.pages
+        Возраст:&nbsp;
+        =@user.age
     -else
-      Женский
-    %br/
-  -if @user.description
-    Немного о себе:&nbsp;
-    =@user.description
-    %br/
-%br/
-%br/
+      .clearfix 
+  
+  = render 'shared/social'
+  
+  -if @user.contact.show_skype && !@user.contact.skype.blank?
+    .skype
+      %i.icon.icon-skype
+      %strong 
+      =@user.contact.skype
+      %br/
+  -if @user.contact.show_site && !@user.contact.site.blank?
+    %p.pages
+      =link_to "Мой сайт", url_with_protocol(@user.contact.site), :target => '_blank'
+      %br/
+  
+  -unless @user.description.blank?
+    %p.description  
+      Немного о себе:&nbsp;
+      =@user.description
+      %br/

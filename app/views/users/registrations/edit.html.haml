@@ -1,7 +1,7 @@
 -title "Редактировать профиль"
 %h1
   Редактировать профиль
-= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= semantic_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :id => 'edit_profile' }) do |f|
   .derrors
     = devise_error_messages!
   

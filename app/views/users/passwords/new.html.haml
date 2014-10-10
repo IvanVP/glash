@@ -4,7 +4,7 @@
     .featured-box.default
       .box-content
         %h4= t(:forgot_password, scope: 'devise.passwords')
-        = semantic_form_for @user, url: password_path(@user), :html => {:id => 'contactForm'} do |f|
+        = semantic_form_for @user, url: password_path(@user), :html => {:id => 'new_password'} do |f|
           .row
             = f.inputs do
               .form-group

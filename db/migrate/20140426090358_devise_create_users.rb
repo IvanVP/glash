@@ -1,26 +1,32 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def self.up
     create_table(:users) do |t|
-      t.string :fname,              limit: 30
-      t.string :mname,              limit: 70
-      t.string :lname,              limit: 50
-      t.string :name,               limit: 50
-
-
-      ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-
-      t.boolean :terms,             default: false
-      
+      t.string  :fname,              limit: 30
+      t.string  :mname,              limit: 70
+      t.string  :lname,              limit: 50
+      t.string  :name,               limit: 50
+      t.string  :email,              null: false, default: ""
+      t.string  :slug,               null: false
       t.date    :birthdate 
-      t.boolean :show_birthdate,      default: true
-
+      t.boolean :show_birthdate,     default: true
       t.string  :gender,             limit: 1 
       t.boolean :show_gender,        default: true
-      t.string  :foto
       t.text    :description
+      t.integer :warnings,           default: 0
+      t.boolean :enabled,            default: true
+      t.integer :role_id
+      t.integer :country_id
+      t.timestamps
+      
+      t.boolean :terms,             default: false
+      t.string :encrypted_password, null: false, default: ""
 
+      ## Trackable
+      t.integer  :sign_in_count,     default: 0, null: false
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
 
       ## Recoverable
       t.string   :reset_password_token
@@ -28,13 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Rememberable
       t.datetime :remember_created_at
-
-      ## Trackable
-      t.integer  :sign_in_count, default: 0, null: false
-      t.datetime :current_sign_in_at
-      t.datetime :last_sign_in_at
-      t.string   :current_sign_in_ip
-      t.string   :last_sign_in_ip
 
       ## Confirmable
       t.string   :confirmation_token
@@ -46,18 +45,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
-      t.string :slug,               :null => false
-
-      t.timestamps
+      
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
     add_index :users, :name,                 unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :slug,                 unique: true
+    add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
 
-    add_index :users, :slug,                 unique: true
     # add_index :users, :unlock_token,         unique: true
   end
 

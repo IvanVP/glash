@@ -1,4 +1,5 @@
 -title 'Редактировать аватар'
+
 -content_for(:head_js) do
   =javascript_include_tag "jquery.Jcrop.min"
 :javascript
@@ -20,7 +21,7 @@
     $("#crop_w").val(Math.round(coords.w * ratio));
     $("#crop_h").val(Math.round(coords.h * ratio));
   }
-
+%h2 Редактировать аватар
 .row
   .col-md-12
     .col-md-6.col-md-offset-3.avatarimg

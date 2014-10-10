@@ -5,6 +5,7 @@ Glash::Application.routes.draw do
     get 'goodbye' => :goodbye, as: :goodbye
     get 'faq' => :faq,  as: :faq
     get 'help' =>:help,  as: :help
+    get 'privacy_policy' =>:privacy_policy,  as: :privacy_policy
     get 'terms' =>:terms,  as: :terms
   end
    

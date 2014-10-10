@@ -1,3 +1,102 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#cga_info {
+  margin: 10px 0 10px;
+
+}
+
+#social {
+  margin: 20px 0 30px;
+}
+
+#social.col-md-12 {
+  padding: 0;
+}
+
+.social {
+  transition: all 0.2s;
+  width: 40px;
+  height: 40px;
+  background-color: #EDEFF2;
+  background-image: image-url('social.png');
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  opacity: 1;
+  float: left;
+  margin-right: 5px;
+
+    &:hover{
+      opacity: 0.8;
+    }
+
+    &:active{
+      opacity: 1;
+    }
+}
+
+.vkontakte {
+  background-position: -168px 0px;
+}
+
+.odnoklassniki {
+  background-position: -126px 0px;
+}
+.facebook {
+background-position: 0px 0px;
+}
+.twitter{
+  background-position: -42px 0px;
+}
+.linkedin{
+  background-position: -84px 0px;
+}
+
+.skype {
+  font-size: 1.4em;
+  color: #72099d;
+  margin: 10px 0 10px;
+}
+
+.country {
+  width: 40px;
+  height: 20px;
+  background-color: #EDEFF2;
+  background-image: image-url('social.png');
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 15px;
+}
+
+.country_1 {
+  background-position: 0px -42px;
+}
+.country_2 {
+  background-position: -42px -42px;
+}
+.country_3 {
+  background-position: -84px -42px;
+}
+
+.gender {
+  width: 10px;
+  height: 20px;
+  background-color: #EDEFF2;
+  background-image: image-url('social.png');
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 15px;
+}
+
+.man {
+  background-position: -130px -42px;
+}
+.woman {
+  background-position: -145px -42px;
+}
+
+p.description {
+  margin: 10px 0 10px;
+  font-size: 1.2em;
+}  

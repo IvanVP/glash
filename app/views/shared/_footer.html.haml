@@ -5,25 +5,29 @@
         .logo.push-bottom= link_to image_tag('logo-footer.png', alt: "Glash!"), root_path
         %p
           Это сайт о дизайне и разных полезных и умных изобретениях. Присылайте нам свои идеи, комментируйте идеи других и зарабатывайте с нами!
-          = link_to help_path, class: "btn-flat btn-xs" do
-            Подробнее
-            %i.icon.icon-arrow-right
+          -#
+            &nbsp;
+            = link_to help_path, class: "btn-flat btn-xs" do
+              Подробнее
+              %i.icon.icon-arrow-right
         .contact-details
           %ul.contact
-            %li
-              %p
-                %i.icon.icon-map-marker
-                %strong Информация
-            %li
-              %p
-                %i.icon.icon-phone
-                %strong Телефон
-                (123) 456-7890
             %li
               %p
                 %i.icon.icon-envelope
                 %strong Email:
                 %a{href: "mailto:mail@example.com"} mail@example.com
+            -#
+              %li
+                %p
+                  %i.icon.icon-map-marker
+                  %strong Информация
+              %li
+                %p
+                  %i.icon.icon-phone
+                  %strong Телефон
+                  (123) 456-7890
+            
       .col-md-3
         %h4 Блог
         %ul.nav.nav-list.primary
@@ -46,13 +50,13 @@
           %li
             %a{href: help_path, title: "Как это все работает"} Как это все работает
           %li
-            %a{href: terms_path, title: "Правила сайта"} Правила сайта
-          %li
-            %a{href: root_path, title: "Блог"} Блог
-          %li
             %a{href: faq_path, title: "Вопросы и ответы"} Вопросы и ответы
           %li
-            %a{href: root_path, title: "Предложите идею"} Предложите идею
+            %a{href: root_path, title: "Форум"} Форум
+          %li
+            %a{href: terms_path, title: "Правила сайта"} Правила сайта
+          %li
+            %a{href: privacy_policy_path, title: "Политика безопасности"} Политика безопасности
         -#
           %h4 Recent Tweets
           #tweet.twitter{"data-account-id" => ""}

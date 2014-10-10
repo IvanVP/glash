@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
   private
 
     def check_user
-      unless User.friendly.find(params[:user_id]) == current_user || Contact.find(params[:_id]) == current_user.contact.id 
+      unless User.friendly.find(params[:user_id]) == current_user && Contact.find(User.friendly.find(params[:user_id])) == Contact.find(params[:id])
         goto_root
       end
       @user = current_user
@@ -38,8 +38,8 @@ class ContactsController < ApplicationController
 
     # # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:phone, :phone2,
-        :skype, :site, :vk_url, :facebook_url, :odnoklassniki_url, :twitter_url, :linkedin_url)
+      params.require(:contact).permit(:phone, :phone2, :show_skype, :skype,:show_site, :site,
+       :vkontakte, :facebook, :odnoklassniki, :twitter, :linkedin)
     end
 
     def goto_root

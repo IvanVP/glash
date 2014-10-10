@@ -6,7 +6,7 @@
         %h4= t(:sign_up)
         %p
           Все поля обязательны для заполнения
-        = semantic_form_for @user, :html => {:id => 'contactForm'} do |f|
+        = semantic_form_for @user, :html => {:id => 'sign_up'} do |f|
           .row
             = f.inputs do
               .form-group
