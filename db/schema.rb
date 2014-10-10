@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929150701) do
+ActiveRecord::Schema.define(version: 20140929143329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,18 +32,18 @@ ActiveRecord::Schema.define(version: 20140929150701) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "contacts", force: true do |t|
-    t.integer  "user_id",                                     null: false
+    t.integer  "user_id",                                  null: false
     t.string   "phone"
     t.string   "phone2"
-    t.string   "skype",             limit: 50
-    t.boolean  "show_skype",                   default: true
+    t.string   "skype",         limit: 50
+    t.boolean  "show_skype",               default: false
     t.string   "site"
-    t.boolean  "show_site",                    default: true
-    t.string   "vk_url"
-    t.string   "facebook_url"
-    t.string   "odnoklassniki_url"
-    t.string   "twitter_url"
-    t.string   "linkedin_url"
+    t.boolean  "show_site",                default: false
+    t.string   "vkontakte"
+    t.string   "facebook"
+    t.string   "odnoklassniki"
+    t.string   "twitter"
+    t.string   "linkedin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,34 +80,34 @@ ActiveRecord::Schema.define(version: 20140929150701) do
     t.string   "lname",                  limit: 50
     t.string   "name",                   limit: 50
     t.string   "email",                             default: "",    null: false
-    t.string   "encrypted_password",                default: "",    null: false
-    t.boolean  "terms",                             default: false
+    t.string   "slug",                                              null: false
     t.date     "birthdate"
     t.boolean  "show_birthdate",                    default: true
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
     t.text     "description"
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.boolean  "enabled",                           default: true
+    t.integer  "role_id"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "terms",                             default: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "slug",                                              null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer  "role_id"
-    t.integer  "country_id"
-    t.boolean  "enabled",                           default: true
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

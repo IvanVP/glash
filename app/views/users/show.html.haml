@@ -23,7 +23,7 @@
       %strong 
       =@user.contact.skype
       %br/
-  -unless @user.contact.site.blank?
+  -if @user.contact.show_site && !@user.contact.site.blank?
     %p.pages
       =link_to "Мой сайт", url_with_protocol(@user.contact.site), :target => '_blank'
       %br/

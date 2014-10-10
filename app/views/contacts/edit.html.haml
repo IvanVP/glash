@@ -14,22 +14,20 @@
       .form-group
         .col-md-12                      
           = f.input :phone, as: :phone, :label => t(:phone, scope: "activerecord.attributes.contact"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "+7 (987) 123-4567"
-      .form-group
-        .col-md-12                      
           = f.input :phone2, :label => t(:phone, scope: "activerecord.attributes.contact"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "запасной телефон"
-      .form-group
-        .col-md-12                      
           = f.input :skype, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "skype"
           = f.input :show_skype, :as => :boolean, autofocus: true, :required => false
+          = f.input :site, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "site.ru"
+          = f.input :show_site, :as => :boolean, autofocus: true, :required => false
       %hr
       .form-group
-        .col-md-12                      
-          = f.input :site, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "site.ru"
-          = f.input :vk_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "vk.com/username"
-          = f.input :odnoklassniki_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "ok.ru/yourpage"
-          = f.input :facebook_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.facebook.com/username"
-          = f.input :twitter_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "twitter.com/username"
-          = f.input :linkedin_url, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.linkedin.com/yourpage"
+        .col-md-12
+          %h5 Социальные сети                      
+          = f.input :vkontakte, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "vk.com/username"
+          = f.input :odnoklassniki, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "ok.ru/yourpage"
+          = f.input :facebook, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.facebook.com/username"
+          = f.input :twitter, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "twitter.com/username"
+          = f.input :linkedin, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.linkedin.com/yourpage"
       %br
     = f.actions do
       .form-group

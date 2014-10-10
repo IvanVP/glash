@@ -28,11 +28,12 @@ ru:
         site: Личный сайт 
         skype: Skype
         show_skype: skype виден всем
-        vk_url: В контакте
-        facebook_url: Facebook
-        odnoklassniki_url: Одноклассники
-        twitter_url: Twitter
-        linkedin_url: LinkedIn
+        show_site: мой сайт виден всем
+        vkontakte: В контакте
+        facebook: Facebook
+        odnoklassniki: Одноклассники
+        twitter: Twitter
+        linkedin: LinkedIn
   devise:
     confirmations:
       confirmed: Ваша учётная запись подтверждена.
