@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
-gem 'turbolinks'
+# gem 'turbolinks'
 
 gem 'friendly_id', '~> 5.0.0'
 gem 'babosa', '~> 0.3.11'
@@ -20,7 +20,7 @@ gem 'babosa', '~> 0.3.11'
 # gem 'simple_form'
 # gem 'country_select'
 
-gem 'formtastic', '~> 2.3.0.rc3'
+gem 'formtastic'
 # gem 'formtastic-plus-bootstrap', '~> 1.1.7'
 
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -45,9 +45,27 @@ group :development, :test do
   gem 'populator'
   gem 'faker'
   gem 'vydumschik'
-  gem 'sqlite3'
 
+  gem 'spring'
+  gem 'guard-spring'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
+  # gem 'guard-livereload', require: false
+  gem 'guard-cucumber'
+  gem "spring-commands-cucumber"
+  gem 'rspec-activemodel-mocks'
+  gem 'factory_girl_rails'
+end
 
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'shoulda-matchers', require: false
+  gem 'launchy'
 end
 
 gem 'devise', '~> 3.2.4'
