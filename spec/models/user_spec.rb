@@ -44,11 +44,15 @@ require 'rails_helper'
 
 describe User do
 
-  before(:each) { @user = User.new(email: 'user@example.com') }
+  before(:each) { @user = User.create(email: 'user@example.com') }
 
   subject { @user }
 
   it { should respond_to(:email) }
+  # it 'must have unique email' do
+  #   other = User.create(name: "guest", email: 'user@example.com')
+  #   expect(subject).to validate_uniqueness_of :email
+  # end 
 
   it "#email returns a string" do
     expect(@user.email).to match 'user@example.com'
