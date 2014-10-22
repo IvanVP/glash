@@ -12,6 +12,7 @@ FactoryGirl.define do
     # phone "+7(999) 753-5555"
     password "password"
     password_confirmation "password"
+    terms true
   end
 
   factory :invalid_user, :class => "User"  do

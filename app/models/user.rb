@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
-  # validates :terms, acceptance: {:accept => true}
+  validates :terms, acceptance: {:accept => true}
+
 
   before_create :build_default_info
   
