@@ -10,7 +10,7 @@ ActiveAdmin.register User do
     column :country
     column :slug
     column :sign_in_count
-    default_actions
+    actions
   end
 
 
