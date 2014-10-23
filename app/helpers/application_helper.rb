@@ -7,4 +7,8 @@ module ApplicationHelper
     /^http/.match(url) ? url : "http://#{url}"
   end
 
+  def most_active_users
+    User.most_active
+  end
+
 end
