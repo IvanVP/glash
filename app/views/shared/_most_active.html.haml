@@ -3,10 +3,9 @@
   -most_active_users.each do |user|
     %li
       %a.thumb-info{href: users_path(user)}
-      =link_to image_tag(user.avatar.url(:thumb), {class: "img.img-responsive", alt: "#{user.fullname}", height: "78",width: "78"}), user
-      -#
-        %img.img-responsive{alt: "#{user.fullname}", src: image_path('projects/project-thumb-1.jpg'), height: "70", width: "70"}/
+      =link_to image_tag(user.avatar.url(:thumb), {class: "img.img-responsive", alt: "#{user.fullname}", title: "#{user.fullname}", height: "79",width: "79"}), user
 %br/
 =link_to users_path, {class: "pull-right most-active-users"} do
   Посмотреть всех
+  &nbsp;
   %i.icon.icon-arrow-right

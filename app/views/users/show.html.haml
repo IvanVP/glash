@@ -1,6 +1,6 @@
 -title "#{@user.fullname}"
 .col-md-3
-  = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar"}
+  = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@user.fullname}"}
   %hr.visible-sm.visible-xs.tall/
 .col-md-1
 .col-md-8
