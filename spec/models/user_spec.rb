@@ -3,18 +3,18 @@ require 'rails_helper'
 
 describe User do
 
-  before(:each) { @user = create(:user) }
-
-  subject { @user }
-
   describe "by registration" do
+
     context "is valid with valid parameters" do
+
       it 'is registered' do
         expect(create(:user)).to be_valid
       end
+
       it "is invalid with invalid parameters" do
         expect(build(:invalid_user)).not_to be_valid
       end
+
     end
 
     context "is invalid with wrong parameters" do
@@ -55,7 +55,6 @@ describe User do
       end
 
     end
-
     
   end
 
@@ -99,6 +98,10 @@ describe User do
 
   describe "Class methods" do
     
+    before(:each) { @user = create(:user) }
+
+    subject { @user }
+    
     it { is_expected.to respond_to(:email) }
 
     it "a string returns from #fullname " do
@@ -106,18 +109,18 @@ describe User do
     end
 
     context "builds correct country,role and contact data" do
-      let!(:user) { create(:user) }
+      # let!(:user) { create(:user) }
 
       it "has correct country" do
         # allow(user).to receive(:country) { 'Россия' }
-        expect(user.country.name).to match /Россия/
+        expect(@user.country.name).to match /Россия/
       end
       it "has correct role" do
         # allow(user).to receive(:role) { 'Member' }
-        expect(user.role.name).to match /Member/
+        expect(@user.role.name).to match /Member/
       end
       it "has correct contact data" do
-        expect(user.contact).to be_truthy
+        expect(@user.contact).to be_truthy
       end
 
     end
