@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 46f94a16e430a2ff476f71ec19281df36dc85b5e
+  revision: 91035831e9a1bbd224e1221167362c132e7d06b5
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -60,7 +60,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     babosa (0.3.11)
-    bcrypt (3.1.7)
+    bcrypt (3.1.9)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
