@@ -1,0 +1,45 @@
+.contact-detail
+/ Begin MailChimp Signup Form
+%link{:href => "//cdn-images.mailchimp.com/embedcode/classic-081711.css", :rel => "stylesheet", :type => "text/css"}/
+:css
+  -#
+    #mc_embed_signup{background:#6F5499; clear:left; font:14px Helvetica,Arial,sans-serif; }
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.  We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+#mc_embed_signup
+  %form#mc-embedded-subscribe-form.validate{:action => "//us8.list-manage.com/subscribe/post?u=acf0e2145773132dab5c541d1&id=77f7cf58ac", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+    #mc_embed_signup_scroll
+      %p Получайте наши новости первыми
+      .mc-field-group
+        %label{:for => "mce-EMAIL"} Ваш Емайл
+        %input#mce-EMAIL.required.email{:name => "EMAIL", :type => "email", :value => ""}/
+      #mce-responses.clear
+        #mce-error-response.response{:style => "display:none"}
+        #mce-success-response.response{:style => "display:none"}
+      / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+      %div{:style => "position: absolute; left: -5000px;"}
+        %input{:name => "b_acf0e2145773132dab5c541d1_77f7cf58ac", :tabindex => "-1", :type => "text", :value => ""}/
+      .clear
+        %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Подписаться"}/
+-#        
+  %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+:javascript
+  (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+/ End mc_embed_signup
+
+-#
+  %ul.contact
+    %li
+      %p
+        %i.icon.icon-envelope
+        %strong Email:
+        %a{href: "mailto:support@glash.ru"} support@glash.ru
+    -#
+      %li
+        %p
+          %i.icon.icon-map-marker
+          %strong Информация
+      %li
+        %p
+          %i.icon.icon-phone
+          %strong Телефон
+          (123) 456-7890

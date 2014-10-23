@@ -6,7 +6,7 @@
     = devise_error_messages!
   
   .col-md-3
-    = image_tag @user.avatar.url(:thumb), class: "img-thumbnail", width: "192px"
+    = image_tag @user.avatar.url(:thumb), class: "img-thumbnail", alt: "#{@user.fullname}", title: "#{@user.fullname}", width: "192px"
     %br
     %br
     = link_to "Изменить аватар", load_avatar_user_path(current_user) , :class => "input btn btn-primary"

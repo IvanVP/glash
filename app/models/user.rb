@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
-  # validates :terms, acceptance: {:accept => true}
+  validates :terms, acceptance: {:accept => true}
+
 
   before_create :build_default_info
   
@@ -23,6 +24,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
         :recoverable, :rememberable, :trackable, :validatable
+
+  scope :most_active, -> {order('updated_at DESC').first(9)}
 
   has_attached_file :avatar, :styles => { :large => "500x500>", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png", :processors => [:cropper]
 

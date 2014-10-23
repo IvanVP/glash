@@ -10,24 +10,12 @@
             = link_to help_path, class: "btn-flat btn-xs" do
               Подробнее
               %i.icon.icon-arrow-right
-        .contact-details
-          %ul.contact
-            %li
-              %p
-                %i.icon.icon-envelope
-                %strong Email:
-                %a{href: "mailto:support@glash.ru"} support@glash.ru
-            -#
-              %li
-                %p
-                  %i.icon.icon-map-marker
-                  %strong Информация
-              %li
-                %p
-                  %i.icon.icon-phone
-                  %strong Телефон
-                  (123) 456-7890
-            
+
+        -if signed_in?
+          =render "shared/contact_user"
+        -else
+          =render "shared/subscribe_news"
+
       .col-md-3
         %h4 Блог
         %ul.nav.nav-list.primary
@@ -43,7 +31,9 @@
             %a{href: root_path, title: "Уникальный ящик для инструмента"} Уникальный ящик для инструмента...
         %a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: root_path}
           Еще записи
+          &nbsp;
           %i.icon.icon-arrow-right
+
       .col-md-3
         %h4 Информация
         %ul.nav.nav-list.primary
@@ -51,8 +41,9 @@
             %a{href: help_path, title: "Как это все работает"} Как это все работает
           %li
             %a{href: faq_path, title: "Вопросы и ответы"} Вопросы и ответы
-          %li
-            %a{href: root_path, title: "Форум"} Форум
+          -#
+            %li
+              %a{href: root_path, title: "Форум"} Форум
           %li
             %a{href: terms_path, title: "Правила сайта"} Правила сайта
           %li
@@ -63,38 +54,7 @@
             %p Please wait...
 
       .col-md-3
-        %h4 Новые Идеи
-        %ul.list-unstyled.recent-work
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-1.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-9.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-3.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-4.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-5.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-11.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-2.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-6.jpg'), width: "78"}/
-          %li
-            %a.thumb-info{href: root_path}
-              %img.img-responsive{alt: "", height: "78", src: image_path('projects/project-thumb-7.jpg'), width: "78"}/
-        %a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: root_path}
-          Еще Идеи
-          %i.icon.icon-arrow-right
+        =render "shared/most_active"
   .footer-copyright
     .container
       .row
@@ -103,7 +63,7 @@
         .col-md-6
           %ul.social-icons
             %li
-              %a{href: "http://www.twitter.com/", rel: "tooltip", target: "_blank", title: "Twitter"}
+              %a{href: "https://twitter.com/glash_ru", rel: "tooltip", target: "_blank", title: "Twitter"}
                 %i.icon.icon-twitter
             %li
               %a{href: "http://www.facebook.com/", rel: "tooltip", target: "_blank", title: "Facebook"}
