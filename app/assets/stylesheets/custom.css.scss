@@ -149,3 +149,16 @@ h2.show_user {
 a.most-active-users {
   padding: 15px 10px;
 }
+
+
+#subscribe_form {
+  li {
+    padding: 0.3em 1em 0.3em 0;
+  }
+  input {
+    height: 35px;
+  }
+  .btn.btn-primary {
+    padding: 0.2em 0.7em;
+  }
+}
