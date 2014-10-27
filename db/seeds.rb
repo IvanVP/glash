@@ -59,3 +59,11 @@ users.each_line do |str|
     u.save!(:validate => false)
   end
 end
+
+
+categories = %W/Гаджеты Для\ дома Для\ дачи Для\ детей Здоровье Путешествия Разное /
+i=1
+categories.each do |category|
+  Category.find_or_create_by(name: category, order: i)
+  i += 1
+end
