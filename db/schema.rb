@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027121146) do
+ActiveRecord::Schema.define(version: 20141027124005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,25 @@ ActiveRecord::Schema.define(version: 20141027121146) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "ideas", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "title",        limit: 40
+    t.string   "synopsis",     limit: 150
+    t.text     "problem"
+    t.text     "background"
+    t.text     "solution"
+    t.text     "links"
+    t.boolean  "published",                default: false
+    t.boolean  "moderated",                default: false
+    t.boolean  "archieved",                default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "published_at"
+    t.datetime "moderated_at"
+    t.datetime "archieved_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"

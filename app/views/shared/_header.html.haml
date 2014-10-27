@@ -31,8 +31,12 @@
                 %a{href: root_path} Первый
               %li
                 %a{href: root_path} Первый
-          %li
-            %a{href: root_path}
+          - if current_page?(ideas_path)
+            - css_class_ideas = 'active'
+          -else 
+            - css_class_users = ''
+          %li{:class => css_class_ideas}
+            %a{href: ideas_path}
               Идеи
           -#%li
             %a{href: root_path}
@@ -94,7 +98,7 @@
             - css_class_users = 'active'
           -else 
             - css_class_users = ''
-          %li
+          %li{:class => css_class_users}
             %a{href: users_path}
               Сообщество
           -#%li.dropdown

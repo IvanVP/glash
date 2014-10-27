@@ -12,7 +12,7 @@ Glash::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   authenticated :user do
-    root to: "base#index", :as => "base"
+    root to: "ideas#index", :as => "ideas"
   end
 
   root to: "base#default"
@@ -27,6 +27,8 @@ Glash::Application.routes.draw do
 
     resources :contacts
   end
+
+  resources :ideas, only: [:index, :show, :new, :create]
 
   
   # The priority is based upon order of creation: first created -> highest priority.

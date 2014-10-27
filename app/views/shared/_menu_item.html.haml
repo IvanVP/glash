@@ -16,14 +16,14 @@
       %i.icon.icon-caret-down
     %ul.dropdown-menu
       -if current_user.is_admin?
-        %li= link_to 'Admin', admin_dashboard_path
+        %li= link_to 'Панель администратора', admin_dashboard_path
         %li.divider
       
       %li= link_to "Редактировать профиль", edit_registration_path(current_user)
       %li= link_to "Загрузить аватар", load_avatar_user_path(current_user) unless current_user.avatar_file_name
       %li= link_to "Редактировать аватар", avatar_user_path(current_user) if current_user.avatar_file_name
 
-      %li= link_to "Контакты", edit_user_contact_path(current_user, current_user.contact)
+      %li= link_to "Изменить контакты", edit_user_contact_path(current_user, current_user.contact)
       
 
       -#
