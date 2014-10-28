@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    models:
+      idea: Идея
+    attributes:
+      idea:
+        title: Название
+        synopsis: Коротко
+        problem: Проблема
+        background: Существующие предложения
+        solution: Решение
+        links: Ссылки
+        published: Опубликовано
+        moderated: Модерировано
+        archieved: Архивировано
+        views: Просмотрено

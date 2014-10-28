@@ -4,7 +4,7 @@ ruby '2.1.1'
 gem 'rails', '4.1.0'
 
 gem 'figaro', '~> 0.7.0'
-gem 'i18n', '~> 0.6.9'
+gem 'i18n', '~> 0.6.11'
 
 gem 'haml', '~> 4.0.5'
 gem 'sass-rails', '~> 4.0.2'
