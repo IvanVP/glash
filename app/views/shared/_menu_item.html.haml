@@ -1,11 +1,7 @@
 
 -if signed_in?
-  - if !current_page?(users_path) && (params[:controller] == 'users' && !@user.nil? && @user == current_user)
-    - css_class = 'active'
-  - else 
-    - css_class = '' 
-  -#
-    - css_class = '' 
+  - css_class = user_css_klass? ? 'active' : ''
+    
   %li{:class => 'dropdown ' + css_class}
     -#
       %a.dropdown-toggle{:href=>dashboard_user_path(current_user), 'data-target'=> '#', 'data-toggle' => 'dropdown'}
@@ -13,12 +9,14 @@
         %i.icon.icon-caret-down
     %a.dropdown-toggle{href: user_path(current_user)}
       = current_user.fullname
+
       %i.icon.icon-caret-down
     %ul.dropdown-menu
       -if current_user.is_admin?
         %li= link_to 'Панель администратора', admin_dashboard_path
         %li.divider
       
+      %li= link_to "Мой профиль", user_path(current_user)
       %li= link_to "Редактировать профиль", edit_registration_path(current_user)
       %li= link_to "Загрузить аватар", load_avatar_user_path(current_user) unless current_user.avatar_file_name
       %li= link_to "Редактировать аватар", avatar_user_path(current_user) if current_user.avatar_file_name
