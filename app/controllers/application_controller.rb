@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
     goodbye_path
   end
 
+  protected
+
+  def after_sign_in_path_for(resource)
+    ideas_path
+  end
+
 end

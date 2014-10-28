@@ -11,11 +11,11 @@ Glash::Application.routes.draw do
    
   ActiveAdmin.routes(self)
 
-  authenticated :user do
-    root to: "ideas#index", :as => "ideas"
-  end
+  # authenticated :user do
+  #   root to: "ideas#index", :as => "ideas"
+  # end
 
-  root to: "base#default"
+  root to: "pages#default"
   
   devise_for :users, :controllers => {:registrations => "registrations"}
 

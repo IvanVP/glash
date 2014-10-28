@@ -16,6 +16,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.datetime   :published_at
       t.datetime   :moderated_at
       t.datetime   :archieved_at
+      t.integer    :views, default: 0
 
     end
   end

@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20141027124005) do
     t.datetime "published_at"
     t.datetime "moderated_at"
     t.datetime "archieved_at"
+    t.integer  "views",                    default: 0
   end
 
   create_table "roles", force: true do |t|

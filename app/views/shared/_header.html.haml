@@ -31,10 +31,16 @@
                 %a{href: root_path} Первый
               %li
                 %a{href: root_path} Первый
-          - if current_page?(ideas_path)
-            - css_class_ideas = 'active'
-          -else 
-            - css_class_users = ''
+          -#      
+            - if current_page?(ideas_path)
+              - css_class_ideas = 'active'
+            -else 
+              - css_class_ideas = ''
+
+            #{controller.controller_name.to_s}.#{controller.action_name.to_s}" == "pages.index"
+            - css_class_ideas = current_page('ideas', 'index')
+
+          - css_class_ideas = controller.controller_name.to_s == "ideas" ? 'active' : ''
           %li{:class => css_class_ideas}
             %a{href: ideas_path}
               Идеи
@@ -94,10 +100,7 @@
                 %a{href: root_path} Первый
               %li
                 %a{href: root_path} Первый
-          - if current_page?(users_path)
-            - css_class_users = 'active'
-          -else 
-            - css_class_users = ''
+          - css_class_users = current_page?(users_path) ? 'active' : ''
           %li{:class => css_class_users}
             %a{href: users_path}
               Сообщество

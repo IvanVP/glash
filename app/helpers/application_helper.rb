@@ -11,4 +11,12 @@ module ApplicationHelper
     User.most_active
   end
 
+  def current_page(page,action = nil)
+    if controller.controller_name.to_s == page && controller.action_name.to_s == action
+      'active'
+    else
+      ''
+   end
+  end
+
 end
