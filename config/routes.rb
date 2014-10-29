@@ -30,6 +30,18 @@ Glash::Application.routes.draw do
 
   resources :ideas
 
+
+  # # ******Shallow*****
+  # resources :articles do
+  #   resources :comments, only: [:index, :new, :create]
+  # end
+  # resources :comments, only: [:show, :edit, :update, :destroy]
+
+  # # The same **********
+  # resources :articles do
+  #   resources :comments, shallow: true
+  # end
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

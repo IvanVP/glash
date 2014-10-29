@@ -32,9 +32,10 @@
     .form-group
       .col-md-12 
         %br
-        = f.submit "Создать", :class => "input btn btn-primary"
+        = f.submit action, :class => "input btn btn-primary"
         &nbsp
         &nbsp
         &nbsp
         = link_to "Отмена", :back, :class => "input btn backbtn"
+        = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
 
