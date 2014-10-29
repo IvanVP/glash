@@ -1,0 +1,35 @@
+-title @idea.title
+
+%h1= @idea.title
+
+%p#notice= notice
+%p
+  %strong synopsis:
+  = @idea.synopsis
+%p
+  %strong problem:
+  = @idea.problem
+%p
+  %strong background:
+  = @idea.background
+%p
+  %strong solution:
+  = @idea.solution
+%p
+  %strong links:
+  = @idea.links
+
+-#
+  = link_to 'Edit', edit_idea_path(@idea)
+|
+=link_to 'Back', ideas_path
+
+
+%br
+=link_to "Предложи идею", new_idea_path(@idea)
+%hr
+%br
+%br
+%br
+%br 
+%br

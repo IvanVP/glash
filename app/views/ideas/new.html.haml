@@ -1,48 +1,16 @@
 -title "Предложи идею"
 
 %h1 Предложи идею
+.col-md-12
+%p
+  Я подтверждаю что это моя идея и она удовлетворяет всем требованиям.
+%br/
 
-= semantic_form_for @idea, html: {method: :post, :id => 'new_idea'} do |f|
 
-  = f.inputs do
-    .col-md-12
-    %p
-      Я подтверждаю что это моя идея и она удовлетворяет всем требованиям.
-    %br/
-    .form-group
-      .col-md-12
-        / Category !!!!                  
-        = f.input :title, :label => t(:title, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :maxlength => 40}, :required => false, placeholder: "название идеи (не более 40 символов)"
-
-        = f.input :synopsis, as: :text, :label => t(:synopsis, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 3, :maxlength => 150}, :required => false, placeholder: "напишите коротко об идее (не более 150 символов)"
-        -#
-          = f.input :phone2, :label => t(:phone, scope: "activerecord.attributes.contact"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "запасной телефон"
-          = f.input :skype, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "skype"
-          = f.input :show_skype, :as => :boolean, autofocus: true, :required => false
-          = f.input :site, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "site.ru"
-          = f.input :show_site, :as => :boolean, autofocus: true, :required => false
-  -#
-    %hr
-    .form-group
-      .col-md-12
-        %h5 Социальные сети                      
-        = f.input :vkontakte, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "vk.com/username"
-        = f.input :odnoklassniki, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "ok.ru/yourpage"
-        = f.input :facebook, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.facebook.com/username"
-        = f.input :twitter, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "twitter.com/username"
-        = f.input :linkedin, autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "www.linkedin.com/yourpage"
-    %br
+/ Category !!!!                  
+= render 'form' 
   
-  = f.actions do
-    .form-group
-      .col-md-12 
-        %br
-        = f.submit "Create", :class => "input btn btn-primary"
-        &nbsp
-        &nbsp
-        &nbsp
-        = link_to "Отмена", :back, :class => "input btn backbtn"
-
+  
 
 %br
 %hr

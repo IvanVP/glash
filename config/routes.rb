@@ -28,7 +28,7 @@ Glash::Application.routes.draw do
     resources :contacts
   end
 
-  resources :ideas, only: [:index, :show, :new, :create]
+  resources :ideas
 
   
   # The priority is based upon order of creation: first created -> highest priority.
