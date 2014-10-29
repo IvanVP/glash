@@ -5,10 +5,10 @@
 %p
   Я подтверждаю что это моя идея и она удовлетворяет всем требованиям.
 %br/
-
+= p @idea.idea_images
 
 / Category !!!!                  
-= render 'form', action: "Сохранить"
+= render 'form', action: "Сохранить", collection: @idea.idea_images
   
   
 

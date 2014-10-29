@@ -31,9 +31,9 @@ feature 'User creates new idea', :devise do
     # fill_in 'idea_links', :with => idea.links
     # fill_in 'idea_links', :with => idea.links
     # fill_in 'idea_links', :with => idea.links
-    click_button 'Create'
-    
-    expect(page).to have_content("Ваша идея сохранена")
+    click_button 'Сохранить'
+    visit idea_path(idea.id)
+    expect(page).to have_content(idea.title)
   end
 
 end

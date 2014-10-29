@@ -6,15 +6,16 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
     @idea.increment!("views")
   end
   
   def new
     @idea = Idea.new
+    7.times {@idea.idea_images.build}
   end
 
   def edit
+    7.times {@idea.idea_images.build}
   end
 
   def create
@@ -50,7 +51,7 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links)
+      params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links, idea_attributes: [ :image, :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])
     end
 
 
