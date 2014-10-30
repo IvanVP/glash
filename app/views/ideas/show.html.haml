@@ -15,10 +15,10 @@
 %p
   %strong solution:
   = @idea.solution
--#
-  = p @idea.idea_images
-  - @idea.idea_images.each do |f|
-    = image_tag f.image.url(:large)
+  =puts "********"
+  = @idea.assets.each {|x| p x}
+  - @idea.assets.each do |f|
+    = image_tag f.url(:thumb)
 %p
   %strong links:
   = @idea.links
