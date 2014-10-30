@@ -11,11 +11,11 @@ class IdeasController < ApplicationController
   
   def new
     @idea = Idea.new
-    7.times {@idea.idea_images.build}
+    # 7.times {@idea.idea_images.build}
   end
 
   def edit
-    7.times {@idea.idea_images.build}
+    # 7.times {@idea.idea_images.build}
   end
 
   def create
@@ -51,7 +51,7 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links, idea_attributes: [ :image, :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])
+      params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links, :category_id, idea_images_attributes: [ :image, :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])
     end
 
 

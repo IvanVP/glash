@@ -3,7 +3,7 @@ class Idea < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :idea_images
+  # has_many :idea_images
 
   validates :title, :synopsis, :problem, :background, :solution,
             presence: true
@@ -15,6 +15,6 @@ class Idea < ActiveRecord::Base
   validates :links, length: { maximum: 1000 }
   validates :title, uniqueness: true
 
-  accepts_nested_attributes_for :idea_images
+  # accepts_nested_attributes_for :idea_images
   # , :reject_if => lambda { |t| t['idea_image'].nil? }
 end
