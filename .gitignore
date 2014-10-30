@@ -26,3 +26,5 @@
 /config/initializers/secret_token.example.rb
 
 /config/deploy.rb
+
+/public/system
