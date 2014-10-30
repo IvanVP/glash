@@ -17,6 +17,8 @@
 //= require bootstrap
 // 
 //= require plugins
+
+//= require jquery-fileupload
 // 
 //  jquery.easing
 //  jquery.appear

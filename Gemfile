@@ -22,6 +22,7 @@ gem 'babosa', '~> 0.3.11'
 
 gem 'formtastic'
 # gem 'formtastic-plus-bootstrap', '~> 1.1.7'
+gem "jquery-fileupload-rails"
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'less', '~> 2.5.0'
