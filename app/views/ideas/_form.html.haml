@@ -34,17 +34,17 @@
         .row.fileupload-buttonbar
           .col-md-10.col-md-offset-1
             / The fileinput-button span is used to style the file input field as button
-            %span.btn.btn-success.fileinput-button
+            %span.btn.btn-success.btn-sm.fileinput-button
               %i.icon-plus.icon-white
               %span Add files...
               = f.file_field :upload
-            %button.btn.start{:type => "submit"}
+            %span.btn.btn-primary.btn-sm.start{:type => "submit"}
               %i.icon-upload.icon-white
               %span Загрузить
-            %button.btn.btn-warning.cancel{:type => "reset"}
+            %span.btn.btn-warning.btn-sm.cancel{:type => "reset"}
               %i.icon-ban-circle.icon-white
               %span Отменить
-            %button.btn.btn-danger.delete{:type => "button"}
+            %span.btn.btn-danger.btn-sm.delete{:type => "button"}
               %i.icon-trash.icon-white
               %span Удалить
             %input.toggle{:type => "checkbox"}/
