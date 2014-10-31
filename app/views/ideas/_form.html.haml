@@ -25,68 +25,8 @@
       = f.input :solution, as: :text, :label => t(:solution, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 7, :maxlength => 2500}, :required => false, placeholder: "напишите коротко опишите суть идеи (не более 2500 символов)"
       %br
 
-      #new_assets
-        
-          
+      = render "assets", :f => f
 
-        / = form_for Asset.new, :html => { :multipart => true, :id => "fileupload"  } do |f|
-        / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
-        .row.fileupload-buttonbar
-          .col-md-10.col-md-offset-1
-            / The fileinput-button span is used to style the file input field as button
-            %span.btn.btn-success.btn-sm.fileinput-button
-              %i.icon-plus.icon-white
-              %span Add files...
-              = f.file_field :upload
-            %span.btn.btn-primary.btn-sm.start{:type => "submit"}
-              %i.icon-upload.icon-white
-              %span Загрузить
-            %span.btn.btn-warning.btn-sm.cancel{:type => "reset"}
-              %i.icon-ban-circle.icon-white
-              %span Отменить
-            %span.btn.btn-danger.btn-sm.delete{:type => "button"}
-              %i.icon-trash.icon-white
-              %span Удалить
-            %input.toggle{:type => "checkbox"}/
-          .span5
-            / The global progress bar
-            .progress.progress-success.progress-striped.active.fade
-              .bar{:style => "width:0%;"}
-        / The loading indicator is shown during image processing
-        .fileupload-loading
-        %br/
-        / The table listing the files available for upload/download
-        %table.table.table-striped
-          %tbody.files{"data-target" => "#modal-gallery", "data-toggle" => "modal-gallery"}
-
-
-
-
-            = f.semantic_errors :base, class: 'inline-errors'
-
-            = f.semantic_fields_for :assets, :id => "fileupload" do |builder|
-              -#
-                = builder.file_field :attachment, multiple: true,  autofocus: true, :required => true, :class => "loadbtn"
-              - if builder.object.new_record?
-                = builder.file_field :data
-              -#  
-                -unless builder.object.new_record?
-                  .thumbnail
-
-                    = link_to( image_tag(builder.object.url(:thumb)), builder.object.url(:large) )
-                    
-                    = builder.check_box :delete
-                
-                
-      -#
-
-        = f.semantic_fields_for :assets do |builder|
-          - unless builder.object.new_record?
-            = builder.input :_destroy, :as => :boolean,             |
-              :label => image_tag(builder.object.image.url(:thumb)) |
-          - else
-            = builder.input :image, :as => :file, :name => "Add Image"
-        
 
       = f.input :links, :label => t(:links, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 3, :maxlength => 1000}, :required => false, placeholder: "вставьте ссылку на видео - необязательное поле (не более 150 символов)"
       %br
@@ -106,4 +46,3 @@
         &nbsp
         = link_to "Отмена", :back, :class => "input btn backbtn"
         = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
-

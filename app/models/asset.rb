@@ -1,4 +1,6 @@
 class Asset < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   belongs_to :attachable, :polymorphic => true
 
   has_attached_file :data,
@@ -10,6 +12,8 @@ class Asset < ActiveRecord::Base
   validates_attachment :data, :presence => true,
                           :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
                           :size => { :in => 0..3.megabytes }
+
+
 
   def url(*args)
     data.url(*args)
@@ -26,4 +30,19 @@ class Asset < ActiveRecord::Base
   def file_size
     data_file_size
   end
+
+  def to_jq_upload
+    {
+      "name" => read_attribute(:data_file_name),
+      "size" => read_attribute(:data_file_size),
+      "url" => data.url(:original),
+      "thumbnail_url" => data.url(:thumb),
+      "delete_url" => asset_path(:id => id),
+      "delete_type" => "DELETE" 
+    }
+  end
+
+ 
+
 end
+

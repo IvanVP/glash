@@ -35,6 +35,8 @@ class Idea < ActiveRecord::Base
     assets.each {|a| errors[:base]<<"#{a.name} превышает лимит размера файла в #{Max_Attachment_Size/1.megabyte}MB" if a.file_size > Max_Attachment_Size}
   end
 
+  
+
   # def image_styles
   #   { :thumb => "150x150>", :normal => "800x450>" }
   # end

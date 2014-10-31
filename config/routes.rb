@@ -29,6 +29,8 @@ Glash::Application.routes.draw do
   end
 
   resources :ideas
+  resources :assets
+  # , only: [:index, :show, :destroy]
 
 
   # # ******Shallow*****
