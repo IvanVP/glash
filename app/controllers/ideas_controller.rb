@@ -11,8 +11,12 @@ class IdeasController < ApplicationController
   
   def new
     @idea = Idea.new
-    @idea.assets.build
+    # @idea.assets.build
     # 3.times {@idea.assets.build}
+
+    # redirect_to idea_submit_path steps.first, :idea_id => @idea.id
+    # 3.times {@idea.assets.build}
+    # redirect_to idea_submit_path( @idea, :intro)
   end
 
   def edit
@@ -23,25 +27,15 @@ class IdeasController < ApplicationController
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
 
-    respond_to do |format|
-        format.js
-    end
+    # respond_to do |format|
+    #     format.js
+    # end
    
     # process_file_uploads(@idea)
 
     if @idea.save
-      
-
-
-      # puts "***********************"
-      # puts
-      # puts
-      # puts
-      # @idea.assets.each {|i| puts i}
-      # puts
-      # puts "***********************"
-
-      redirect_to @idea, notice: "Ваша идея сохранена"
+      redirect_to idea_submit_path( @idea, :info)
+      # redirect_to @idea, notice: "Ваша идея сохранена"
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
@@ -52,7 +46,7 @@ class IdeasController < ApplicationController
 
   def update
     if @idea.update(idea_params)
-      redirect_to @idea, notice: 'idea was successfully updated.' 
+      redirect_to @idea, notice: 'Ваша идея успешно изменена.' 
     else
       render :edit
     end
@@ -60,7 +54,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea.destroy
-    redirect_to ideas_url, notice: 'idea was successfully destroyed'
+    redirect_to ideas_url, notice: 'Ваша идея успешно удалена.'
   end
 
   # protected
@@ -81,7 +75,8 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
+      params.require(:idea).permit(:agree, :idea_id, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
+      # (:title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
        # :data)
        # [ data: [:url, :name, :content_type, :size ]] )
         # , :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])

@@ -28,7 +28,9 @@ Glash::Application.routes.draw do
     resources :contacts
   end
 
-  resources :ideas
+  resources :ideas do
+    resources :submit, controller: 'submit'
+  end
   resources :assets
   # , only: [:index, :show, :destroy]
 

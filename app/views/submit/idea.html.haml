@@ -1,0 +1,31 @@
+-title "Idea"
+
+%h1 Idea
+
+= semantic_form_for @idea, url: wizard_path, :html => {:multipart => true} do |f|
+
+  = f.inputs do
+    
+    .form-group
+      .col-md-11.col-md-offset-1
+
+
+      = f.input :background, as: :text, :label => t(:background, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 7, :maxlength => 2500}, :required => false, placeholder: "опишите существующие возможные аналоги Вашей идеи или изобретения (не более 2500 символов)"
+      %br
+      = f.input :solution, as: :text, :label => t(:solution, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 7, :maxlength => 2500}, :required => false, placeholder: "напишите коротко опишите суть идеи (не более 2500 символов)"
+      %br
+
+      = f.input :links, :label => t(:links, scope: "activerecord.attributes.idea"), autofocus: true,  :input_html => {:class => "form-control ", :rows => 3, :maxlength => 1000}, :required => false, placeholder: "вставьте ссылку на видео - необязательное поле (не более 150 символов)"
+      %br
+
+
+  = f.actions do
+    .form-group
+      .col-md-12 
+        %br
+        = f.submit "Дальше", :class => "input btn btn-primary"
+        &nbsp
+        &nbsp
+        &nbsp
+        = link_to "Отмена", :back, :class => "input btn backbtn"
+        = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"

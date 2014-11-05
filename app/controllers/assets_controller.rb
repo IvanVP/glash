@@ -8,7 +8,7 @@ class AssetsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @assets.map{|upload| asset.to_jq_upload } }
+      format.json { render json: @assets.map{|upload| upload.to_jq_upload } }
     end
   end
 

@@ -10,15 +10,20 @@ class Idea < ActiveRecord::Base
 
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 
-  validates :title, :synopsis, :problem, :background, :solution,
-            presence: true
-  validates :title, length: { in: 5..40 }
-  validates :synopsis, length: { in: 5..150 }
-  validates :problem, :background, :solution, length: { in: 5..2500 }
-  # validates :background, length: { in: 5..2500 }
-  # validates :solution, length: { in: 5..2500 }
-  validates :links, length: { maximum: 1000 }
-  validates :title, uniqueness: true
+  # validates :title, :synopsis, :problem, :background, :solution,
+  #           presence: true
+  # validates :title, length: { in: 5..40 }
+  # validates :synopsis, length: { in: 5..150 }
+  # validates :problem, :background, :solution, length: { in: 5..2500 }
+  # # validates :background, length: { in: 5..2500 }
+  # # validates :solution, length: { in: 5..2500 }
+  # validates :links, length: { maximum: 1000 }
+  # validates :title, uniqueness: true
+
+
+  validates :agree, acceptance: true
+  # {:accept => true}
+
 
   # validates_attachment :asset, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
   # validates_attachment_content_type :asset, content_type: %w(image/jpeg image/jpg image/png)

@@ -1,0 +1,30 @@
+-title "Images"
+
+%h1 Images
+
+
+=render 'assets/index'
+
+
+-#
+  = semantic_form_for @idea, url: wizard_path, :html => {:multipart => true} do |f|
+
+    = f.inputs do
+      
+      .form-group
+        .col-md-11.col-md-offset-1
+
+
+       
+
+
+    = f.actions do
+      .form-group
+        .col-md-12 
+          %br
+          = f.submit "Дальше", :class => "input btn btn-primary"
+          &nbsp
+          &nbsp
+          &nbsp
+          = link_to "Отмена", :back, :class => "input btn backbtn"
+          = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
