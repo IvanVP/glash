@@ -16,7 +16,7 @@
   %strong solution:
   = @idea.solution
   =puts "********"
-  = @idea.assets.each {|x| p x}
+  # = @idea.assets.each {|x| p x}
   - @idea.assets.each do |f|
     = image_tag f.url(:thumb)
 %p

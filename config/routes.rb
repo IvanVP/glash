@@ -30,9 +30,10 @@ Glash::Application.routes.draw do
 
   resources :ideas do
     resources :submit, controller: 'submit'
+    resources :assets
+    # , only: [:index, :show, :destroy]
   end
-  resources :assets
-  # , only: [:index, :show, :destroy]
+  # 
 
 
   # # ******Shallow*****

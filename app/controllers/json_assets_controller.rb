@@ -1,12 +1,10 @@
 class AssetsController < ApplicationController
-  before_action :load_attachable
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
   # GET /assets
   # GET /assets.json
   def index
-    @assets = @attachable.assets
-    # @assets = Asset.all
+    @assets = Asset.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,13 +24,12 @@ class AssetsController < ApplicationController
 
   # GET /assets/new
   def new
-
-    @assets = @attachable.asset.new
-
-    # respond_to do |format|
-    #   format.html # new.html.erb
-    #   format.json { render json: @asset }
-    # end
+    @idea = Idea.first
+    @asset = @idea.asset.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @asset }
+    end
   end
 
   # GET /assets/1/edit
@@ -42,29 +39,21 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.json
   def create
-    @assets = @attachable.assets.create(asset_params)
-    if @assets.save
-      redirect_to idea_submit_path( params[:idea_id], :images, notice: "OK")
-    else
-      redirect_to idea_submit_path( params[:idea_id], :images, notice: "Bad #{@assets} ")
+    @asset = Asset.new(asset_params)
+
+    respond_to do |format|
+      if @asset.save
+        format.html {
+          render :json => [@asset.to_jq_upload].to_json,
+          :content_type => 'text/html',
+          :layout => false
+        }
+        format.json { render json: {files: [@asset.to_jq_upload]}, status: :created, location: @asset }
+      else
+        format.html { render :new }
+        format.json { render json: @asset.errors, status: :unprocessable_entity }
+      end
     end
-
-
-    # @asset = Asset.new(asset_params)
-
-    # respond_to do |format|
-    #   if @asset.save
-    #     format.html {
-    #       render :json => [@asset.to_jq_upload].to_json,
-    #       :content_type => 'text/html',
-    #       :layout => false
-    #     }
-    #     format.json { render json: {files: [@asset.to_jq_upload]}, status: :created, location: @asset }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @asset.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /assets/1
@@ -92,27 +81,14 @@ class AssetsController < ApplicationController
   end
 
   private
-
-    # def load_attachable
-    #   resource, id = request.path.split('/')[1,2]
-    #   @attachable = resource.singularize.classify.constantize.find(id)
-    # end
-
-    def load_attachable
-      klass = [Idea].detect {|c| params["#{c.name.underscore}_id"]}
-      @attachable = klass.find(params["#{klass.name.underscore}_id"])
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_asset
-      @asset = @attachable.assets.find(params[:id])
+      @asset = Asset.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
-      # ( :idea_id, :data => [:data_file_name, :data_content_type, :data_file_size])
-      # (:data, :data_file_name, :data_content_type, :data_file_size, :idea_id, :data => :data)
+      params.require(:asset).permit(:data, :data_file_name, :data_content_type, :data_file_size)
     end
 
     # :data_file_name, :data_content_type, :data_file_size, :attachable_id, :attachable_type

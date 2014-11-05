@@ -12,13 +12,14 @@
 //
 //= require modernizr
 //= require jquery-2.1.1.min
-//= require jquery.turbolinks
+//        jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 // 
 //= require plugins
 
-//= require jquery-fileupload
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 // 
 //  jquery.easing
 //  jquery.appear
