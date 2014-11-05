@@ -43,6 +43,10 @@ class AssetsController < ApplicationController
   # POST /assets.json
   def create
     @assets = @attachable.assets.create(asset_params)
+    params[:asset][:data].each do |file|
+      @asset = Asset.new(:asset => file)
+      @asset.save
+    end
     if @assets.save
       redirect_to idea_submit_path( params[:idea_id], :images, notice: "OK")
     else
@@ -101,6 +105,8 @@ class AssetsController < ApplicationController
     def load_attachable
       klass = [Idea].detect {|c| params["#{c.name.underscore}_id"]}
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
+      puts '&&&&&&&&&&&&&&&&&&&&&&************'
+      puts @attachable
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -110,8 +116,9 @@ class AssetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
-      # ( :idea_id, :data => [:data_file_name, :data_content_type, :data_file_size])
+      params.require(:asset).permit( :idea_id, :data => [:data_file_name, :data_content_type, :data_file_size])
+      # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
+      # 
       # (:data, :data_file_name, :data_content_type, :data_file_size, :idea_id, :data => :data)
     end
 
