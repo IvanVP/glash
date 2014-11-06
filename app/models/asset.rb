@@ -37,7 +37,8 @@ class Asset < ActiveRecord::Base
       "size" => read_attribute(:data_file_size),
       "url" => data.url(:original),
       "thumbnail_url" => data.url(:thumb),
-      "delete_url" => '',
+      # "delete_url" => data.path(:original),
+      "delete_url" => asset_path(self),
       # "delete_url" => assets_path(:image_id => image_id, :id => id),
       "delete_type" => "DELETE" 
     }
