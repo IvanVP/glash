@@ -1,18 +1,19 @@
 -title "Загрузка изображений"
 
-=render 'temp'
+=render 'upload'
+
+
+
+
 
 -#
   = semantic_form_for Asset.new, url: idea_assets_path, :html => {:multipart => true} do |f|
 
 -#
   = semantic_form_for [@idea, @idea.assets.new], url: idea_assets_path, :html => {:multipart => true} do |f|
-
     = f.inputs do
-      
       = f.file_field :data, :multiple => true
       / , name: "asset[data]"
-
     .idea-images
       = @idea.assets.each {|x| p x}
       %br
@@ -21,16 +22,6 @@
         %br
     .clearfix
     %br
-    = render 'temp'
-
-
-
-   
-
-    
-
-
-
     = f.actions do
       .form-group
         .col-md-12 

@@ -29,12 +29,12 @@
 </div>
 <script>
   var fileUploadErrors = {
-  maxFileSize: 'File is too big',
-  minFileSize: 'File is too small',
-  acceptFileTypes: 'Filetype not allowed',
-  maxNumberOfFiles: 'Max number of files exceeded',
-  uploadedBytes: 'Uploaded bytes exceed file size',
-  emptyResult: 'Empty file upload result'
+  maxFileSize: 'Файл слишком большой (max 3 Mb)',
+  minFileSize: 'Файл слишком маленький',
+  acceptFileTypes: 'Неправильный тип файла',
+  maxNumberOfFiles: 'Превышено максимальное уоличество файлов',
+  uploadedBytes: 'Загруженное количество байтов превышает размер файла',
+  emptyResult: 'Файл не загружен'
   };
 </script>
 
@@ -102,10 +102,26 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
       // Initialize the jQuery File Upload widget:
+      // $('#fileupload').fileupload();
+
+
       $('#fileupload').fileupload({
-        autoUpload: true
+        autoUpload: true,
+        maxNumberOfFiles: 2,
+        loadImageMaxFileSize: 3500000,
+        previewMaxWidth: 150,
+        previewMaxHeight: 150,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        messages: {
+          maxFileSize: 'Файл слишком большой (max 3 Mb)',
+          minFileSize: 'Файл слишком маленький',
+          acceptFileTypes: 'Неправильный тип файла',
+          maxNumberOfFiles: 'Превышено максимальное уоличество файлов',
+          uploadedBytes: 'Загруженное количество байтов превышает размер файла',
+          emptyResult: 'Файл не загружен'
+        }
       });
-      // 
+      
       // Load existing files:
       $.getJSON($('#fileupload').prop('action'), function (files) {
         var fu = $('#fileupload').data('blueimpFileupload'), 

@@ -6,7 +6,6 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     @assets = @attachable.assets
-    # @assets = Asset.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +25,6 @@ class AssetsController < ApplicationController
 
   # GET /assets/new
   def new
-
     @assets = @attachable.asset.new
 
     respond_to do |format|
@@ -44,8 +42,6 @@ class AssetsController < ApplicationController
   def create
     @asset = @attachable.assets.new(asset_params)
 
-
-
     respond_to do |format|
       if @asset.save
         format.html {
@@ -59,29 +55,6 @@ class AssetsController < ApplicationController
         format.json { render json: @asset.errors, status: :unprocessable_entity }
       end
     end
-
-    # if @asset.save
-    #   redirect_to idea_submit_path( params[:idea_id], :images, notice: "OK")
-    # else
-    #   redirect_to idea_submit_path( params[:idea_id], :images, notice: "Bad #{@assets} ")
-    # end
-
-
-    # @asset = Asset.new(asset_params)
-
-    # respond_to do |format|
-    #   if @asset.save
-    #     format.html {
-    #       render :json => [@asset.to_jq_upload].to_json,
-    #       :content_type => 'text/html',
-    #       :layout => false
-    #     }
-    #     format.json { render json: {files: [@asset.to_jq_upload]}, status: :created, location: @asset }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @asset.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /assets/1
@@ -129,16 +102,7 @@ class AssetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
       params.require(:asset).permit( :idea_id, :data)
-       # => [:data_file_name, :data_content_type, :data_file_size])
       # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
-      # 
-      # (:data, :data_file_name, :data_content_type, :data_file_size, :idea_id, :data => :data)
     end
 
-    # :data_file_name, :data_content_type, :data_file_size, :attachable_id, :attachable_type
-  # def show
-  #   asset = Asset.find(params[:id])
-  #   # do security check here
-  #   send_file asset.data.path, :type => asset.data_content_type
-  # end
 end

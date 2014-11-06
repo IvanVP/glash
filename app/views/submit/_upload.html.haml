@@ -1,0 +1,23 @@
+%h2 Загрузите изображения
+%p.pages На этой странице Вы можете загрузить свои эскизы, фото или рисунки. Возможна загрузка до 15 изображений, размером до 3 Mb каждое.
+%p.pages Изображения должны быть в формате *.jpg, *.png или *.gif. Рекомендуемое разрешение - 800х450 пикселов, пропорции - 16:9.
+= form_for [@idea, @idea.assets.new], :html => { :multipart => true, :id => "fileupload"  } do |f|
+  .col-md-12
+    %section#dropzone.call-to-action.secundary.featured.footer
+      %h4 Перетащите файлы сюда
+      %span или 
+  .clearfix
+  .row.fileupload-buttonbar
+    %span.btn.btn-primary.fileinput-button
+      %span.add_files Выберите файлы...
+      = f.file_field :data
+  
+  / The loading indicator is shown during image processing
+  .fileupload-loading
+  %br/
+  / The table listing the files available for upload/download
+  %table.table.table-striped
+    %tbody.files{"data-target" => "#modal-gallery", "data-toggle" => "modal-gallery"}
+=render 'uploadscripts'
+
+
