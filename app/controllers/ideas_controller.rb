@@ -3,6 +3,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    # @ideas = Idea.published
   end
 
   def show
@@ -11,40 +12,29 @@ class IdeasController < ApplicationController
   
   def new
     @idea = Idea.new
-    # @idea.assets.build
-    # 3.times {@idea.assets.build}
-
-    # redirect_to idea_submit_path steps.first, :idea_id => @idea.id
-    # 3.times {@idea.assets.build}
-    # redirect_to idea_submit_path( @idea, :intro)
   end
 
   def edit
-    # 3.times {@idea.assets.build}
+    redirect_to idea_submit_path( @idea, :info)
   end
 
   def create
     @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
 
-    # respond_to do |format|
-    #     format.js
-    # end
-   
-    # process_file_uploads(@idea)
-
     if @idea.save
       redirect_to idea_submit_path( @idea, :info)
       # redirect_to @idea, notice: "Ваша идея сохранена"
     else
-      # This line overrides the default rendering behavior, which
-      # would have been to render the "create" view.
       render "new"
     end
     
   end
 
   def update
+    if params[:idea][:published]
+      @idea.published_at = Time.now
+    end
     if @idea.update(idea_params)
       redirect_to @idea, notice: 'Ваша идея успешно изменена.' 
     else
@@ -57,16 +47,6 @@ class IdeasController < ApplicationController
     redirect_to ideas_url, notice: 'Ваша идея успешно удалена.'
   end
 
-  # protected
-
-  # def process_file_uploads(idea)
-  #     i = 0
-  #     while params[:asset]['file_'+i.to_s] != "" && !params[:asset]['file_'+i.to_s].nil?
-  #         idea.assets.build(:data => params[:asset]['file_'+i.to_s])
-  #         i += 1
-  #     end
-  # end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
@@ -75,25 +55,8 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:agree, :idea_id, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
-      # (:title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
-       # :data)
-       # [ data: [:url, :name, :content_type, :size ]] )
-        # , :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])
-       # [ :image, :content_type, :file_name, :tempfile, :file_size, :updated_at, :_destroy])
-      # params.require(:idea).permit(:title, :synopsis, :problem, :background, :solution, :links, :category_id, idea_images_attributes: [ :image, :image_content_type, :image_file_name, :tempfile, :image_file_size, :image_updated_at, :_destroy])
+      params.require(:idea).permit(:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :published, :moderated, assets_attributes: :data, :data => :data)
+      # (:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
     end
-
-
+    
 end
-
-
-# "assets_attributes"=>
-#   {"0"=>
-#     {"image"=>#<ActionDispatch::Http::UploadedFile:0x00000009cc8b08
-#         @tempfile=#<Tempfile:/tmp/RackMultipart20141030-7037-1iu4i1b>
-#         , @original_filename="partop.jpg", 
-#         @content_type="image/jpeg", 
-#         @headers="Content-Disposition: form-data; 
-#          name=\"idea[assets_attributes][0][image]\";
-           # filename=\"partop.jpg\"\r\nContent-Type: image/jpeg\r\n">}

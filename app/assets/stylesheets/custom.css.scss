@@ -169,18 +169,14 @@ a.most-active-users {
   height: 250px;
 }
 
-.new_asset .btn.btn-primary {
-  font-size: 14px;
-}
 
 #dropzone {
   border-bottom: 3px solid #AA6ABA;
   width: 70%;
-  // height: 150px;
   background-color: #E7CCED;
   text-align: center;
   margin: 30px auto 20px;
-  padding: 40px 20px;
+  padding: 25px 20px 45px;
 
   h4 {
     margin: 0;
@@ -207,4 +203,9 @@ a.most-active-users {
 
 span .add_files {
   margin: auto;
+}
+
+.hint {
+  margin: 0;
+  font-size: 1.2em;
 }

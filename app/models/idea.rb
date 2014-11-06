@@ -7,6 +7,8 @@ class Idea < ActiveRecord::Base
 
   # has_many :idea_images
 
+  scope :published, -> { where(published: true) }
+
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 
   # validates :title, :synopsis, :problem, :background, :solution,
