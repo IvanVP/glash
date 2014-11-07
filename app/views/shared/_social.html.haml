@@ -3,6 +3,6 @@
     - %w/vkontakte odnoklassniki facebook twitter linkedin/.each  do |social|
       -unless @user.contact.send("#{social}".to_sym).blank?
         =link_to url_with_protocol(@user.contact.send("#{social}".to_sym)), :target => '_blank' do
-          .social{class: "#{social}"}
+          .socialuser{class: "#{social}"}
       
   .clearfix

@@ -35,6 +35,7 @@ class IdeasController < ApplicationController
     if params[:idea][:published]
       @idea.published_at = Time.now
     end
+
     if @idea.update(idea_params)
       redirect_to @idea, notice: 'Ваша идея успешно изменена.' 
     else
@@ -55,7 +56,7 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :published, :moderated, assets_attributes: :data, :data => :data)
+      params.require(:idea).permit(:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :published, :moderated, :status, assets_attributes: :data, :data => :data)
       # (:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
     end
     

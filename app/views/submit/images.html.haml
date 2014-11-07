@@ -1,64 +1,35 @@
 -title "Загрузка изображений"
+
 %h2 Загрузите изображения!
 %p.hint На этой странице Вы можете загрузить свои эскизы, фото или рисунки. Возможна загрузка до 15 изображений, размером до 3 Mb каждое.
 %p.hint Изображения должны быть в формате *.jpg, *.png или *.gif. Рекомендуемое разрешение - 800х450 пикселов, пропорции - 16:9.
 %br
 
 = form_for [@idea, @idea.assets.new], :html => { :multipart => true, :id => "fileupload"  } do |f|
-  = render 'upload', :f => f
+  = render 'assets/upload', :f => f
+
+-if @idea.assets.many?
+  %h5 Существующие файлы
+  = render 'exist'
 
 = semantic_form_for @idea do |f|
-  %p.hint Если Вы хотите сохранить идею, как черновик и вернуться к ее редактированию позже, нажмите "Сохранить". 
-  %p.hint Идея сохранится как черновик, не будет опубликована, но будет доступна Вам для редактирования.
-  %p.hint При выборе "Опубликовать", идея будет проверена модератором и в скором времени появится на сайте для обсуждения.
-  %p.hint После того, как идея будет опубликована, она не будет доступна Вам для редактирования.
+  %p.hint.small Если Вы хотите сохранить идею как черновик и вернуться к ее редактированию позже, нажмите "Сохранить". 
+  %p.hint.small Идея сохранится и не будет опубликована, но будет доступна Вам для редактирования.
+  %p.hint.small При выборе "Опубликовать", идея будет проверена модератором и в скором времени появится на сайте для обсуждения.
+  %p.hint.small После того, как идея будет опубликована, она не будет доступна Вам для редактирования.
 
   %br
-  = f.input :published, as: :hidden, :input_html => { value: "1" }
-  = link_to "Сохранить", ideas_path, :class => "input btn btn-primary"
-  &nbsp
-  &nbsp
-  &nbsp
-  = link_to "Назад", previous_wizard_path, :class => "input btn backbtn"
+  .form-group
+    .col-md-12
+      = f.input :published, as: :hidden, :input_html => { value: "1" }
+      = link_to "Сохранить", ideas_path, :class => "input btn btn-primary"
+      &nbsp
+      &nbsp
+      &nbsp
+      = link_to "Назад", previous_wizard_path, :class => "input btn backbtn"
 
-  = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
-
-
-=render 'uploadscripts'
--#
-  .clearfix
-  %br
-    .form-group
-      .col-md-12 
+      = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
 
 
-
--#
-  = semantic_form_for Asset.new, url: idea_assets_path, :html => {:multipart => true} do |f|
-
--#
-  = semantic_form_for [@idea, @idea.assets.new], url: idea_assets_path, :html => {:multipart => true} do |f|
-    = f.inputs do
-      = f.file_field :data, :multiple => true
-      / , name: "asset[data]"
-    .idea-images
-      = @idea.assets.each {|x| p x}
-      %br
-      - @idea.assets.each do |f|
-        = image_tag f.url(:thumb) if f.persisted?
-        %br
-    .clearfix
-    %br
-    = f.actions do
-      .form-group
-        .col-md-12 
-          %br
-          = f.submit "Дальше", :class => "input btn btn-primary"
-          &nbsp
-          &nbsp
-          &nbsp
-          = link_to "Назад", previous_wizard_path, :class => "input btn backbtn"
-          
-          = f.submit "Опубликовать", :class => "input btn btn-primary pull-right"
-
+=render 'assets/uploadscripts'
 

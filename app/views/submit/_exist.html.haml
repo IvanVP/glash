@@ -1,0 +1,18 @@
+%table.table.table-striped
+  %tbody.files
+    - @idea.assets.each do |file|
+      -if file.persisted?
+        %tr
+          %td.preview
+            %a{:download => file.name, :href => file.url, :rel => "gallery", :title => file.name}
+              = image_tag file.url(:thumb)
+          %td.name
+            %a{:download => file.name, :href => file.url, :rel => file.url(:thumb), :title => file.name}
+              = file.name
+          %td.size
+            %span
+              = number_to_human_size(file.file_size)
+          %td{:colspan => "2"}
+          %td.delete
+            %span
+              = link_to "Delete", asset_path(file), method: :delete, remote: true, class: "button btn btn-danger del_asset"

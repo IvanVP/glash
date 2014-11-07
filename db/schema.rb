@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20141030084715) do
     t.datetime "archieved_at"
     t.integer  "views",                         default: 0
     t.boolean  "show_on_main_page",             default: false
+    t.string   "status"
   end
 
   create_table "roles", force: true do |t|

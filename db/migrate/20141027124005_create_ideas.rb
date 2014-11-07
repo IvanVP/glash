@@ -18,6 +18,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.datetime   :archieved_at
       t.integer    :views, default: 0
       t.boolean   :show_on_main_page, :default => false
+      t.string    :status
 
     end
   end

@@ -39,6 +39,7 @@
 
  *= require users
  *= require jquery.Jcrop.min
+ *= require ideas
  *= require_self
 
  

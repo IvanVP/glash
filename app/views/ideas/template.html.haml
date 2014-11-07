@@ -1,7 +1,3 @@
--title "Здесь зарождаются идеи"
-
-%h1 Здесь зарождаются идеи
-
 .container
   #team.row
     .col-md-12
@@ -20,7 +16,7 @@
                       %em
                         %i.icon.icon-plus
                         Details
-                  %img.img-responsive{:alt => "", :src => url}/
+                  %img.img-responsive{:alt => "", :src => "img/team/team-1.jpg"}/
               %span.thumb-info
                 %span.thumb-info-content
                   %a{:href => "page-about-me.html"}
@@ -33,32 +29,3 @@
                     %a{:href => "http://www.facebook.com", :target => "_blank"} Votes
                     %a{:href => "http://www.twitter.com", :target => "_blank"} Comments
                     %a{:href => "http://www.linkedin.com", :target => "_blank"} Views
-
-
-%table
-  %thead
-    %tr
-      %th User
-      %th Title
-      %th Synopsis
-      %th{:colspan => "3"}
-  %tbody
-    - @ideas.each do |idea|
-      %tr
-        %td= idea.user.fullname
-        %td= idea.title
-        %td= idea.synopsis
-        %td= link_to 'Show', idea
-        %td= link_to 'Edit', edit_idea_path(idea)
-        %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-
-
-%br
-%hr
-=link_to "Предложи идею", new_idea_path( @idea)
-%br
-%br
-%br
-%br
-%br

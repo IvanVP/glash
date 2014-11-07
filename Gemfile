@@ -10,7 +10,7 @@ gem 'haml', '~> 4.0.5'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-# gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'
 
 # gem 'turbolinks'
 

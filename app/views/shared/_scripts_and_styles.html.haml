@@ -1,9 +1,9 @@
 %link{:rel=>"shortcut icon", :href => image_url("favicon.ico")}
 %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
 = stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true
-=# javascript_include_tag "application", "data-turbolinks-track" => true
 
 = csrf_meta_tags
+
 
 -# Mobile Metas
 %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
@@ -26,9 +26,6 @@
 
 - if @rss_title && @rss_url
   = auto_discovery_link_tag(:rss, @rss_url, {:title => @rss_title})
-
-=# stylesheet_link_tag 'front_end'
-=# javascript_include_tag 'modernizr'
 
 /[if IE]
   = stylesheet_link_tag 'ie'

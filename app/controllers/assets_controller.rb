@@ -77,7 +77,8 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     @asset.destroy
     respond_to do |format|
-      format.html { redirect_to assets_url }
+      format.html { redirect_to :back }
+      format.js {render :layout => false}
       format.json { head :no_content }
     end
   end
