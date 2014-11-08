@@ -32,6 +32,8 @@
  *= require skin
  *= require theme-responsive
  
+*= require fotorama
+
  *= require myformtastic
  *= require custom
  *= require contacts

@@ -1,28 +1,38 @@
 -title @idea.title
 
-%h1= @idea.title
+
+.col-md-2
+  %h2 Автор
+  = image_tag @idea.user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@idea.user.fullname}"}
+  %br
+  %h2.show_user= @idea.user.fullname
+  
+.col-md-1
+.col-md-9
+  %h1.ideashow= @idea.title
 
 
-%p
-  %strong synopsis:
-  = @idea.synopsis
-%p
-  %strong problem:
-  = @idea.problem
-%p
-  %strong background:
-  = @idea.background
-%p
-  %strong solution:
-  = @idea.solution
-  =puts "********"
-  -# 
-    = @idea.assets.each {|x| p x}
-  - @idea.assets.each do |f|
-    = image_tag f.url(:thumb)
-%p
-  %strong links:
-  = @idea.links
+  %p.ideashow
+    = @idea.synopsis
+  .fotorama{:"data-width" => '100%', :"data-height" => '800/450', :"data-maxwidth" => "800", :"data-maxheight" => "450", :"data-nav" => "thumbs", :"data-thumbwidth" => '80', :"data-thumbheight" => "80", :"data-allowfullscreen" => "true", :"data-fit" => "cover", :"data-transition" => "slide", :"data-clicktransition" => "crossfade", :"data-loop" => "true", :"data-keyboard" => "true"}
+    - @idea.assets.each do |f|
+      = image_tag f.url(:large)
+
+ 
+
+  %p
+    %strong problem:
+    = @idea.problem
+  %p
+    %strong background:
+    = @idea.background
+  %p
+    %strong solution:
+    = @idea.solution
+    
+  %p
+    %strong links:
+    = @idea.links
 
 
 -#

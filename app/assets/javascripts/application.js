@@ -42,6 +42,7 @@
 //  Theme Initializer 
 //= require theme
 //= require custom
+//= require fotorama
 //
 //  VideoJS
 //  video.dev
