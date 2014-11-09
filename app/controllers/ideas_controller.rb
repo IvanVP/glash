@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @images= @idea.assets
     @idea.increment!("views")
   end
   
