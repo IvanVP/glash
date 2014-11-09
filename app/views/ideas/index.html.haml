@@ -5,53 +5,57 @@
 .container
   #team.row
     .col-md-12
-      .row
-        %ul.team-list
-        
+      
+      %ul.team-list
+        -@ideas.in_groups_of(3,false).each do |ideagroup|
+          .row
+            -ideagroup.each do |idea|
 
-          %li.col-md-4
-            .team-item
-              %a.thumb-info{:href => "page-about-me.html"}
-                %span.thumb-info-image
-                  %span.thumb-info-act
-                    %span.thumb-info-act-left
-                      %em View
-                    %span.thumb-info-act-right
-                      %em
-                        %i.icon.icon-plus
-                        Details
-                  %img.img-responsive{:alt => "", :src => image_path('projects/project-4.jpg')}/
-              %span.thumb-info
-                %span.thumb-info-content
-                  %a{:href => "page-about-me.html"}
-                    %h4 John Doe
-                    %span.role CEO
-                %span.thumb-info-caption
-                  %a{:href => "page-about-me.html"}
-                    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ligula mi, non suscipitaccumsan.
-                  %span.thumb-info-extra.social
-                    %a{:href => "http://www.facebook.com", :target => "_blank"} Votes
-                    %a{:href => "http://www.twitter.com", :target => "_blank"} Comments
-                    %a{:href => "http://www.linkedin.com", :target => "_blank"} Views
+              %li.col-md-4
+                .team-item
+                  %a.thumb-info{:href => idea_path(idea)}
+                    %span.thumb-info-image
+                      %span.thumb-info-act
+                        %span.thumb-info-act-left
+                          %em View
+                        %span.thumb-info-act-right
+                          %em
+                            %i.icon.icon-plus
+                            Details
+                      - if idea.assets
+                        %img.img-responsive{:alt => "", :src => image_path(idea.assets.first.url(:large))}/
+                  %span.thumb-info
+                    %span.thumb-info-content
+                      %a{:href => idea_path(idea)}
+                        %h4=idea.title
+                        -#
+                          %span.role=idea.synopsis
+                    %span.thumb-info-caption
+                      %a{:href => idea_path(idea)}
+                        %p=idea.synopsis
+                      %span.thumb-info-extra.social
+                        %a{:href => "http://www.facebook.com", :target => "_blank"} Votes
+                        %a{:href => "http://www.twitter.com", :target => "_blank"} Comments
+                        %a{:href => "http://www.linkedin.com", :target => "_blank"} Views
 
-
-%table
-  %thead
-    %tr
-      %th User
-      %th Title
-      %th Synopsis
-      %th{:colspan => "3"}
-  %tbody
-    - @ideas.each do |idea|
+-#
+  %table
+    %thead
       %tr
-        %td= idea.user.fullname
-        %td= idea.title
-        %td= idea.synopsis
-        %td= link_to 'Show', idea
-        %td= link_to 'Edit', edit_idea_path(idea)
-        %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
+        %th User
+        %th Title
+        %th Synopsis
+        %th{:colspan => "3"}
+    %tbody
+      - @ideas.each do |idea|
+        %tr
+          %td= idea.user.fullname
+          %td= idea.title
+          %td= idea.synopsis
+          %td= link_to 'Show', idea
+          %td= link_to 'Edit', edit_idea_path(idea)
+          %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
 
 
 %br

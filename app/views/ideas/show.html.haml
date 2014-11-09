@@ -19,22 +19,23 @@
     .fotorama{:"data-width" => '100%', :"data-height" => '800/450', :"data-maxwidth" => "800", :"data-maxheight" => "450", :"data-nav" => "thumbs", :"data-thumbwidth" => '80', :"data-thumbheight" => "80", :"data-allowfullscreen" => "true", :"data-fit" => "cover", :"data-transition" => "slide", :"data-clicktransition" => "crossfade", :"data-loop" => "true", :"data-keyboard" => "true"}
       - @images.each do |image|
         = image_tag image.url(:large)
+    %br
+    %br
   
-  - unless @idea.links.blank?  
-    .fotorama{:"data-width" => '100%', :"data-height" => '800/450', :"data-maxwidth" => "800", :"data-maxheight" => "450", :"data-nav" => "thumbs", :"data-thumbwidth" => '80', :"data-thumbheight" => "80", :"data-allowfullscreen" => "true", :"data-fit" => "cover", :"data-transition" => "slide", :"data-clicktransition" => "crossfade", :"data-loop" => "true", :"data-keyboard" => "true"}
+  - unless @idea.links.blank?
+    %h3 Видео  
+    .fotorama{:"data-width" => '100%', :"data-height" => '800/450', :"data-maxwidth" => "800", :"data-maxheight" => "450", :"data-allowfullscreen" => "true", :"data-fit" => "cover"}
       = link_to '', @idea.links
+    %br
+    %br
  
   %br
-  %br
-  %br
   %h3= t(:problem, scope: "activerecord.attributes.idea")
-  %p= @idea.problem
+  %p.pages= @idea.problem
   %h3= t(:background, scope: "activerecord.attributes.idea")
-  %p= @idea.background
+  %p.pages= @idea.background
   %h3= t(:solution, scope: "activerecord.attributes.idea")
-  %p= @idea.solution
-  
-
-
-
+  %p.pages= @idea.solution
+  %br
+  %hr
   =link_to "Все идеи", ideas_path, class: "input btn btn-primary"
