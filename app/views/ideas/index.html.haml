@@ -2,7 +2,10 @@
 
 %h1 Здесь зарождаются идеи
 
+
 .container
+  =link_to "Предложи идею", new_idea_path( @idea), class: "btn btn-primary btn-large"
+  %hr
   #team.row
     .col-md-12
       
@@ -22,8 +25,12 @@
                           %em
                             %i.icon.icon-plus
                             Details
-                      - if idea.assets
-                        %img.img-responsive{:alt => "", :src => image_path(idea.assets.first.url(:large))}/
+                        
+                      =#image_tag (image_path('defaultidea.jpg')), class: "img img-responsive"
+                      =image_tag (image_for_idea(idea)), class: "img img-responsive"
+                      / %img.img-responsive{:alt => "", :src => image_for_idea(idea)}/
+                      / 
+                      / %img.img-responsive{:alt => "", :src => idea.assets.url(:large)}/
                   %span.thumb-info
                     %span.thumb-info-content
                       %a{:href => idea_path(idea)}
@@ -57,12 +64,3 @@
           %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
   %br/
 
-
-%br
-%hr
-=link_to "Предложи идею", new_idea_path( @idea)
-%br
-%br
-%br
-%br
-%br

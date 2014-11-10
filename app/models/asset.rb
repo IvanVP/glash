@@ -5,7 +5,7 @@ class Asset < ActiveRecord::Base
 
   has_attached_file :data,
                     :styles => { :thumb => "150x150>", :large => "800x450>" },
-                    :default_url => "/images/:style/missing.png"
+                    :default_url => "/images/defaultidea.jpg"
 
 
   # validates_attachment :data, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }

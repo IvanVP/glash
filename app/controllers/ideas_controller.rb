@@ -2,12 +2,12 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ideas = Idea.all
+    @ideas = Idea.includes(:assets).all
     # @ideas = Idea.published
   end
 
   def show
-    @images= @idea.assets
+    @images= @idea.assets.order(created_at: :asc)
     @idea.increment!("views")
   end
   
@@ -16,7 +16,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    redirect_to idea_submit_path( @idea, :info)
+    redirect_to idea_submit_path(@idea, :info)
   end
 
   def create
