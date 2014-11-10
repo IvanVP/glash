@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
 
   def index
     @ideas = Idea.includes(:assets).all
@@ -47,6 +47,14 @@ class IdeasController < ApplicationController
   def destroy
     @idea.destroy
     redirect_to ideas_url, notice: 'Ваша идея успешно удалена.'
+  end
+
+  def vote
+    @idea.liked_by current_user
+    respond_to do |format|
+      format.html {redirect_to :back }
+      format.json { render json: { count: @idea.liked_count } }
+    end
   end
 
   private

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :country
 
+  acts_as_voter
+
   validates :fname, :lname, :name, :email, :presence => true
   validates :name, :email, :slug, :uniqueness => { :case_sensitive => false }
   validates :terms, acceptance: {:accept => true}

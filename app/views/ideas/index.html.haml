@@ -20,17 +20,14 @@
                     %span.thumb-info-image
                       %span.thumb-info-act
                         %span.thumb-info-act-left
-                          %em View
+                          %em
+                            = button_to 'За идею', vote_idea_path(idea), class: "btn btn-sm vote", remote: true
                         %span.thumb-info-act-right
                           %em
                             %i.icon.icon-plus
-                            Details
+                            Поддержать
                         
-                      =#image_tag (image_path('defaultidea.jpg')), class: "img img-responsive"
                       =image_tag (image_for_idea(idea)), class: "img img-responsive"
-                      / %img.img-responsive{:alt => "", :src => image_for_idea(idea)}/
-                      / 
-                      / %img.img-responsive{:alt => "", :src => idea.assets.url(:large)}/
                   %span.thumb-info
                     %span.thumb-info-content
                       %a{:href => idea_path(idea)}
@@ -40,10 +37,15 @@
                     %span.thumb-info-caption
                       %a{:href => idea_path(idea)}
                         %p=idea.synopsis
+                      = link_to 'За идею', vote_idea_path(idea)
                       %span.thumb-info-extra.social
-                        %a{:href => "http://www.facebook.com", :target => "_blank"} Votes
-                        %a{:href => "http://www.twitter.com", :target => "_blank"} Comments
-                        %a{:href => "http://www.linkedin.com", :target => "_blank"} Views
+                        %em
+                          Votes
+                          =idea.votes_for.size
+                        %a{:href => idea, :target => "_blank"} Comments
+                        %em 
+                          Views&nbsp;
+                          =idea.views
 
 -#
   %table

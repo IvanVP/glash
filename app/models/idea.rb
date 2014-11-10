@@ -5,6 +5,8 @@ class Idea < ActiveRecord::Base
   belongs_to :category
   has_many :assets, :as => :attachable, :dependent => :destroy
 
+  acts_as_votable
+
   scope :published, -> { where(published: true) }
 
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
