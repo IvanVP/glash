@@ -2,8 +2,9 @@
 
 %h1 Предложи идею
 .col-md-12
-%p
-  Я подтверждаю что это моя идея и она удовлетворяет всем требованиям.
+%p.pages Я подтверждаю что это моя идея и она удовлетворяет всем требованиям.
+%p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
+
 %br/
 
 = semantic_form_for @idea, :html => {:id => 'agree'} do |f|
@@ -14,21 +15,4 @@
   .row
     .col-md-12#wizard
       = f.actions do
-        = f.action :submit, :label => "Дальше", :button_html => {:class => "input btn btn-primary"}
-
-
-/ Category !!!!                  
-/ = render 'form', action: "Сохранить"
-  
-  
-
-%br
-%hr
-%br
-=link_to "Посмотри все идеи", ideas_path
-%hr
-%br
-%br
-%br
-%br
-%br
+        = f.action :submit, :label => "Дальше", :button_html => {class: css_for_link}

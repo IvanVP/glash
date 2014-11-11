@@ -1,16 +1,18 @@
 %section.parallax.middle{"data-stellar-background-ratio" => "0.4", style: ""} 
   .container
     .row
-      .col-md-7{"data-appear-animation" => "fadeInLeft"}
+      .col-md-5
         %h2.push-top.white
-          %i.icon.icon-star-o.pulsate
-          Ваши
-          %strong Идеи
+          %strong Ваши Идеи
         %p.white.lead
           Расскажи всем о своей грандиозной идее
         %p.white.tall
-          О твоей идее узнают тысячи профессионалов, которые ее подробно прокомментируют, напишут свое мнение и, если за твою идею проголосует сообщество, она может стать реальностью !!! 
-        %a.btn.btn-primary.btn-lg.push-top{href: new_registration_path(:user)} Сообщить идею...
+          О твоей идее узнают тысячи профессионалов,
+          которые ее подробно прокомментируют, 
+          напишут свое мнение 
+          и, если за твою идею проголосует сообщество,
+          она может стать реальностью !!! 
+        %a.btn.btn-primary.btn-lg.push-top{href: new_idea_path} Сообщить идею...
       -#
         .col-md-5{"data-appear-animation" => "fadeInRight", "data-appear-animation-delay" => "300"}
           %img.img-responsive.pull-right{src: image_path('premium-features.png') }/

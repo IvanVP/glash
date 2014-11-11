@@ -1,0 +1,9 @@
+
+$("#vote_idea_<%= @idea.id %>").html("За идею <%= @idea.votes_for.size %>")
+
+<% if @idea.vote_registered? %>
+  $("#notice_idea_<%= @idea.id %>").html("Спасибо за ваш голос.")
+<% else %>
+  $("#notice_idea_<%= @idea.id %>").html("Вы уже проголосовали за эту идею.")
+<% end %>
+

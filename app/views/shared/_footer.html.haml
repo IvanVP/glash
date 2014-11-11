@@ -17,22 +17,8 @@
           =render "shared/subscribe_news"
 
       .col-md-3
-        %h4 Блог
-        %ul.nav.nav-list.primary
-          %li
-            %a{href: root_path, title: "Подставка для компьютера"} Подставка для компьютера ...
-          %li
-            %a{href: root_path, title: "Управляемый по Iphone кондиционер"} Управляемый по Iphone кондиционер...
-          %li
-            %a{href: root_path, title: "Супер-штопор"} Супер-штопор...
-          %li
-            %a{href: root_path, title: "Фотообъектив для телефона"} Фотообъектив для телефона...
-          %li
-            %a{href: root_path, title: "Уникальный ящик для инструмента"} Уникальный ящик для инструмента...
-        %a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: root_path}
-          Еще записи
-          &nbsp;
-          %i.icon.icon-arrow-right
+        =render "shared/newest_ideas"
+       
 
       .col-md-3
         %h4 Информация

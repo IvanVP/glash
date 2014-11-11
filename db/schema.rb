@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20141110143226) do
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
     t.text     "description"
+    t.integer  "warnings",                          default: 0
     t.boolean  "enabled",                           default: true
     t.integer  "role_id"
     t.integer  "country_id"

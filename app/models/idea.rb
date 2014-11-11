@@ -9,6 +9,9 @@ class Idea < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
 
+  scope :newest, -> {order('updated_at DESC').first(6)}
+  # scope :newest, -> {published.order('updated_at DESC').first(5)}
+
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 
   validates :agree, acceptance: true

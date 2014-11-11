@@ -1,75 +1,45 @@
 -title "Здесь зарождаются идеи"
 
 %h1 Здесь зарождаются идеи
-
-
-.container
-  =link_to "Предложи идею", new_idea_path( @idea), class: "btn btn-primary btn-large"
-  %hr
-  #team.row
-    .col-md-12
-      
-      %ul.team-list
-        -@ideas.in_groups_of(3,false).each do |ideagroup|
-          .row
-            -ideagroup.each do |idea|
-
-              %li.col-md-4
-                .team-item
-                  %a.thumb-info{:href => idea_path(idea)}
-                    %span.thumb-info-image
-                      %span.thumb-info-act
-                        %span.thumb-info-act-left
-                          %em
-                            = button_to 'За идею', vote_idea_path(idea), class: "btn btn-sm vote", remote: true
-                        %span.thumb-info-act-right
-                          %em
-                            %i.icon.icon-plus
-                            Поддержать
-                        
-                      =image_tag (image_for_idea(idea)), class: "img img-responsive"
-                  %span.thumb-info
-                    %span.thumb-info-content
-                      %a{:href => idea_path(idea)}
-                        %h4=idea.title
-                        -#
-                          %span.role=idea.synopsis
-                    %span.thumb-info-caption
-                      %a{:href => idea_path(idea)}
-                        %p=idea.synopsis
-                      = link_to 'За идею', vote_idea_path(idea)
-                      %span.thumb-info-extra.social.vote
-                        %em
-                          Votes
-                          =idea.votes_for.size
-                        %a{:href => idea, :target => "_blank"} Comments
-                        %em 
-                          Views&nbsp;
-                          =idea.views
-
+%p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
+=link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
+%hr
+  %ul.team-list
+    -@ideas.in_groups_of(3,false).each do |ideagroup|
+      .row.ideas
+        -ideagroup.each do |idea|
+          %li.col-md-4.col-sm-12
+            %a.thumb-info{:href => idea_path(idea)}
+              %span.thumb-info-image
+                %span.thumb-info-act
+                  %span{id: "notice_idea_#{idea.id}"}
+                    - if user_signed_in? 
+                      = button_to 'Проголосовать за идею', vote_idea_path(idea), class: "btn btn-vote vote", remote: true
+                    -else
+                      Зарегистрируйтесь, чтобы голосовать.
+                =image_tag (image_for_idea(idea)), class: "img img-responsive"
+            %span.thumb-info
+              %span.thumb-info-content
+                %a{:href => idea_path(idea)}
+                  %h2.idea_title=idea.title
+              %span.thumb-info-caption
+                %a{:href => idea_path(idea)}
+                  %p=idea.synopsis
+                
+                %span.thumb-info-extra.social.vote
+                  -#
+                  %span{id: "vote_idea_#{idea.id}"}
+                    За идею&nbsp;
+                    =idea.votes_for.size
+                  %span 
+                    Комментарии&nbsp;
+                    =idea.views
+                  %span 
+                    Посмотрели&nbsp;
+                    =idea.views
+                  -#
+                    %a{:href => idea, :target => "_blank"} Комментарии
 -#
-  %table
-    %thead
-      %tr
-        %th User
-        %th Title
-        %th Synopsis
-        %th{:colspan => "3"}
-    %tbody
-      - @ideas.each do |idea|
-        %tr
-          %td= idea.user.fullname
-          %td= idea.title
-          %td= idea.synopsis
-          %td= link_to 'Show', idea
-          %td= link_to 'Edit', edit_idea_path(idea)
-          %td= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
+  = link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
 
-:javascript
-  $('.vote')
-    .on('ajax:send', function () { $(this).addClass('loading'); })
-    .on('ajax:complete', function () { $(this).removeClass('loading'); })
-    .on('ajax:error', function () { $(this).after('<div class="error">There was an issue.</div>'); })
-    .on('ajax:success', function (data) { $(this).html(data.count); });
 

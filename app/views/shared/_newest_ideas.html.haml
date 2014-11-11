@@ -1,0 +1,11 @@
+%h4 Новые идеи
+%ul.nav.nav-list.primary
+  -if newest_ideas
+    -newest_ideas.each do |idea|
+      %li
+        =link_to idea.title, idea
+    
+%a.btn-flat.pull-right.btn-xs.view-more-recent-work{href: ideas_path}
+  Все идеи...
+  &nbsp;
+  %i.icon.icon-arrow-right

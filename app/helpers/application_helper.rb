@@ -11,6 +11,10 @@ module ApplicationHelper
     User.most_active
   end
 
+  def newest_ideas
+    Idea.newest
+  end
+
   def current_page(page,action)
     if controller.controller_name.to_s == page && controller.action_name.to_s == action
       'active'
@@ -18,5 +22,7 @@ module ApplicationHelper
       ''
    end
   end
+
+
 
 end

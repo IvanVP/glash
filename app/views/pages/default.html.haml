@@ -1,10 +1,18 @@
 -#title "Здесь мечты становятся реальностью"
 =# render :partial => 'greeting/rev_slider'
 = render :partial => 'greeting/parallax_top'
+= render :partial => 'greeting/beta'
 = render :partial => 'greeting/text_blocks4'
 = render :partial => 'greeting/parallax_middle'
 =# render :partial => 'greeting/round_stars'
 =# render :partial => 'greeting/text_blocks'
 = render :partial => 'greeting/text'
-= render :partial => 'greeting/portfolio'
+%br
+-#
+  .container
+    .row
+      .col-md-12
+        = render :partial => 'greeting/portfolio'
+        %br
+= render :partial => 'greeting/portfolio1'
 =# render :partial => 'greeting/scores'

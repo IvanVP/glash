@@ -51,9 +51,11 @@ class IdeasController < ApplicationController
 
   def vote
     @idea.liked_by current_user
+    p @idea.vote_registered?
     respond_to do |format|
       format.html {redirect_to :back }
-      format.json { render json: { count: @idea.liked_count } }
+      format.js
+      # format.json { render json: { count: @idea.liked_count, id: @idea.id } }
     end
   end
 
