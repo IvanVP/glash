@@ -141,6 +141,7 @@ legend {
 .pages {
   color: #87919F;
   font-size: 1.2em;
+  line-height: 28px;
 }
 
 h2.show_user {
@@ -164,57 +165,12 @@ a.most-active-users {
   }
 }
 
-.loadfile {
-  background-color: yellow;
-  height: 250px;
-}
-
-
-#dropzone {
-  border-bottom: 3px solid #AA6ABA;
-  width: 70%;
-  background-color: #E7CCED;
-  text-align: center;
-  margin: 30px auto 20px;
-  padding: 25px 20px 45px;
-
-  h4 {
-    margin: 0;
-  }
-   
-}
-#dropzone.in{
-  background-color: #AA6ABA;
-    &:hover{
-
-      background-color: #AA6ABA;
-    }
-  }
-
-#dropzone.fade {
-    -webkit-transition: all 0.9s ease-out;
-    -moz-transition: all 0.9s ease-out;
-    -ms-transition: all 0.9s ease-out;
-    -o-transition: all 0.9s ease-out;
-    transition: all 0.9s ease-out;
-    opacity: 1;
-}
- 
-
-span .add_files {
-  margin: auto;
-}
-
 .hint {
   margin: 0;
   font-size: 1.2em;
 }
 .hint.small {
   font-size: 1.1em;
-}
-
-.ideashow {
-  text-align: center;
 }
 
 p.tall {

@@ -7,12 +7,25 @@
 }
 
 h2.idea_title {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 1.6em;
   color: #72099d;
+  line-height: 25px;
 }
 
- span[id^=notice_idea_],
+.thumb-info-caption p {
+  line-height: 20px;
+}
+
+
+.imagesteps {
+  width: 600px;
+  height: 100px;
+  background-color: #8ee;
+  margin-bottom: 30px;
+}
+
+span[id^=notice_idea_],
 [id^=notice_idea_] form {
   filter: alpha(opacity=0);
   opacity: 0.0;
@@ -64,4 +77,79 @@ h2.idea_title {
     margin-right: 0;
     padding-right: 0;
     }
+}
+
+
+
+
+#dropzone {
+  border-bottom: 3px solid #AA6ABA;
+  width: 70%;
+  background-color: #E7CCED;
+  text-align: center;
+  margin: 30px auto 20px;
+  padding: 25px 20px 45px;
+
+  h4 {
+    margin: 0;
+  }
+   
+}
+#dropzone.in{
+  background-color: #AA6ABA;
+    &:hover{
+
+      background-color: #AA6ABA;
+    }
+  }
+
+#dropzone.fade {
+    -webkit-transition: all 0.9s ease-out;
+    -moz-transition: all 0.9s ease-out;
+    -ms-transition: all 0.9s ease-out;
+    -o-transition: all 0.9s ease-out;
+    transition: all 0.9s ease-out;
+    opacity: 1;
+}
+ 
+
+span .add_files {
+  margin: auto;
+}
+
+
+.ideashow {
+  text-align: center;
+}
+
+h1.ideashow {
+  color: #72099d;
+  margin: 30px 0 25px;
+}
+
+blockquote {
+  margin: 40px;
+  border-color: #72099d;
+  font-style: italic;
+}
+h3.ideainfo {
+  margin: 30px 0 15px;
+}
+
+.ideasidebar {
+  margin: 20px 15px 20px 0;
+  button {
+    width: 50%;
+  }
+  h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  img{
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  p{
+    margin-bottom: 5px;
+  }
 }

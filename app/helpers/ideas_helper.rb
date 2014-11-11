@@ -9,6 +9,7 @@ module IdeasHelper
   def css_for_link
     link_css = "btn btn-primary btn-large"
     link_css << " disabled" unless user_signed_in?
+    link_css
   end
   
 end
