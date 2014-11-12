@@ -21,8 +21,21 @@ h2.idea_title {
 .imagesteps {
   width: 600px;
   height: 100px;
-  background-color: #8ee;
-  margin-bottom: 30px;
+  background-image: image-url('steps.png');
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+.submit_info {
+  background-position: 0px 0px;
+}
+
+.submit_idea {
+  background-position: 0px -100px;
+}
+
+.submit_images {
+  background-position: 0px -200px;
 }
 
 span[id^=notice_idea_],

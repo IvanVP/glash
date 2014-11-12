@@ -1,8 +1,8 @@
 -title "Расскажите об идее"
 
-.imagesteps
+.imagesteps{class: "submit_#{step}"}
 
-%h1 Расскажите об идее
+%h1 Расскажите идею
 
 = semantic_form_for @idea, url: wizard_path, :html => {:multipart => true} do |f|
   = f.inputs do
