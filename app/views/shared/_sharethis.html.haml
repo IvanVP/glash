@@ -1,0 +1,14 @@
+- cache do
+  .sharethis
+    %h4 Поделись с друзьями
+    %span.st_vkontakte_large{:displaytext => "Vkontakte"}
+    %span.st_twitter_large{:displaytext => "Tweet"}
+    %span.st_odnoklassniki_large{:displaytext => "Odnoklassniki"}
+    %span.st_facebook_large{:displaytext => "Facebook"}
+    %span.st_linkedin_large{:displaytext => "LinkedIn"}
+    %span.st_pinterest_large{:displaytext => "Pinterest"}
+    %span.st_sharethis_large{:displaytext => "ShareThis"}
+  -# ShareThis
+  :javascript
+    varswitchTo5x=true;
+    stLight.options ({publisher: "a38859d0-6882-43f9-bc92-469822274d72", doNotHash: false, doNotCopy: false, hashAddressBar: false});

@@ -33,12 +33,14 @@ class IdeasController < ApplicationController
   end
 
   def update
+    notice = 'Ваша идея успешно изменена.'
     if params[:idea][:published]
       @idea.published_at = Time.now
+      notice = 'Ваша идея опубликована и ожидает модерации.'
     end
 
     if @idea.update(idea_params)
-      redirect_to @idea, notice: 'Ваша идея успешно изменена.' 
+      redirect_to @idea, notice: notice 
     else
       render :edit
     end

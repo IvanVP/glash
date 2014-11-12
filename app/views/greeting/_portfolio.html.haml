@@ -9,6 +9,7 @@
               %span.thumb-info-act
                 %span.thumb-info-content
                   %h4=idea.title
-                  %span.date=t(idea.updated_at.strftime("%m %B %Y"))
+                  -# 
+                    %span.date=t(idea.updated_at.strftime("%m %B %Y"))
                   %span.label.label-primary подробнее...
               %img.img-responsive{alt: idea.title, src: image_for_idea(idea) }/

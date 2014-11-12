@@ -11,7 +11,7 @@
               = file.name
           %td.size
             %span
-              = number_to_human_size(file.file_size)
+              = number_to_human_size(file.file_size, precision: 2, separator: '.')
           %td{:colspan => "2"}
           %td.delete
             %span

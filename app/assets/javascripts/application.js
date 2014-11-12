@@ -43,6 +43,7 @@
 //= require theme
 //= require custom
 //= require fotorama
+//= require button
 //
 //  VideoJS
 //  video.dev
