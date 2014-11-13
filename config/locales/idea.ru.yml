@@ -5,12 +5,24 @@ ru:
     attributes:
       idea:
         title: Название
-        synopsis: Коротко
+        synopsis: Аннтотация
         problem: Проблема
         background: Аналоги
         solution: Решение
-        links: Ссылки
+        links: Ссылка на видео
         published: Опубликовано
         moderated: Модерировано
         archieved: Архивировано
         views: Просмотрено
+        published_at: Дата публикации
+        moderated_at: Дата модерации
+        archieved_at: Дата архивирования
+        created_at: Создано
+        updated_at: Изменено
+        views: Просмотров
+        show_on_main_page: На главную
+        status: Статус
+        category: Категория
+        user: Пользователь
+        assets: Изображения
+        votes_for: Голос "За"
