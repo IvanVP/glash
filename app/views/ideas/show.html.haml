@@ -20,6 +20,9 @@
       = time_ago_in_words(@idea.created_at.to_date)
       =# t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at))
       =# l(@idea.published_at.to_date, :format => :long)
+    %p 
+      Статус:&nbsp;
+      
     = link_to 'Комментарии', vote_idea_path(@idea), method: :post
 
 
@@ -62,5 +65,8 @@
   &nbsp
   &nbsp
   = link_to "Все идеи", ideas_path, :class => "input btn backbtn"
+  %hr
+  =render "comments/index"
+
   %hr
   =render "shared/sharethis"

@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
 
   def show
     @images= @idea.assets.order(created_at: :asc)
+    @comments = @idea.comments
     @idea.increment!("views")
   end
   

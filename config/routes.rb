@@ -32,11 +32,12 @@ Glash::Application.routes.draw do
     member {post :vote, as: :vote}
     resources :submit, controller: 'submit'
     resources :assets, except: :destroy
-    resources :comments, only: [:index, :show, :destroy]
+    resources :comments, only: [:index, :create]
     # , only: [:index, :show, :destroy]
   end
   
   resources :assets, only: :destroy
+  resources :comments, only: :index
 
 
   # # ******Shallow*****
