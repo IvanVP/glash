@@ -5,4 +5,7 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true,
                    length: { maximum: 2500 }
 
+  # scope :descending, -> {order('created_at DESC')}
+
+
 end

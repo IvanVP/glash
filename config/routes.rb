@@ -37,7 +37,7 @@ Glash::Application.routes.draw do
   end
   
   resources :assets, only: :destroy
-  resources :comments, only: :index
+  resources :comments, only: :destroy
 
 
   # # ******Shallow*****

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def index  
     @commentable = find_commentable  
-    @comments = @commentable.comments  
+    @comments = @commentable.comments
     # @comments = Comment.all 
   end
 
@@ -10,14 +10,28 @@ class CommentsController < ApplicationController
     @commentable = find_commentable  
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id  
-    if @comment.save  
-      flash[:notice] = "Successfully saved comment."
-      # render :json => nil, :content_type => 'text/html', :layout => false
-      redirect_to idea_path(params[:idea_id])  
-    else  
-      render :action => 'new'  
-    end  
-  end  
+
+    respond_to do |format|
+      if @comment.save
+        format.html {redirect_to idea_path(params[:idea_id]) }
+        format.js
+      else
+        format.html { render action: "new" }
+        format.js { redirect_to idea_path(params[:idea_id]) }
+      end
+    end
+
+  end 
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js {render :layout => false}
+      format.json { head :no_content }
+    end
+  end
 
 
   private

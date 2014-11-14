@@ -1,0 +1,13 @@
+-# @comments.each do |comment|
+%li{id: "comment_#{comment.id}"}
+  .comment
+    .img-thumbnail
+      %img.avatar{:src => comment.user.avatar.url(:thumb), title: "#{comment.user.fullname}", :alt => "#{comment.user.fullname}"}/
+    .comment-block
+      .comment-arrow
+      %span.comment-by
+        %strong=comment.user.fullname
+        %span.date.pull-right= l(comment.created_at.to_datetime, :format => :long)
+      %p=comment.body
+      %span
+        %span.pull-right= link_to 'Удалить', comment, method: :delete, remote: true
