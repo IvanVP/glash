@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   #belongs_to
   has_one :contact, :dependent => :destroy
   has_many :ideas
+  has_many :comments
   belongs_to :role
   belongs_to :country
 

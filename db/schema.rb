@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110143226) do
+ActiveRecord::Schema.define(version: 20141114114144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20141110143226) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "moderated_at"
+    t.integer  "moderator_id"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "contacts", force: true do |t|
     t.integer  "user_id",                                  null: false
@@ -106,6 +119,8 @@ ActiveRecord::Schema.define(version: 20141110143226) do
     t.integer  "views",                         default: 0
     t.boolean  "show_on_main_page",             default: false
     t.string   "status"
+    t.integer  "moderator_id"
+    t.integer  "comments_count",                default: 0,     null: false
   end
 
   create_table "roles", force: true do |t|
@@ -127,6 +142,7 @@ ActiveRecord::Schema.define(version: 20141110143226) do
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
     t.text     "description"
+    t.integer  "warnings",                          default: 0
     t.boolean  "enabled",                           default: true
     t.integer  "role_id"
     t.integer  "country_id"

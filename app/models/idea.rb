@@ -3,7 +3,9 @@ class Idea < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  has_many :assets, :as => :attachable, :dependent => :destroy
+  has_many :assets,   as: :attachable,  :dependent => :destroy
+  has_many :comments, as: :commentable, :dependent => :destroy
+
 
   acts_as_votable
 
