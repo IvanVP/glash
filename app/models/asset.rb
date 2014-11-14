@@ -4,7 +4,7 @@ class Asset < ActiveRecord::Base
   belongs_to :attachable, :polymorphic => true
 
   has_attached_file :data,
-                    :styles => { :thumb => "150x150>", :large => "800x450>" },
+                    :styles => { :thumb => "150x85#", :large => "800x450#" },
                     :default_url => "/images/defaultidea.jpg"
 
 
