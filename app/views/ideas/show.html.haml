@@ -25,6 +25,26 @@
       
     = link_to 'Комментарии', vote_idea_path(@idea), method: :post
 
+    %br
+    %h5 Categories
+    %ul.nav.nav-list.primary.push-bottom
+      %li
+        %a{:href => "#"} Design
+      %li
+        %a{:href => "#"} Photos
+      %li
+        %a{:href => "#"} Videos
+      %li
+        %a{:href => "#"} Lifestyle
+      %li
+        %a{:href => "#"} Technology
+
+    
+          
+
+
+
+
 
   
 .col-md-9
@@ -49,24 +69,32 @@
       = link_to '', @idea.links
     %br
     %br
- 
-  %br
-  %h3.ideainfo= t(:problem, scope: "activerecord.attributes.idea")
-  %p.pages= @idea.problem
-  %h3.ideainfo= t(:background, scope: "activerecord.attributes.idea")
-  %p.pages= @idea.background
-  %h3.ideainfo= t(:solution, scope: "activerecord.attributes.idea")
-  %p.pages= @idea.solution
-  %br
-  %hr
-  %br
+  
+  .tabs
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#ideainfo"}
+          Информация
+      %li
+        %a{"data-toggle" => "tab", :href => "#ideacomments"} Kомментарии
+    .tab-content
+      #ideainfo.tab-pane.active
+        %h3.ideainfo= t(:problem, scope: "activerecord.attributes.idea")
+        %p.pages= @idea.problem
+        %h3.ideainfo= t(:background, scope: "activerecord.attributes.idea")
+        %p.pages= @idea.background
+        %h3.ideainfo= t(:solution, scope: "activerecord.attributes.idea")
+        %p.pages= @idea.solution
+        
+      #ideacomments.tab-pane
+
+        =render "comments/tab"
+  
+  
   = link_to 'Проголосовать за идею', vote_idea_path(@idea), method: :post, class: "input btn btn-primary"
   &nbsp
   &nbsp
   &nbsp
   = link_to "Все идеи", ideas_path, :class => "input btn backbtn"
-  %hr
-  =render "comments/index"
-
   %hr
   =render "shared/sharethis"

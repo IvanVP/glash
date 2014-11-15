@@ -1,5 +1,5 @@
-%h3 Комментарии
-%h5 Ваш комментарий
+
+%h4 Напишите Ваш комментарий
 = semantic_form_for [@idea, Comment.new], remote: true do |f|
   = f.inputs do
     = f.input :body, as: :text, :label => false, autofocus: true,  :input_html => {:class => "form-control ", :rows => 3, :maxlength => 2500}, :required => false, placeholder: "Текст комментария"
