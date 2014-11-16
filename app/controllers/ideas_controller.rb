@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
 
   def index
-    @ideas = Idea.includes(:assets).all
+    @ideas = Idea.includes(:assets, :votes_for).all
     # @ideas = Idea.published
   end
 

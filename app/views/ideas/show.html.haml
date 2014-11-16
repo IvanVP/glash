@@ -40,12 +40,6 @@
         %a{:href => "#"} Technology
 
     
-          
-
-
-
-
-
   
 .col-md-9
   %h1.ideashow= @idea.title
@@ -75,8 +69,8 @@
       %li.active
         %a{"data-toggle" => "tab", :href => "#ideainfo"}
           Информация
-      %li
-        %a{"data-toggle" => "tab", :href => "#ideacomments"} Kомментарии
+      %li#comments_count
+        %a{"data-toggle" => "tab", :href => "#ideacomments"} Kомментарии (#{@idea.comments.size})
     .tab-content
       #ideainfo.tab-pane.active
         %h3.ideainfo= t(:problem, scope: "activerecord.attributes.idea")
@@ -90,7 +84,7 @@
 
         =render "comments/tab"
   
-  
+
   = link_to 'Проголосовать за идею', vote_idea_path(@idea), method: :post, class: "input btn btn-primary"
   &nbsp
   &nbsp

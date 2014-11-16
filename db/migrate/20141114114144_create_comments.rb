@@ -2,7 +2,7 @@ class CreateComments < ActiveRecord::Migration
   def self.up
     create_table :comments do |t|
       t.integer    :user_id
-      t.references :commentable, polymorphic: true, :counter_cache => true
+      t.references :commentable, polymorphic: true
       t.text       :body,   :limit => 2500
       t.timestamps
       t.datetime   :moderated_at

@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
+  before_action :find_commentable , only: :create
 
-  def index  
-    @commentable = find_commentable  
-    @comments = @commentable.comments
-    # @comments = Comment.all 
-  end
+  # def index  
+  #   # @commentable = find_commentable  
+  #   @comments = @commentable.comments
+  #   # @comments = Comment.all 
+  # end
 
   def create  
-    @commentable = find_commentable  
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id  
 
@@ -16,8 +16,10 @@ class CommentsController < ApplicationController
         format.html {redirect_to idea_path(params[:idea_id]) }
         format.js
       else
-        format.html { render action: "new" }
-        format.js { redirect_to idea_path(params[:idea_id]) }
+      #   format.html
+      #    # { render action: "new" }
+      #   format.js
+      #    # { render action: "new" }
       end
     end
 
@@ -25,6 +27,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    @commentable = @comment.commentable
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to :back }

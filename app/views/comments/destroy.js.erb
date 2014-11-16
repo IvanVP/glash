@@ -1,4 +1,5 @@
-
 $("#comment_<%= @comment.id%>").bind('ajax:success', function() {  
         $(this).closest('li').fadeOut(50);
 }); 
+
+$("#comments_count > a").html("Kомментарии (<%= @commentable.comments.size - 1 %>)")

@@ -1,1 +1,3 @@
 $('#comments').prepend('<%= j render(@comment) %>')
+$("#comments_count > a").html("Kомментарии (<%= @commentable.comments.size + 1 %>)")
+$("#comment_body").val("").focus()
