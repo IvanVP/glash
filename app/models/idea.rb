@@ -11,10 +11,13 @@ class Idea < ActiveRecord::Base
 
   acts_as_votable
 
-  scope :published, -> { where(published: true) }
 
   scope :newest, -> {order('updated_at DESC').first(6)}
   # scope :newest, -> {published.order('updated_at DESC').first(5)}
+  scope :drafted,   -> { where(published: false) }
+  scope :published, -> { where(published: true).where(moderated: false) }
+  scope :moderated, -> { where(moderated: true).where(archieved: false) }
+  scope :archieved, -> { where(archieved: true) }
 
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 
@@ -56,6 +59,7 @@ class Idea < ActiveRecord::Base
   def status_idea?
     status == :idea
   end
+
 
   
 end

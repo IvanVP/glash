@@ -9,7 +9,15 @@ class UsersController < ApplicationController
   end
 
   def show
-     @user = User.find(params[:id])
+    @user = User.includes(:ideas).find(params[:id])
+
+    # !!!! Убратьь потом -- order('id ASC')
+    @ideas = @user.ideas.order('id ASC').includes(:assets, :votes_for)
+    @draft_ideas = @ideas.drafted
+    @moderating_ideas = @ideas.published
+    @active_ideas = @ideas.moderated
+    @archieved_ideas = @ideas.archieved
+
   end
 
   def new

@@ -1,36 +1,61 @@
--title "#{@user.fullname}"
-.col-md-3
-  = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@user.fullname}"}
-  %hr.visible-sm.visible-xs.tall/
-.col-md-1
-.col-md-8
-  %h2.show_user= @user.fullname
-  #cga_info
-    .country{ class: "country_#{@user.country_id}"}
-    -if @user.show_gender && @user.gender
-      .gender{class: "#{@user.gender == 'M' ? 'man': 'woman'}"}
-    -if @user.show_birthdate && @user.birthdate
+-title "#{@user.fullname} - Информация"
+.row
+  .col-md-3
+    = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@user.fullname}"}
+    %hr.visible-sm.visible-xs.tall/
+  .col-md-1
+  .col-md-8
+    %h2.show_user= @user.fullname
+    #cga_info
+      .country{ class: "country_#{@user.country_id}"}
+      -if @user.show_gender && @user.gender
+        .gender{class: "#{@user.gender == 'M' ? 'man': 'woman'}"}
+      -if @user.show_birthdate && @user.birthdate
+        %p.pages
+          Возраст:&nbsp;
+          =@user.age
+      -else
+        .clearfix 
+    
+    = render 'shared/social'
+    
+    -if @user.contact.show_skype && !@user.contact.skype.blank?
+      .skype
+        %i.icon.icon-skype
+        %strong 
+        =@user.contact.skype
+        %br/
+    -if @user.contact.show_site && !@user.contact.site.blank?
       %p.pages
-        Возраст:&nbsp;
-        =@user.age
-    -else
-      .clearfix 
-  
-  = render 'shared/social'
-  
-  -if @user.contact.show_skype && !@user.contact.skype.blank?
-    .skype
-      %i.icon.icon-skype
-      %strong 
-      =@user.contact.skype
-      %br/
-  -if @user.contact.show_site && !@user.contact.site.blank?
-    %p.pages
-      =link_to "Мой сайт", url_with_protocol(@user.contact.site), :target => '_blank'
-      %br/
-  
-  -unless @user.description.blank?
-    %p.description  
-      Немного о себе:&nbsp;
-      =@user.description
-      %br/
+        =link_to "Мой сайт", url_with_protocol(@user.contact.site), :target => '_blank'
+        %br/
+    
+    -unless @user.description.blank?
+      %p.description  
+        Немного о себе:&nbsp;
+        =@user.description
+        %br/
+.row.user_ideas
+  .col-md-12
+    - if @active_ideas.any?
+      .row
+        %h4 Идеи (идет голосование)
+        = render "ideas/idea", ideas: @active_ideas
+    -if @user == current_user
+      -if @draft_ideas
+        %hr
+        .row
+          %h4 Неопубликованные идеи (черновик)
+          = render partial: "ideas/idea", locals: {ideas: @draft_ideas, buttons: true}
+      - if @moderating_ideas.any?
+        .row
+          %hr
+          %h4 Опубликованные идеи (идет модерирование)
+          = render "ideas/idea", ideas: @moderating_ideas 
+      - if @archieved_ideas.any? 
+        .row
+          %hr
+          %h4 Идеи в архиве
+          = render "ideas/idea", ideas: @archieved_ideas
+
+

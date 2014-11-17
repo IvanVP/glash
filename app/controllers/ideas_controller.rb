@@ -2,13 +2,12 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
 
   def index
-    @ideas = Idea.includes(:assets, :votes_for).all
-    # @ideas = Idea.published
+    @ideas = Idea.includes(:assets, :votes_for).moderated
   end
 
   def show
-    @images= @idea.assets.order(created_at: :asc)
-    @comments = @idea.comments
+    @images= @idea.assets
+    @comments = @idea.comments.order(created_at: :desc)
     @idea.increment!("views")
   end
   

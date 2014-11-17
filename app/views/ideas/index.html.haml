@@ -7,41 +7,7 @@
   .col-md-4
     =link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
 %hr
-%ul.team-list
-  -@ideas.in_groups_of(3,false).each do |ideagroup|
-    .row.ideas
-      -ideagroup.each do |idea|
-        %li.col-md-4.col-sm-12
-          %a.thumb-info{:href => idea_path(idea)}
-            %span.thumb-info-image
-              %span.thumb-info-act
-                %span{id: "notice_idea_#{idea.id}"}
-                  - if user_signed_in? 
-                    = button_to 'Проголосовать за идею', vote_idea_path(idea), class: "btn btn-vote vote", remote: true
-                  -else
-                    Зарегистрируйтесь, чтобы голосовать.
-              =image_tag (image_for_idea(idea)), class: "img img-responsive"
-          %span.thumb-info
-            %span.thumb-info-content
-              %a{:href => idea_path(idea)}
-                %h2.idea_title=idea.title
-            %span.thumb-info-caption
-              %a{:href => idea_path(idea)}
-                %p=idea.synopsis
-              
-              %span.thumb-info-extra.social.vote
-                -#
-                %span{id: "vote_idea_#{idea.id}"}
-                  За идею:&nbsp;
-                  =idea.votes_for.size
-                %span 
-                  Комментарии:&nbsp;
-                  =idea.comments.size
-                %span 
-                  Просмотры:&nbsp;
-                  =idea.views
-                -#
-                  %a{:href => idea, :target => "_blank"} Комментарии
+= render "idea", ideas: @ideas 
 -#
   = link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }
 
