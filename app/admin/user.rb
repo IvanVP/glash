@@ -6,7 +6,7 @@ ActiveAdmin.register User do
     column :name
     column :email
     column :enabled
-    column :role
+    # column :roles
     column :country
     column :slug
     column :sign_in_count
@@ -20,7 +20,7 @@ ActiveAdmin.register User do
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   permit_params :fname, :mname, :lname, :name, :email, :avatar, :birthdate,
-                :gender, :description, :slug, :role_id, :country_id
+                :gender, :description, :slug, :country_id
   #
   # or
   #

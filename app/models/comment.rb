@@ -7,6 +7,4 @@ class Comment < ActiveRecord::Base
 
   scope :unmoderated, -> {where(moderated: false)}
 
-
-
 end

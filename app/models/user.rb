@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   attr_accessor :login, :crop_x, :crop_y, :crop_w, :crop_h, :processing
 
   #belongs_to
+  has_and_belongs_to_many :roles
   has_one :contact, :dependent => :destroy
   has_many :ideas
   has_many :comments
-  belongs_to :role
   belongs_to :country
 
   acts_as_voter
