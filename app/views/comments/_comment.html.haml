@@ -5,14 +5,7 @@
       %img.avatar{:src => comment.user.avatar.url(:thumb), title: "#{comment.user.fullname}", :alt => "#{comment.user.fullname}"}/
     .comment-block
       .comment-arrow
-      .moderator
-        %span.pull-right.moderator
-          = link_to comment, method: :delete, remote: true do
-            %span.moderator_approve
-              &#9745;
-          = link_to comment, method: :delete, remote: true do
-            %span.moderator_close
-              &#9746;
+      = render 'comments/moderate_links', :comment => comment
       %span.comment-by
         %strong=comment.user.fullname
         %span.date.pull-right= l(comment.created_at.to_datetime, :format => :long)

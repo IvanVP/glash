@@ -1,0 +1,9 @@
+.moderator
+  %span.pull-right.moderator
+    =# link_to comment, controller: :comments, action: :moderate, remote: true do
+    = link_to moderate_comment_path(comment), method: :post, remote: true do
+      %span.moderator_approve
+        &#9745;
+    = link_to comment, method: :delete, remote: true do
+      %span.moderator_close
+        &#9746;

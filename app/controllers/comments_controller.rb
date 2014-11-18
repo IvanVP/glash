@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   before_action :find_commentable , only: :create
 
-  # def index  
+  def index  
   #   # @commentable = find_commentable  
   #   @comments = @commentable.comments
-  #   # @comments = Comment.all 
-  # end
+    
+    @comments = Comment.all.unmoderated 
+  end
 
   def create  
     @comment = @commentable.comments.build(comment_params)
@@ -32,8 +33,23 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.js {render :layout => false}
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
+  end
+
+  def moderate
+    @comment = Comment.find(params[:id])
+    @commentable = @comment.commentable
+    @comment.moderated = true
+    @comment.moderated_at = Time.now
+    @comment.moderator_id = current_user.id
+    @comment.save
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js {render :layout => false}
+    end
+    
   end
 
 

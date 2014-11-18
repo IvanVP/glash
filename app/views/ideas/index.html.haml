@@ -6,6 +6,10 @@
     %p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
   .col-md-4
     =link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
+- unless @ideas_unmoderated.empty?  
+  %hr
+  %h4 Ожидают модерации
+  = render "idea", ideas: @ideas_unmoderated
 %hr
 = render "idea", ideas: @ideas 
 -#

@@ -222,11 +222,12 @@ ul.comments div.comment-block {
 .moderator_approve {
   font-size: 2em;
   font-weight: bold;
-  padding: 10px;
 }
 .moderator_close {
   color: red;
 }
 .moderator_approve {
   color: green;
+  padding-left: 10px;
+
 }

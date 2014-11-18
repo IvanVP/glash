@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.references :commentable, polymorphic: true
       t.text       :body,   :limit => 2500
       t.timestamps
+      t.boolean    :moderated, :default => false
       t.datetime   :moderated_at
       t.integer    :moderator_id
     end

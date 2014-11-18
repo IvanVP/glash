@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141114114144) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "moderated",        default: false
     t.datetime "moderated_at"
     t.integer  "moderator_id"
   end

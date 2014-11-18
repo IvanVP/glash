@@ -37,8 +37,9 @@ Glash::Application.routes.draw do
   end
   
   resources :assets, only: :destroy
-  resources :comments, only: :destroy
-
+  resources :comments, only: [:index, :destroy] do
+    member { post :moderate, as: :moderate}
+  end
 
   # # ******Shallow*****
   # resources :articles do

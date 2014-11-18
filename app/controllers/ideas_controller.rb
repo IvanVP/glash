@@ -1,8 +1,9 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :moderate]
 
   def index
     @ideas = Idea.includes(:assets, :votes_for).moderated
+    @ideas_unmoderated = Idea.includes(:assets, :votes_for).published
   end
 
   def show
@@ -53,12 +54,24 @@ class IdeasController < ApplicationController
 
   def vote
     @idea.liked_by current_user
-    p @idea.vote_registered?
     respond_to do |format|
       format.html {redirect_to :back }
       format.js
       # format.json { render json: { count: @idea.liked_count, id: @idea.id } }
     end
+  end
+
+  def moderate
+    @idea.moderated = true
+    @idea.moderated_at = Time.now
+    @idea.moderator_id = current_user.id
+    @idea.save
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      # format.js {render :layout => false}
+    end
+    
   end
 
   private
