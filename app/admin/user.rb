@@ -1,11 +1,17 @@
 ActiveAdmin.register User do
   menu priority: 1
+  remove_filter :users_roles
+  # http://rails.hasbrains.org/questions/369
+
 
   index do
+    selectable_column
     column "Имя, Фамилия", :fullname
     column :name
     column :email
     column :enabled
+    # column :user.ideas
+
     # column :roles
     column :country
     column :slug
