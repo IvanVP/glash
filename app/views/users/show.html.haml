@@ -42,7 +42,7 @@
         %h4 Идеи (идет голосование)
         = render "ideas/idea", ideas: @active_ideas
     -if @user == current_user
-      -if @draft_ideas
+      -if @draft_ideas.any?
         %hr
         .row
           %h4 Неопубликованные идеи (черновик)
