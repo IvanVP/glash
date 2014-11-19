@@ -68,7 +68,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "New Users - last.week " do
+        panel "Новые пользователи (за последнюю неделю) " do
           ul do
             "Всего за последнюю неделю - #{User.where("created_at > ?", 1.week.ago).count }"
           end
