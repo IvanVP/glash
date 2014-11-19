@@ -34,9 +34,9 @@ ActiveAdmin.register Idea do
 
   index :as => :grid, :columns => 5, default: true do |idea|
     
-    div class: "col-md-12"  do
+    div do
 
-      div :for => idea, class: "col-md-6"  do
+      div :for => idea do
         h2 link_to idea.title, admin_idea_path(idea) 
         div do
           link_to idea.user.fullname, admin_idea_path(idea)
@@ -48,9 +48,9 @@ ActiveAdmin.register Idea do
           simple_format idea.synopsis
         end
       end
-      div :for => idea, class: "col-md-6"  do
+      div :for => idea  do
         link_to admin_idea_path(idea) do
-          image_tag (image_for_idea(idea)), class: "img img-responsive", width: '100%', title: idea.title
+          image_tag (image_for_idea(idea)), width: '100%', title: idea.title
         end
       end
 
@@ -73,9 +73,9 @@ ActiveAdmin.register Idea do
 
   index :as => :block do |idea|
     
-    div class: "col-md-12"  do
+    div do
 
-      div :for => idea, class: "col-md-6"  do
+      div :for => idea   do
         h2 link_to idea.title, admin_idea_path(idea) 
         div do
           link_to idea.user.fullname, admin_idea_path(idea)
@@ -87,10 +87,10 @@ ActiveAdmin.register Idea do
           simple_format idea.synopsis
         end
       end
-      div :for => idea, class: "col-md-6"  do
+      div :for => idea  do
         if idea.assets.any?
           idea.assets.each do |image|
-            div do
+            div class: 'actadm_asset' do
               image_tag(image.url(:thumb))
             end
             # h6 image.url(:thumb)

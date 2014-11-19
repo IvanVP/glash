@@ -15,3 +15,61 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.actadm_dashboard {
+  vertical-align: top;
+  width: 15%;
+  display: inline-block;
+  h5 {
+    margin-bottom: 5px;
+  }
+  .user {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+  }
+  img {
+    width:60%;
+  }
+  .synopsis {
+    font-size: 0.8em;
+  }
+}
+
+h2#page_title {
+  font-size: 1.5em;
+}
+
+#title_bar  #titlebar_left,
+#title_bar  #titlebar_right {
+  height: 30px;
+}
+#title_bar {
+  padding: 7px 30px;
+}
+
+.admin_dashboard .blank_slate_container .blank_slate {
+  margin: 10px;
+}
+#active_admin_content {
+  padding-top: 10px;
+}
+
+.actadm_asset {
+  width: 16%;
+  display: inline-block;
+}
+
+#header {
+  border-bottom-width: 0px;
+  height: 22px;
+}
+#site_title_image {
+  padding-top: 5px;
+}
+#utility_nav {
+  font-size: 1.2em;
+}
+
+#tabs li a {
+  font-size: 1.1em;
+}
