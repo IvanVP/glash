@@ -69,7 +69,8 @@ group :test do
   gem 'launchy'
 end
 
-gem 'devise', '~> 3.2.4'
+# gem 'devise', '~> 3.2.4'
+gem 'devise', '~> 3.4.1'
 gem 'devise-i18n', '~> 0.10.3' 
 
 gem 'activeadmin', github: 'activeadmin'
@@ -98,3 +99,4 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'kaminari', '~> 0.16.1'
 gem 'wicked', '~> 1.1.0'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'declarative_authorization', git: "git://github.com/stffn/declarative_authorization.git"

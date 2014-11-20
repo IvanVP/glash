@@ -1,6 +1,11 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :moderate]
 
+  filter_resource_access
+  # filter_access_to :all
+  # filter_access_to [:action1, :action2]
+
+
   def index
     @ideas = Idea.includes(:assets, :votes_for).moderated
     @ideas_unmoderated = Idea.includes(:assets, :votes_for).published
@@ -76,13 +81,15 @@ class IdeasController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # not needed with declarative authorization
     def set_idea
-      @idea = Idea.find(params[:id])
+      @idea ||= Idea.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :published, :moderated, :status, assets_attributes: :data, :data => :data)
+      
       # (:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
     end
     

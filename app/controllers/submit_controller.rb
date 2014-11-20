@@ -3,6 +3,9 @@ class SubmitController < ApplicationController
 
   steps :info, :idea, :images
 
+  filter_access_to :all
+
+
   def show
     @idea = Idea.find(params[:idea_id])
     @existing_assets = @idea.assets if step == :images

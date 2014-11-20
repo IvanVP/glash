@@ -3,6 +3,8 @@ class ContactsController < ApplicationController
   before_action :goto_root , only: [:index, :show, :new, :create ]
   before_action :check_user, only: [:edit, :update, :destroy]
 
+  filter_resource_access
+
   def index
   end
 

@@ -77,6 +77,10 @@ class User < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
   end
 
+  def role_symbols
+    roles.map { |role| role.name.underscore.to_sym  }
+  end
+
 
   private
 
