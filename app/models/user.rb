@@ -78,7 +78,11 @@ class User < ActiveRecord::Base
   end
 
   def role_symbols
-    roles.map { |role| role.name.underscore.to_sym  }
+    user_roles = roles.map { |role| role.name.downcase.to_sym  } || []
+    user_roles << :member if enabled
+    puts "******************************"
+    p user_roles
+    user_roles
   end
 
 
@@ -86,7 +90,7 @@ class User < ActiveRecord::Base
 
   def build_default_info
     self.country ||= Country.find_by(name: "Россия")
-    self.role ||= Role.find_by(name: "Member")
+    # self.role ||= Role.find_by(name: "Member")
     build_contact
     true
   end

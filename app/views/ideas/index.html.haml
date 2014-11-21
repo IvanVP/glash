@@ -1,15 +1,15 @@
 -title "Здесь зарождаются идеи"
 
-%h1 Здесь зарождаются идеи
+%h1 Здесь зарождаются идеи 
 .row
   .col-md-8
     %p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
   .col-md-4
     =link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
-- if @ideas_unmoderated.any? && current_user.roles.map(&:name).join(', ').include?('Moderator') 
-  %hr
-  %h4 Ожидают модерации
-  = render "idea", ideas: @ideas_unmoderated
+- permitted_to? :moderate, :ideas do 
+  - if @ideas_unmoderated.any? 
+    %h4 Ожидают модерации
+    = render "idea", ideas: @ideas_unmoderated
 %hr
 = render "idea", ideas: @ideas 
 -#

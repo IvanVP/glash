@@ -1,9 +1,14 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :goto_root , only: [:index, :show, :new, :create ]
-  before_action :check_user, only: [:edit, :update, :destroy]
+  # before_action :goto_root , only: [:index, :show, :new, :create ]
+  # before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update]
+  # , only: :update
 
   filter_resource_access
+
+  # filter_access_to :all, :attribute_check => true
+  # filter_resource_access  :attribute_check => true
 
   def index
   end
@@ -31,11 +36,11 @@ class ContactsController < ApplicationController
   private
 
     def check_user
-      unless User.friendly.find(params[:user_id]) == current_user && Contact.find(User.friendly.find(params[:user_id])) == Contact.find(params[:id])
-        goto_root
-      end
-      @user = current_user
-      @contact = @user.contact
+      # unless User.friendly.find(params[:user_id]) == current_user && Contact.find(User.friendly.find(params[:user_id])) == Contact.find(params[:id])
+      #   goto_root
+      # end
+      @user = User.friendly.find(params[:user_id])
+      @contact = current_user.contact
     end
 
     # # Never trust parameters from the scary internet, only allow the white list through.
@@ -44,7 +49,7 @@ class ContactsController < ApplicationController
        :vkontakte, :facebook, :odnoklassniki, :twitter, :linkedin)
     end
 
-    def goto_root
-      redirect_to root_path, notice: 'Вы не можете просматривать или редактировать приватные записи других членов сообщества.'
-    end
+    # def goto_root
+    #   redirect_to root_path, notice: 'Вы не можете просматривать или редактировать приватные записи других членов сообщества.'
+    # end
 end
