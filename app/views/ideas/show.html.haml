@@ -84,7 +84,7 @@
 
         =render "comments/tab"
   
-  -if user_signed_in? || @idea.vote_registered?
+  -if(user_signed_in? && !current_user.liked?(@idea))
     = link_to 'Проголосовать за идею', vote_idea_path(@idea), method: :post, class: "input btn btn-primary"
     &nbsp
     &nbsp
@@ -93,4 +93,4 @@
   -else
     = link_to "Все идеи", ideas_path, :class => "input btn btn-primary"
   %hr
-  =render "shared/sharethis"
+  =#render "shared/sharethis"

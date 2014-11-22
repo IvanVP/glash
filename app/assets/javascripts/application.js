@@ -43,7 +43,7 @@
 //= require theme
 //= require custom
 //= require fotorama
-//= require button
+//   button (sharethis service)
 //
 //  VideoJS
 //  video.dev
