@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   end
 
   def role_symbols
-    user_roles = roles.map { |role| role.name.downcase.to_sym  } || []
+    user_roles = (roles || []).map { |role| role.name.downcase.to_sym  } || []
     user_roles << :member if enabled
     puts "******************************"
     p user_roles

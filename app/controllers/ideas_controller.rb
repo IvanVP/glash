@@ -3,9 +3,8 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy, :vote, :moderate]
 
   filter_resource_access
-  # filter_access_to [:action1, :action2]
+  filter_access_to :vote, :moderate
 
-  # filter_access_to :all, :attribute_check => true
 
   def index
     @ideas = Idea.includes(:assets, :votes_for).moderated
@@ -13,17 +12,19 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @images= @idea.assets
-    @comments = @idea.comments.order(created_at: :desc)
-    @idea.increment!("views")
+    if @idea.user == current_user || @idea.moderated
+      @images= @idea.assets
+      @comments = @idea.comments.order(created_at: :desc)
+      @idea.increment!("views") unless @idea.user == current_user
+      flash.now[:alert] = "Идея находится в архиве." if @idea.archieved
+      flash.now[:alert] = "Идея не опубликована." unless @idea.published 
+    else
+      redirect_to ideas_path, alert: "Извините, Вы не можете сделать это действие (недостаточно прав или запрещен доступ)."
+    end
   end
   
   def new
     @idea = Idea.new
-  end
-
-  def edit
-    redirect_to idea_submit_path(@idea, :info)
   end
 
   def create
@@ -32,7 +33,6 @@ class IdeasController < ApplicationController
 
     if @idea.save
       redirect_to idea_submit_path( @idea, :info)
-      # redirect_to @idea, notice: "Ваша идея сохранена"
     else
       render "new"
     end
@@ -41,7 +41,7 @@ class IdeasController < ApplicationController
 
   def update
     notice = 'Ваша идея успешно изменена.'
-    if params[:idea][:published]
+    if params[:idea][:published] == '1'
       @idea.published_at = Time.now
       notice = 'Ваша идея опубликована и ожидает модерации.'
     end
@@ -54,8 +54,10 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea.destroy
-    redirect_to ideas_url, notice: 'Ваша идея успешно удалена.'
+    if @idea.user == current_user && !@idea.published  
+      @idea.destroy
+      redirect_to :back, notice: 'Ваша идея успешно удалена.'
+    end
   end
 
   def vote

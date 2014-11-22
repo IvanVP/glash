@@ -1,43 +1,26 @@
 class SubmitController < ApplicationController
   include Wicked::Wizard
+  before_action :authenticate_user!
+  before_action :set_idea, only: [:show, :update]
 
   steps :info, :idea, :images
 
-  filter_access_to :all
+  filter_access_to :show, :edit, :update, :finish_wizard_path
 
 
   def show
-    @idea = Idea.find(params[:idea_id])
-    @existing_assets = @idea.assets if step == :images
-    render_wizard
+    if @idea.user == current_user && !@idea.published
+      @existing_assets = @idea.assets if step == :images
+      render_wizard
+    else
+      redirect_to ideas_path, alert: "Извините, Вы не можете сделать это действие (недостаточно прав или запрещен доступ)."
+    end
   end
 
-
-  # def create
-  #   @idea = Idea.new(idea_params)
-
-  #   if @idea.save
-  #     redirect_to idea_submit_path(@idea, :info)
-  #   else
-  #     render "new"
-  #   end
-  # end
-
   def update
-
-    @idea = Idea.find(params[:idea_id])
-    
-    # @idea.status = step
     params[:idea][:status] = step
-    # params[:idea][:status] = 'info' if step == steps.last
     @idea.update(idea_params)
     render_wizard @idea
-
-    # if @idea.update(idea_params)
-    #   redirect_to idea_submit_path(@idea, :info)
-    # else
-    #   render "new"
-    # end
   end
 
   def finish_wizard_path
@@ -45,6 +28,9 @@ class SubmitController < ApplicationController
   end
 
   private
+    def set_idea
+      @idea = Idea.find(params[:idea_id])
+    end
 
     def idea_params
       params.require(:idea).permit(:agree, :idea_id, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :status, assets_attributes: :data, :data => :data)

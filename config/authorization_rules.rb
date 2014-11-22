@@ -1,8 +1,10 @@
 authorization do
   role :guest do
     has_permission_on :registrations, :to => :create
-    has_permission_on :ideas, :to => :read do
+
+    has_permission_on :ideas, :to => :read, :join_by => :and do
       if_attribute moderated: true
+      if_attribute archieved: false
     end
   end
 
@@ -19,9 +21,18 @@ authorization do
       if_attribute :user_id => is {user.id}
     end
 
-    
+    has_permission_on :ideas, :to => [:read, :create, :update]
 
-    has_permission_on :ideas, :submit, :to => :manage
+    has_permission_on :submit, :to => [:show, :edit, :update] do
+      if_attribute published: false
+    end
+
+    has_permission_on :ideas, :to => [:destroy]
+    has_permission_on :ideas, :to => [:vote]
+
+    has_permission_on :comments, :to => [:create]
+    has_permission_on :comments, :to => [:delete]
+    has_permission_on :comments, :to => [:moderate]
 
   end
 

@@ -84,11 +84,13 @@
 
         =render "comments/tab"
   
-
-  = link_to 'Проголосовать за идею', vote_idea_path(@idea), method: :post, class: "input btn btn-primary"
-  &nbsp
-  &nbsp
-  &nbsp
-  = link_to "Все идеи", ideas_path, :class => "input btn backbtn"
+  -if user_signed_in? || @idea.vote_registered?
+    = link_to 'Проголосовать за идею', vote_idea_path(@idea), method: :post, class: "input btn btn-primary"
+    &nbsp
+    &nbsp
+    &nbsp
+    = link_to "Все идеи", ideas_path, :class => "input btn backbtn"
+  -else
+    = link_to "Все идеи", ideas_path, :class => "input btn btn-primary"
   %hr
   =render "shared/sharethis"

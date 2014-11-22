@@ -12,21 +12,23 @@ ActiveAdmin.register_page "Dashboard" do
 
     div class: "blank_slate_container", id: "ideas" do
       published_ideas = Idea.published
-      published_ideas.each do |idea|
-        div class: "actadm_dashboard" do
-          span class: "blank_slate" do
-            div :for => idea do
-              h5 link_to idea.title, admin_idea_path(idea) 
-              div class: "user" do
-                link_to idea.user.fullname, admin_user_path(idea.user)
-              end
-              div do
-                link_to admin_idea_path(idea) do
-                  image_tag (image_for_idea(idea)),  title: idea.title
+      if published_ideas.any?
+        published_ideas.each do |idea|
+          div class: "actadm_dashboard" do
+            span class: "blank_slate" do
+              div :for => idea do
+                h5 link_to idea.title, admin_idea_path(idea) 
+                div class: "user" do
+                  link_to idea.user.fullname, admin_user_path(idea.user)
                 end
-              end
-              div class: "synopsis" do
-                simple_format idea.synopsis
+                div do
+                  link_to admin_idea_path(idea) do
+                    image_tag (image_for_idea(idea)),  title: idea.title
+                  end
+                end
+                div class: "synopsis" do
+                  simple_format idea.synopsis
+                end
               end
             end
           end

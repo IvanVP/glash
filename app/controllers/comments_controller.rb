@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :find_commentable , only: :create
+
+  filter_resource_access
 
   def index  
   #   # @commentable = find_commentable  
