@@ -3,8 +3,10 @@ authorization do
     has_permission_on :registrations, :to => :create
 
     has_permission_on :ideas, :to => :read, :join_by => :and do
-      if_attribute moderated: true
-      if_attribute archieved: false
+      # if_attribute moderated: true
+      # if_attribute archieved: false
+      if_attribute moderated: true, archieved: false
+
     end
   end
 

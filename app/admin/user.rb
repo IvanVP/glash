@@ -1,6 +1,7 @@
 ActiveAdmin.register User do
   menu priority: 1
   remove_filter :users_roles
+  # filter :users_roles, as: :check_boxes
   config.sort_order = "updated_at_desc"
   # http://rails.hasbrains.org/questions/369
 
