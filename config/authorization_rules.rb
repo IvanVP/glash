@@ -10,7 +10,6 @@ authorization do
     end
   end
 
-
   role :member do
     has_permission_on :users, :to => :read
     has_permission_on :registrations, :to => :change
@@ -29,22 +28,23 @@ authorization do
       if_attribute published: false
     end
 
-    has_permission_on :ideas, :to => [:destroy]
+    has_permission_on :ideas, :to => [:delete]
     has_permission_on :ideas, :to => [:vote]
 
     has_permission_on :comments, :to => [:create]
 
+    has_permission_on :assets, :to => [:create, :delete]
   end
 
   role :moderator do
-    # has_permission_on :ideas, :submit, :to => :read
+    includes :member
 
     has_permission_on :comments, :to => [:index, :delete, :moderate]
-    # has_permission_on :comments, :to => [:moderate]
   end
 
-  # permissions on other roles, such as
   role :administrator do
+    includes :moderator
+
     has_permission_on :ideas, :submit, :to => :manage
     has_permission_on :ideas, :to => :moderate
   end

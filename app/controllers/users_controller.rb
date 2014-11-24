@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @ideas = @user.ideas.order('id ASC').includes(:assets, :votes_for)
     @draft_ideas = @ideas.drafted
     @moderating_ideas = @ideas.published
-    @active_ideas = @ideas.moderated
+    @active_ideas = @ideas.active
     @archieved_ideas = @ideas.archieved
 
   end

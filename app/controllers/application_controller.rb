@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def permission_denied
-    flash[:alert] = "Извините, Вы не можете сделать это действие (недостаточно прав или запрещен доступ). #{current_user.roles.map { |role| role.name.downcase.to_sym  } if current_user}"
-    # redirect_to idea_url(Idea.find(1))
+    flash[:alert] = "Извините, Вы не можете сделать это действие (недостаточно прав или запрещен доступ)."
     redirect_to ideas_url
   end
 

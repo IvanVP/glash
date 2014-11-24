@@ -7,8 +7,9 @@ class IdeasController < ApplicationController
 
 
   def index
-    @ideas = Idea.includes(:assets, :votes_for).moderated
+    @ideas = Idea.includes(:assets, :votes_for).active
     @ideas_unmoderated = Idea.includes(:assets, :votes_for).published
+    @ideas_drafted = Idea.includes(:assets, :votes_for).drafted
   end
 
   def show

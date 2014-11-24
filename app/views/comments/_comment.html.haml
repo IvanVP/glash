@@ -10,7 +10,7 @@
         %strong=comment.user.fullname
         %span.date.pull-right= l(comment.created_at.to_datetime, :format => :long)
       %p=comment.body
-      -if comment.moderated
+      -if comment.moderated && permitted_to?(:moderate, comment)
         %span.moderator.pull-right
           Модерировано:
           = l(comment.moderated_at.to_datetime, :format => :long)

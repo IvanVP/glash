@@ -4,11 +4,12 @@ class CommentsController < ApplicationController
   before_action :find_commentable , only: :create
 
   filter_resource_access
+  filter_access_to :moderate
+
 
   def index  
-  #   # @commentable = find_commentable  
-  #   @comments = @commentable.comments
-    
+    # @commentable = find_commentable  
+    # @comments = @commentable.comments
     @comments = Comment.all.unmoderated 
   end
 
@@ -20,11 +21,6 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html {redirect_to idea_path(params[:idea_id]) }
         format.js
-      else
-      #   format.html
-      #    # { render action: "new" }
-      #   format.js
-      #    # { render action: "new" }
       end
     end
 
@@ -56,7 +52,6 @@ class CommentsController < ApplicationController
     
   end
 
-
   private
 
     def find_commentable
@@ -66,6 +61,5 @@ class CommentsController < ApplicationController
 
     def comment_params
       params.require(:comment).permit(:body, :idea_id)
-      # (:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
     end
 end

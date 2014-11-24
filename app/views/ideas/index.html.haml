@@ -7,7 +7,12 @@
   .col-md-4
     =link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
 - permitted_to? :moderate, :ideas do 
+  - if @ideas_drafted.any? 
+    %hr  
+    %h4 Идеи в черновике
+    = render "idea", ideas: @ideas_drafted
   - if @ideas_unmoderated.any? 
+    %hr  
     %h4 Ожидают модерации
     = render "idea", ideas: @ideas_unmoderated
 %hr

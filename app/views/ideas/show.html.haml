@@ -6,7 +6,7 @@
     %h4 Автор
     = image_tag @idea.user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@idea.user.fullname}"}
     %br
-    %h2= @idea.user.fullname
+    %h2= link_to @idea.user.fullname, @idea.user
     %p
       Проголосовало за идею:&nbsp;
       =@idea.votes_for.size
@@ -16,28 +16,39 @@
     %p 
       Опубликована:&nbsp;
       = l(@idea.created_at.to_date, :format => :long)
-    %p
-      = time_ago_in_words(@idea.created_at.to_date)
+    
+      =# time_ago_in_words(@idea.created_at.to_date)
       =# t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at))
       =# l(@idea.published_at.to_date, :format => :long)
-    %p 
-      Статус:&nbsp;
-      
-    = link_to 'Комментарии', vote_idea_path(@idea), method: :post
+    Статус:&nbsp;
+    -if @idea.archieved
+      В архиве
+    -elsif @idea.published && @idea.moderated
+      Активна
+    -elsif @idea.published
+      Опубликована
+    -else
+      Черновик
 
-    %br
-    %h5 Categories
-    %ul.nav.nav-list.primary.push-bottom
-      %li
-        %a{:href => "#"} Design
-      %li
-        %a{:href => "#"} Photos
-      %li
-        %a{:href => "#"} Videos
-      %li
-        %a{:href => "#"} Lifestyle
-      %li
-        %a{:href => "#"} Technology
+
+
+
+      
+    =# link_to 'Проголосовать', vote_idea_path(@idea), method: :post
+    -#
+      %br
+      %h5 Categories
+      %ul.nav.nav-list.primary.push-bottom
+        %li
+          %a{:href => "#"} Design
+        %li
+          %a{:href => "#"} Photos
+        %li
+          %a{:href => "#"} Videos
+        %li
+          %a{:href => "#"} Lifestyle
+        %li
+          %a{:href => "#"} Technology
 
     
   

@@ -1,6 +1,10 @@
 class AssetsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :load_attachable, except: :destroy
   before_action :set_asset, only: [:show, :edit, :update]
+
+  filter_resource_access
 
   # GET /assets
   # GET /assets.json
@@ -15,13 +19,13 @@ class AssetsController < ApplicationController
 
   # GET /assets/1
   # GET /assets/1.json
-  def show
+  # def show
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @asset }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.json { render json: @asset }
+  #   end
+  # end
 
   # GET /assets/new
   def new
