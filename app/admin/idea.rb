@@ -1,6 +1,12 @@
 ActiveAdmin.register Idea do
   menu priority: 2
 
+  scope :drafted
+  scope :published
+  scope :active
+  scope :archieved
+  scope :all
+
   index do
     actions
     column :id

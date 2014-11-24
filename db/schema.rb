@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(version: 20141118144058) do
   end
 
   create_table "roles_users", id: false, force: true do |t|
-    t.integer "role_id", null: false
     t.integer "user_id", null: false
+    t.integer "role_id", null: false
   end
 
   create_table "users", force: true do |t|
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20141118144058) do
     t.string   "gender",                 limit: 1
     t.boolean  "show_gender",                       default: true
     t.text     "description"
+    t.integer  "warnings",                          default: 0
     t.boolean  "enabled",                           default: true
     t.integer  "country_id"
     t.datetime "created_at"
