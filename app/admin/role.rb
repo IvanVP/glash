@@ -1,20 +1,21 @@
 ActiveAdmin.register Role do
   menu priority: 3
+    remove_filter :roles_users
 
-  # form do |f|
+  form do |f|
   #   f.inputs "Main poll" do
   #     f.input :name
   #     f.input :description
   #   end
 
-  #   f.inputs do
-  #     f.has_many :users do |u|
-  #       u.fullname
-  #      end
-  #   end
+    f.inputs do
+      f.has_many :users do |u|
+        u.fullname
+       end
+    end
 
-  #   f.buttons
-  # end
+    f.buttons
+  end
 
   # remove_filter roles_roles
 
@@ -42,6 +43,7 @@ ActiveAdmin.register Role do
   #               :gender, :description, :slug, :role_id, :country_id
   #
  permit_params :name, :description
+ permit_params(:user_roles => [:user_id, :role_id])
   # or
   #
   # permit_params do

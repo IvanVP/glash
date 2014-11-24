@@ -1,0 +1,6 @@
+
+table_for assigns[:user].roles do
+  column :name
+  column :roles,  :as => :check_boxes, :collection => Role.all
+end
+
