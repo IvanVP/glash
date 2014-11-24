@@ -1,3 +1,5 @@
 $("#comment_<%= @comment.id%>").bind('ajax:success', function() {  
-        $(this).closest('li').fadeOut(50);
+  var html = '<%= j render(@comment) %>';
+  html = html.replace("<li id='comment_<%= @comment.id%>'>", '').replace('</li>', '')
+  $("#comment_<%= @comment.id%>").html(html)
 }); 

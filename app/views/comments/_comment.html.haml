@@ -5,8 +5,18 @@
       %img.avatar{:src => comment.user.avatar.url(:thumb), title: "#{comment.user.fullname}", :alt => "#{comment.user.fullname}"}/
     .comment-block
       .comment-arrow
-      = render 'comments/moderate_links', :comment => comment if permitted_to? :moderate, comment
+      = render 'comments/moderate_links', :comment => comment if permitted_to? :moderate, comment 
       %span.comment-by
         %strong=comment.user.fullname
         %span.date.pull-right= l(comment.created_at.to_datetime, :format => :long)
       %p=comment.body
+      -if comment.moderated
+        %span.moderator.pull-right
+          Модерировано:
+          = l(comment.moderated_at.to_datetime, :format => :long)
+          %br
+          = moderator(comment)
+          Comment Id:
+          = comment.id
+
+
