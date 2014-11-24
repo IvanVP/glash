@@ -1,3 +1,7 @@
-%h4 Комментарии для модерирования
-%ul.comments.reply#comments
-  =render @comments
+.comments_all_unmoderated
+  %h4 Комментарии для модерирования
+  %ul.comments.reply#comments
+    -if @comments.empty?
+      %p.pages Комментариев для модерирования нет.
+    -else
+      =render @comments

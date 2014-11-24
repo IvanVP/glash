@@ -15,6 +15,9 @@
       -if current_user.is_admin?
         %li= link_to 'Панель администратора', admin_dashboard_path
         %li.divider
+      -if current_user.is_moderator?
+        %li= link_to 'Модерировать комментарии', comments_path
+        %li.divider
       
       %li{:class => current_page('users', 'show')}
         = link_to "Мой профиль", user_path(current_user)

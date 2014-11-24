@@ -68,6 +68,7 @@ class User < ActiveRecord::Base
     self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
   end
 
+
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
   end
@@ -78,13 +79,18 @@ class User < ActiveRecord::Base
   end
 
   def role_symbols
-    user_roles = (roles || []).map { |role| role.name.downcase.to_sym  } || []
+    user_roles = roles.map { |role| role.name.downcase.to_sym  } || []
     user_roles << :member if enabled
-    puts "******************************"
-    p user_roles
     user_roles
   end
 
+  def is_moderator?
+    role_symbols.include?(:moderator)
+  end
+
+  def is_administrator?
+    role_symbols.include?(:administrator)
+  end
 
   private
 

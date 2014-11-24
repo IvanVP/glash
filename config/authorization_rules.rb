@@ -33,13 +33,14 @@ authorization do
     has_permission_on :ideas, :to => [:vote]
 
     has_permission_on :comments, :to => [:create]
-    has_permission_on :comments, :to => [:delete]
-    has_permission_on :comments, :to => [:moderate]
 
   end
 
   role :moderator do
     # has_permission_on :ideas, :submit, :to => :read
+
+    has_permission_on :comments, :to => [:index, :delete, :moderate]
+    # has_permission_on :comments, :to => [:moderate]
   end
 
   # permissions on other roles, such as
