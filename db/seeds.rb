@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-roles = %W/Member Buyer Customer Inventor Moderator Expert Author Stuff Manager Superviser Administrator/
+roles_all = Role.all
+roles_all.delete if roles_all
+
+roles = %W/Inventor Buyer Customer  Moderator Expert Author Stuff Manager Superviser Administrator/
 roles.each do |role|
   Role.find_or_create_by(name: role)
 end
@@ -15,8 +18,7 @@ end
   Country.find_or_create_by(name: country)
 end
 
-member = Role.find_by(name: "Member")
-member.delete if member
+
 
 users = <<EOF
 Надежда;Травникова;travushka;travushka@glash.ru;F;Если мне хочется - сбудется! 
