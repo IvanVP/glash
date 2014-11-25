@@ -1,4 +1,4 @@
--title "#{@user.fullname} - Информация"
+-title "#{@user.fullname} - Данные пользователя"
 .row
   .col-md-3
     = image_tag @user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@user.fullname}"}
@@ -47,12 +47,12 @@
         .row
           %h4 Неопубликованные идеи (черновик)
           = render partial: "ideas/idea", locals: {ideas: @draft_ideas, buttons: true}
-      - if @moderating_ideas.any?
+      -if @moderating_ideas.any?
         .row
           %hr
           %h4 Опубликованные идеи (идет модерирование)
           = render "ideas/idea", ideas: @moderating_ideas 
-      - if @archieved_ideas.any? 
+      -if @archieved_ideas.any? 
         .row
           %hr
           %h4 Идеи в архиве

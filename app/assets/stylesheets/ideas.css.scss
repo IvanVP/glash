@@ -92,9 +92,6 @@ span[id^=notice_idea_],
     }
 }
 
-
-
-
 #dropzone {
   border-bottom: 3px solid #AA6ABA;
   width: 70%;
@@ -240,4 +237,24 @@ span.moderator {
 
 .comments_all_unmoderated {
   min-height: 250px;
+}
+
+.pubbtn,
+.appbtn,
+.delbtn {
+  padding-bottom: 10px;
+  .btn-sm {
+    width:100%;
+  }
+}
+.pubbtn.col-md-4,
+.appbtn.col-md-4,
+.delbtn.col-md-4 {
+    padding: 6px 2px;
+    font-size: 1em;
+}
+
+.publish {
+    font-size: 0.9em !important;
+    padding: 6px 10px !important;
 }

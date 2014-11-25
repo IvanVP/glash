@@ -34,7 +34,12 @@
                   =idea.views
             - if idea_edit
               %span
-                .col-md-6
-                  %span= link_to 'Редактировать', idea_submit_path( idea.id, :info), class: "btn btn-sm btn-success"
-                .col-md-6
-                  %span= link_to 'Удалить', idea, method: :delete, data: { confirm: 'Идея будет удалена. Вы уверены?' }, class: "btn btn-sm btn-danger"
+                .col-md-4.pubbtn
+                  %span
+                    = semantic_form_for idea do |f|
+                      = f.input :published, as: :hidden, :input_html => { value: "1" }
+                      = f.submit "Опубликовать", :class => "btn btn-sm btn-vote publish"
+                .col-md-4.appbtn
+                  %span= button_to 'Редактировать', idea_submit_path( idea.id, :info), method: :get, class: "btn btn-sm btn-success"
+                .col-md-4.delbtn
+                  %span= button_to 'Удалить', idea, method: :delete, data: { confirm: 'Идея будет удалена. Вы уверены?' }, class: "btn btn-sm btn-danger"
