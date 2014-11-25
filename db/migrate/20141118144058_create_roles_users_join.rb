@@ -6,6 +6,7 @@ class CreateRolesUsersJoin < ActiveRecord::Migration
     end
 
     remove_column :users, :role_id
+    
   end
 
   def self.down

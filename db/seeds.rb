@@ -15,6 +15,9 @@ end
   Country.find_or_create_by(name: country)
 end
 
+member = Role.find_by(name: "Member")
+member.delete if member
+
 users = <<EOF
 Надежда;Травникова;travushka;travushka@glash.ru;F;Если мне хочется - сбудется! 
 Ольга;Селезнева;olsel;olsel@glash.ru;F;Я знаю, что ничего не знаю.

@@ -46,7 +46,9 @@ authorization do
     includes :moderator
 
     has_permission_on :ideas, :submit, :to => :manage
+    has_permission_on :users, :to => :manage
     has_permission_on :ideas, :to => :moderate
+
   end
   # role :user do
   #   has_permission_on :conferences, :to => [:read, :create]

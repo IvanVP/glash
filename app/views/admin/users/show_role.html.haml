@@ -1,0 +1,26 @@
+%h2 Присвоение ролей для пользователя
+=image_tag(@user.avatar.url(:thumb))
+%br
+%br
+%h5.roles
+  Имя, Фамилия: &nbsp;
+  = @user.fullname
+%h5.roles
+  Логин: &nbsp;
+  = @user.name
+%h5.roles
+  Email: &nbsp;
+  = @user.email
+%br
+
+
+= semantic_form_for [:admin, @user], url: role_admin_user_path(@user), builder: ActiveAdmin::FormBuilder do |f|
+  = f.inputs "General" do
+    = f.input :roles,  :as => :check_boxes, :collection => Role.all
+
+  = f.actions do
+    = f.action :submit
+    %li.cancel= link_to "Cancel", admin_users_path
+
+  
+
