@@ -33,7 +33,7 @@ authorization do
 
     has_permission_on :comments, :to => [:create]
 
-    has_permission_on :assets, :to => [:create, :delete]
+    has_permission_on :assets, :to => [:index, :create, :delete]
   end
 
   role :moderator do
