@@ -49,7 +49,7 @@ class AssetsController < ApplicationController
     Rails.logger.info "@asset: #{@asset}"
 
     respond_to do |format|
-      if @asset.save
+      if @asset.save(asset_params)
         Rails.logger.info "@asset.to_jq_upload: #{@asset.to_jq_upload.to_json}"
         format.html {
           render :json => [@asset.to_jq_upload].to_json,
