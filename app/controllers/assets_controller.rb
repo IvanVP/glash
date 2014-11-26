@@ -45,9 +45,12 @@ class AssetsController < ApplicationController
   # POST /assets.json
   def create
     @asset = @attachable.assets.new(asset_params)
+    Rails.logger.info "Params: #{params}"
+    Rails.logger.info "@asset: #{@asset}"
 
     respond_to do |format|
       if @asset.save
+        Rails.logger.info "@asset.to_jq_upload: #{@asset.to_jq_upload.to_json}"
         format.html {
           render :json => [@asset.to_jq_upload].to_json,
           :content_type => 'text/html',
@@ -96,7 +99,9 @@ class AssetsController < ApplicationController
 
     def load_attachable
       klass = [Idea].detect {|c| params["#{c.name.underscore}_id"]}
+      Rails.logger.info "klass: #{klass}"
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
+      Rails.logger.info "@attachable: #{@attachable}"
     end
 
     # Use callbacks to share common setup or constraints between actions.
