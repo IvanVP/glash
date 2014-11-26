@@ -28,14 +28,14 @@ class AssetsController < ApplicationController
   # end
 
   # GET /assets/new
-  def new
-    @assets = @attachable.asset.new
+  # def new
+  #   @assets = @attachable.asset.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @asset }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @asset }
+  #   end
+  # end
 
   # GET /assets/1/edit
   # def edit
@@ -45,11 +45,15 @@ class AssetsController < ApplicationController
   # POST /assets.json
   def create
     @asset = @attachable.assets.new(asset_params)
+    Rails.logger.info "@attachable: #{@attachable.inspect}"
     Rails.logger.info "Params: #{params}"
     Rails.logger.info "@asset: #{@asset}"
+    Rails.logger.info "@asset: #{@asset.inspect}"
+    Rails.logger.info "@asset_params: #{@asset_params}"
+
 
     respond_to do |format|
-      if @asset.save(asset_params)
+      if @asset.save
         Rails.logger.info "@asset.to_jq_upload: #{@asset.to_jq_upload.to_json}"
         format.html {
           render :json => [@asset.to_jq_upload].to_json,
@@ -58,6 +62,7 @@ class AssetsController < ApplicationController
         }
         format.json { render json: {files: [@asset.to_jq_upload]}, status: :created, location: @upload }
       else
+        Rails.logger.info "!!!Not saved"
         format.html { render action: "new" }
         format.json { render json: @asset.errors, status: :unprocessable_entity }
       end
