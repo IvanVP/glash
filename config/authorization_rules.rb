@@ -39,7 +39,7 @@ authorization do
   role :moderator do
     includes :member
 
-    has_permission_on :comments, :to => [:index, :delete, :moderate]
+    has_permission_on :comments, :to => [:read, :delete, :moderate]
   end
 
   role :administrator do
