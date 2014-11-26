@@ -12,12 +12,12 @@ class Idea < ActiveRecord::Base
   acts_as_votable
 
 
-  scope :newest, -> {order('updated_at DESC').first(6)}
   # scope :newest, -> {published.order('updated_at DESC').first(5)}
   scope :drafted,   -> { where(published: false) }
   scope :published, -> { where(published: true).where(moderated: false) }
   scope :active, -> { where(moderated: true).where(archieved: false) }
   scope :archieved, -> { where(archieved: true) }
+  scope :newest, -> {order('updated_at DESC').active.first(6)}
 
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 

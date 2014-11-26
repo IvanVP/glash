@@ -243,10 +243,16 @@ span.moderator {
 .appbtn,
 .delbtn {
   padding-bottom: 10px;
-  .btn-sm {
-    width:100%;
-  }
+  .btn-sm,
+  .btn {
+      width:100%;
+      padding-left:5px;
+      padding-right:5px;
+    }
+
 }
+
+
 .pubbtn.col-md-4,
 .appbtn.col-md-4,
 .delbtn.col-md-4 {
@@ -257,5 +263,5 @@ span.moderator {
 .publish,
 .moderate {
     font-size: 0.9em !important;
-    padding: 6px 10px !important;
+    padding: 6px 5px !important;
 }

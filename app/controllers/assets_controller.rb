@@ -47,9 +47,10 @@ class AssetsController < ApplicationController
     @asset = @attachable.assets.new(asset_params)
     Rails.logger.info "@attachable: #{@attachable.inspect}"
     Rails.logger.info "Params: #{params}"
+    Rails.logger.info "Params: #{asset_params}"
     Rails.logger.info "@asset: #{@asset}"
     Rails.logger.info "@asset: #{@asset.inspect}"
-    Rails.logger.info "@asset_params: #{@asset_params}"
+    Rails.logger.info "@asset_params: #{asset_params}"
 
 
     respond_to do |format|
