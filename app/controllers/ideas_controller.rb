@@ -43,8 +43,13 @@ class IdeasController < ApplicationController
   def update
     notice = 'Ваша идея успешно изменена.'
     if params[:idea][:published] == '1'
+      @idea.published = true
       @idea.published_at = Time.now
       notice = 'Ваша идея опубликована и ожидает модерации.'
+    elsif params[:idea][:published] == '0'
+      @idea.published = false
+      @idea.published_at = nil
+      notice = nil
     end
 
     if @idea.update(idea_params)
@@ -71,14 +76,21 @@ class IdeasController < ApplicationController
   end
 
   def moderate
+
     @idea.moderated = true
     @idea.moderated_at = Time.now
     @idea.moderator_id = current_user.id
-    @idea.save
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      # format.js {render :layout => false}
+    if @idea.save
+      respond_to do |format|
+        format.html { redirect_to :back, notice: "Идея успешно модерирована и появилась на сайте." }
+        # format.js {render :layout => false}
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to :back, alert: "Идея не модерирована и не появилась на сайте." }
+        # format.js {render :layout => false}
+      end
     end
     
   end

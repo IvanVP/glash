@@ -43,3 +43,12 @@
                   %span= button_to 'Редактировать', idea_submit_path( idea.id, :info), method: :get, class: "btn btn-sm btn-success"
                 .col-md-4.delbtn
                   %span= button_to 'Удалить', idea, method: :delete, data: { confirm: 'Идея будет удалена. Вы уверены?' }, class: "btn btn-sm btn-danger"
+            - if current_user.is_administrator? && idea.published && !idea.moderated
+              %span
+                .col-md-6.appbtn
+                  %span= button_to 'Подтвердить', moderate_idea_path(idea), class: "btn btn-sm btn-success"
+                .col-md-6.delbtn
+                  %span
+                    = semantic_form_for idea do |f|
+                      = f.input :published, as: :hidden, :input_html => { value: "0" }
+                      = f.submit "Доработка", :class => "btn btn-sm btn-danger moderate"

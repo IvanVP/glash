@@ -30,6 +30,8 @@ Glash::Application.routes.draw do
 
   resources :ideas do
     member {post :vote, as: :vote}
+    member {post :moderate, as: :moderate}
+
     resources :submit, controller: 'submit'
     resources :assets, except: :destroy
     resources :comments, only: [:create]
