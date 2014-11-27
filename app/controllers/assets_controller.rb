@@ -10,6 +10,9 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     @assets = @attachable.assets
+     # || []
+    puts "**********************************"
+    p @assets
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,7 +51,7 @@ class AssetsController < ApplicationController
     
     Rails.logger.info "1- before @attachable: #{@attachable.inspect}"
     Rails.logger.info "1- before Params: #{params}"
-    Rails.logger.info "1- before Params: #{asset_params}"
+    Rails.logger.info "1- before ASSET Params: #{asset_params}"
     Rails.logger.info "1- before @asset: #{@asset}"
     Rails.logger.info "1- before @asset: #{@asset.inspect}"
     Rails.logger.info "1- before @asset_params: #{asset_params}"
@@ -62,7 +65,7 @@ class AssetsController < ApplicationController
 
     Rails.logger.info "@attachable: #{@attachable.inspect}"
     Rails.logger.info "Params: #{params}"
-    Rails.logger.info "Params: #{asset_params}"
+    Rails.logger.info "ASSETParams: #{asset_params}"
     Rails.logger.info "@asset: #{@asset}"
     Rails.logger.info "@asset: #{@asset.inspect}"
     Rails.logger.info "@asset_params: #{asset_params}"
@@ -124,18 +127,17 @@ class AssetsController < ApplicationController
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
       Rails.logger.info "From - load_ attachable -- @attachable: #{@attachable.inspect}"
 
-      Rails.logger.info "From - load_ attachable --@attachable: #{@attachable.inspect}"
       Rails.logger.info "From - load_ attachable --Params: #{params}"
-      Rails.logger.info "From - load_ attachable --Params: #{asset_params}"
-      Rails.logger.info "From - load_ attachable --@asset: #{@asset}"
-      Rails.logger.info "From - load_ attachable --@asset: #{@asset.inspect}"
-      Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
+      # Rails.logger.info "From - load_ attachable --ASSET_Params: #{asset_params}"
+      # Rails.logger.info "From - load_ attachable --@asset: #{@asset}"
+      # Rails.logger.info "From - load_ attachable --@asset: #{@asset.inspect}"
+      # Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit(asset: :data, :idea_id)
-      # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
+      params.require(:asset).permit( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
+      # (:idea_id, :data => :data)
     end
 
 end
