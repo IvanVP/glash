@@ -44,6 +44,7 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.json
   def create
+    @attachable = Idea.find(params[:idea_id])
     @asset = @attachable.assets.new(asset_params)
     Rails.logger.info "@attachable: #{@attachable.inspect}"
     Rails.logger.info "Params: #{params}"
