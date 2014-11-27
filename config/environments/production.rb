@@ -13,7 +13,8 @@ Glash::Application.configure do
   # Full error reports are disabled and caching is turned on.
   # !!!! поменять на false
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = true
+  # !!! здесь на true
+  config.action_controller.perform_caching = false
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -38,13 +39,14 @@ Glash::Application.configure do
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   # config.log_level = :info
+  # вернуть на info
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
