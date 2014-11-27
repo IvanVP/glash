@@ -44,15 +44,29 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.json
   def create
+    Rails.logger.info "ENTERING CREATE ASSET"
+    
     @attachable = Idea.find(params[:idea_id])
+    Rails.logger.info "1- before @attachable: #{@attachable.inspect}"
+    Rails.logger.info "1- before Params: #{params}"
+    Rails.logger.info "1- before Params: #{asset_params}"
+    Rails.logger.info "1- before @asset: #{@asset}"
+    Rails.logger.info "1- before @asset: #{@asset.inspect}"
+    Rails.logger.info "1- before @asset_params: #{asset_params}"
     @asset = @attachable.assets.build(asset_params)
+    if @asset
+      Rails.logger.info "Asset -saved @asset: #{@asset}"
+    else
+      Rails.logger.info "Asset - !!! not saved @asset: #{@asset}"
+    end
+
+
     Rails.logger.info "@attachable: #{@attachable.inspect}"
     Rails.logger.info "Params: #{params}"
     Rails.logger.info "Params: #{asset_params}"
     Rails.logger.info "@asset: #{@asset}"
     Rails.logger.info "@asset: #{@asset.inspect}"
     Rails.logger.info "@asset_params: #{asset_params}"
-
 
     respond_to do |format|
       if @asset.save
