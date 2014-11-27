@@ -131,7 +131,7 @@ class AssetsController < ApplicationController
       # Rails.logger.info "From - load_ attachable --ASSET_Params: #{asset_params}"
       # Rails.logger.info "From - load_ attachable --@asset: #{@asset}"
       # Rails.logger.info "From - load_ attachable --@asset: #{@asset.inspect}"
-      # Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
+      Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
