@@ -1,8 +1,8 @@
 class AssetsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
-  before_action :load_attachable, except: :destroy
-  before_action :set_asset, only: [:show, :edit, :update]
+  before_action :load_attachable, only: [:create, :index]
+  # before_action :set_asset, only: [:show, :edit, :update]
 
   # filter_resource_access
 
@@ -46,7 +46,6 @@ class AssetsController < ApplicationController
   def create
     Rails.logger.info "ENTERING CREATE ASSET"
     
-    @attachable = Idea.find(params[:idea_id])
     Rails.logger.info "1- before @attachable: #{@attachable.inspect}"
     Rails.logger.info "1- before Params: #{params}"
     Rails.logger.info "1- before Params: #{asset_params}"
@@ -55,9 +54,9 @@ class AssetsController < ApplicationController
     Rails.logger.info "1- before @asset_params: #{asset_params}"
     @asset = @attachable.assets.build(asset_params)
     if @asset
-      Rails.logger.info "Asset -saved @asset: #{@asset}"
+      Rails.logger.info "Asset - builded @asset: #{@asset}"
     else
-      Rails.logger.info "Asset - !!! not saved @asset: #{@asset}"
+      Rails.logger.info "Asset - !!! not  builded @asset: #{@asset}"
     end
 
 
@@ -103,6 +102,7 @@ class AssetsController < ApplicationController
   # DELETE /assets/1.json
   def destroy
     @asset = Asset.find(params[:id])
+    @attachable = @asset.attachable
     @asset.destroy
     respond_to do |format|
       format.html { redirect_to :back }
@@ -120,14 +120,9 @@ class AssetsController < ApplicationController
 
     def load_attachable
       klass = [Idea].detect {|c| params["#{c.name.underscore}_id"]}
-      Rails.logger.info "klass: #{klass}"
+      Rails.logger.info "From - load_ attachable -- klass: #{klass.inspect}"
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
-      Rails.logger.info "@attachable: #{@attachable}"
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_asset
-      @asset = @attachable.assets.find(params[:id])
+      Rails.logger.info "From - load_ attachable -- @attachable: #{@attachable.inspect}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
