@@ -134,7 +134,7 @@ class AssetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit( :idea_id, :data)
+      params.require(:asset).permit(:data, :idea_id)
       # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
     end
 
