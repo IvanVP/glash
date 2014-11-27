@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
   before_action :load_attachable, except: :destroy
   before_action :set_asset, only: [:show, :edit, :update]
 
-  filter_resource_access
+  # filter_resource_access
 
   # GET /assets
   # GET /assets.json
