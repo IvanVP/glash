@@ -10,9 +10,6 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     @assets = @attachable.assets
-     # || []
-    puts "**********************************"
-    p @assets
 
     respond_to do |format|
       format.html # index.html.erb
@@ -55,7 +52,13 @@ class AssetsController < ApplicationController
     Rails.logger.info "1- before @asset: #{@asset}"
     Rails.logger.info "1- before @asset: #{@asset.inspect}"
     Rails.logger.info "1- before @asset_params: #{asset_params}"
+
+
+    
+    # @asset = @attachable.assets.new(params[:asset])
     @asset = @attachable.assets.build(asset_params)
+
+
     if @asset
       Rails.logger.info "Asset - builded @asset: #{@asset}"
     else
@@ -86,21 +89,7 @@ class AssetsController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /assets/1
-  # PATCH/PUT /assets/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @asset.update(asset_params)
-  #       format.html { redirect_to @asset, notice: 'asset was successfully updated.' }
-  #       format.json { rhead :no_content }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @asset.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
+  
   # DELETE /assets/1
   # DELETE /assets/1.json
   def destroy
@@ -127,17 +116,12 @@ class AssetsController < ApplicationController
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
       Rails.logger.info "From - load_ attachable -- @attachable: #{@attachable.inspect}"
 
-      Rails.logger.info "From - load_ attachable --Params: #{params}"
-      # Rails.logger.info "From - load_ attachable --ASSET_Params: #{asset_params}"
-      # Rails.logger.info "From - load_ attachable --@asset: #{@asset}"
-      # Rails.logger.info "From - load_ attachable --@asset: #{@asset.inspect}"
-      Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
-      # (:idea_id, :data => :data)
+      params.require(:asset).permit(:idea_id, :data)
+      # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)
     end
 
 end
