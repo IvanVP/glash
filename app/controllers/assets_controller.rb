@@ -19,13 +19,13 @@ class AssetsController < ApplicationController
 
   # GET /assets/1
   # GET /assets/1.json
-  # def show
+  def show
 
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @asset }
-  #   end
-  # end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @asset }
+    end
+  end
 
   # GET /assets/new
   # def new
@@ -123,6 +123,13 @@ class AssetsController < ApplicationController
       Rails.logger.info "From - load_ attachable -- klass: #{klass.inspect}"
       @attachable = klass.find(params["#{klass.name.underscore}_id"])
       Rails.logger.info "From - load_ attachable -- @attachable: #{@attachable.inspect}"
+
+      Rails.logger.info "From - load_ attachable --@attachable: #{@attachable.inspect}"
+      Rails.logger.info "From - load_ attachable --Params: #{params}"
+      Rails.logger.info "From - load_ attachable --Params: #{asset_params}"
+      Rails.logger.info "From - load_ attachable --@asset: #{@asset}"
+      Rails.logger.info "From - load_ attachable --@asset: #{@asset.inspect}"
+      Rails.logger.info "From - load_ attachable --@asset_params: #{asset_params}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
