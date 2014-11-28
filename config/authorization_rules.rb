@@ -7,10 +7,7 @@ authorization do
       # if_attribute archieved: false
       if_attribute moderated: true, archieved: false
     end
-
-    # has_permission_on :assets, :to => :delete do
-    #   if_attribute published: false
-    # end
+   
   end
 
   role :member do

@@ -27,20 +27,6 @@ class AssetsController < ApplicationController
     end
   end
 
-  # GET /assets/new
-  # def new
-  #   @assets = @attachable.asset.new
-
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @asset }
-  #   end
-  # end
-
-  # GET /assets/1/edit
-  # def edit
-  # end
-
   # POST /assets
   # POST /assets.json
   def create
@@ -89,7 +75,6 @@ class AssetsController < ApplicationController
 
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
       params.require(:asset).permit(:idea_id, :data)
       # ( :idea_id, :data, :data_file_name, :data_content_type, :data_file_size)

@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
   end
 
   def show
-    if @idea.user == current_user || @idea.moderated
+    if @idea.user == current_user || @idea.moderated || current_user.is_administrator?
       @images= @idea.assets
       @comments = @idea.comments.order(created_at: :desc)
       @idea.increment!("views") unless @idea.user == current_user
@@ -102,11 +102,9 @@ class IdeasController < ApplicationController
       @idea = Idea.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, :published, :moderated, :status, assets_attributes: :data, :data => :data)
       
-      # (:agree, :title, :synopsis, :problem, :background, :solution, :links, :category_id, assets_attributes: :data, :data => :data)
     end
     
 end
