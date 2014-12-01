@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-roles_all = Role.all
-roles_all.delete_all if roles_all
+# roles_all = Role.all
+# roles_all.delete_all if roles_all
 
 roles = %W/Inventor Buyer Customer  Moderator Expert Author Stuff Manager Superviser Administrator/
 roles.each do |role|
