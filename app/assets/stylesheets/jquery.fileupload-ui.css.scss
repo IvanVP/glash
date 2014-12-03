@@ -36,10 +36,9 @@
 .files .progress {
   width: 200px;
 }
-.testing #test,
+
 .progress-animated .bar {
   background-image: image-url('progressbar.gif') !important;
-  height: 20px;
   filter: none;
 }
 .fileupload-loading {

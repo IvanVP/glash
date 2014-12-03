@@ -10,10 +10,6 @@
 = form_for [@idea, @idea.assets.new], :html => { :multipart => true, :id => "fileupload"  } do |f|
   = render 'assets/upload', :f => f
 
--if @idea.assets.many?
-  %h5 Существующие файлы
-  = render 'exist'
-
 = semantic_form_for @idea do |f|
   %p.hint.small Если Вы хотите сохранить идею как черновик и вернуться к ее редактированию позже, нажмите "Сохранить". 
   %p.hint.small Идея сохранится и не будет опубликована, но будет доступна Вам для редактирования.
