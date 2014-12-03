@@ -21,8 +21,8 @@ gem 'babosa', '~> 0.3.11'
 # gem 'country_select'
 
 gem 'formtastic'
-# gem "jquery-fileupload-rails"
-gem "jquery-fileupload-rails", :git => 'https://github.com/elsant/jquery-fileupload-rails.git'
+gem "jquery-fileupload-rails"
+# gem "jquery-fileupload-rails", :git => 'https://github.com/elsant/jquery-fileupload-rails.git'
 # gem "jquery-fileupload-rails", :path => '/home/ivan/elsant/fileupload'
 
 
