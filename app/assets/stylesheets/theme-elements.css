@@ -356,7 +356,7 @@ blockquote cite {
 }
 
 /* Progress */
-.progress {
+/*.progress {
 	-moz-border-radius: 25px;
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
@@ -405,7 +405,7 @@ span.progress-bar-tooltip:after {
 	position: absolute;
 	width: 0;
 }
-
+*/
 /* Panel */
 .panel-group {
 	padding: 3px;

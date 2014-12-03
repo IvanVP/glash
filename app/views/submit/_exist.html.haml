@@ -15,4 +15,17 @@
           %td{:colspan => "2"}
           %td.delete
             %span
-              = link_to "Delete", asset_path(file), method: :delete, remote: true, class: "button btn btn-danger del_asset"
+              = link_to "Удалить", asset_path(file), method: :delete, remote: true, class: "button btn btn-danger del_asset"
+          %td
+            .progress.progress-animated
+              .bar
+-#
+  
+            
+  .testing#test
+    %p.testing#test hello
+  .progress.progress-success.progress-striped.active.testing#test
+    .bar{:style => "width:100%;"}
+
+
+

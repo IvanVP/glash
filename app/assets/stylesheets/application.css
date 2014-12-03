@@ -12,7 +12,6 @@
  *= require font-awesome  
  *= require settings
  *= require magnific-popup
- *= require jquery.fileupload-ui
  *    jquery.isotope
  *    owl.theme
  *    owl.carousel
@@ -42,6 +41,9 @@
  *= require users
  *= require jquery.Jcrop.min
  *= require ideas
+
+ *= require jquery.fileupload-ui
+ 
  *= require_self
 
  
