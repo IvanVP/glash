@@ -21,10 +21,10 @@
     <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
     {% } else if (o.files.valid && !i) { %}
     <td>
-      
+      <div class="progress "><div class="bar" style="width:100%;"></div>
     </td>
     <td class="start">{% if (!o.options.autoUpload) { %}
-      <button class="btn btn-primary">
+      <button class="btn btn-sm btn-primary">
         <i class="icon-upload icon-white"></i>
         <span>{%=locale.fileupload.start%}</span>
       </button>
@@ -33,7 +33,7 @@
     <td colspan="2"></td>
     {% } %}
     <td class="cancel">{% if (!i) { %}
-      <button class="btn btn-warning">
+      <button class="btn backbtn">
         <i class="icon-ban-circle icon-white"></i>
         <span>{%=locale.fileupload.cancel%}</span>
       </button>
@@ -61,7 +61,7 @@
         <td colspan="2"></td>
         {% } %}
       <td class="delete">
-        <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+        <button class="btn btn-primary" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
           <i class="icon-trash icon-white"></i>
           <span>{%=locale.fileupload.destroy%}</span>
         </button>
@@ -80,6 +80,13 @@
       $('#fileupload').fileupload({
         dropZone: $('#dropzone'),
         autoUpload: true,
+        // dataType: 'json',
+        // progress: function (e, data) {
+        //       var progress = parseInt(data.loaded / data.total * 100, 10);
+        //       $('.progress .bar').css('width', progress + '%');
+        //     console.log(progress);
+        //     },
+
         maxNumberOfFiles: 15,
         loadImageMaxFileSize: 3500000,
         previewMaxWidth: 150,
@@ -102,6 +109,8 @@
         template.addClass('in');
         $('#loading').remove();
       });
+
+      
 
       $(document).bind('dragover', function (e) {
           var dropZone = $('#dropzone'),

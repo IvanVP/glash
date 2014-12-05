@@ -37,16 +37,19 @@
   width: 200px;
 }
 
-.progress-animated .bar {
-  background-image: image-url('progressbar.gif') !important;
+ .progress .bar
+ {
+  background-image: image-url('bar.gif') !important;
   filter: none;
+  opacity: 1;
+  height: 20px;
 }
 .fileupload-loading {
   position: absolute;
   left: 50%;
   width: 128px;
   height: 128px;
-  background: image-url('loading.gif') center no-repeat;
+  background: image-url('AjaxLoader.gif') center no-repeat;
   display: none;
 }
 .fileupload-processing .fileupload-loading {
