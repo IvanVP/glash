@@ -13,9 +13,10 @@
     %p 
       Просмотрело идею:&nbsp;
       =@idea.views
-    %p 
-      Опубликована:&nbsp;
-      = l(@idea.created_at.to_date, :format => :long)
+    - if @idea.published
+      %p 
+        Опубликована:&nbsp;
+        = l(@idea.published_at.to_date, :format => :long)
     
       =# time_ago_in_words(@idea.created_at.to_date)
       =# t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at))
