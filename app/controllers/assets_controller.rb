@@ -1,10 +1,10 @@
 class AssetsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   before_action :load_attachable, only: [:create, :index]
   # before_action :set_asset, only: [:show, :edit, :update]
 
-  # filter_resource_access
+  filter_resource_access
 
   # GET /assets
   # GET /assets.json
