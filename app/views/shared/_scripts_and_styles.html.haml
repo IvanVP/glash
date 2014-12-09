@@ -3,20 +3,11 @@
 = stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true
 
 = csrf_meta_tags
-
-
--# Mobile Metas
 %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
--# Web Fonts
--#%link{href: "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Alegreya|Alegreya+SC|Oswald:400,300", rel: "stylesheet", type: "text/css"}/
 
-
--#Basic
--# Opisano nizhe
-  %meta{content: "Glash", name: "keywords"}/
-  %meta{content: "Glash!", name: "description"}/
-  %meta{content: "glash.ru", name: "author"}/
-
+%meta{content: "Glash", name: "keywords"}/
+%meta{content: "Glash!", name: "description"}/
+%meta{content: "glash.ru", name: "author"}/
 
 %title= (yield(:title).empty? ? "Glash - Претвори мечту в реальность!" : yield(:title))
   

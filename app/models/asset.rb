@@ -3,12 +3,13 @@ class Asset < ActiveRecord::Base
 
   belongs_to :attachable, :polymorphic => true
 
+  default_scope {order(created_at: :asc)}
+
   has_attached_file :data,
                     :styles => { :thumb => "150x85#", :large => "800x450#" },
                     :default_url => "/images/defaultidea.jpg"
 
 
-  # validates_attachment :data, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
   validates_attachment :data, :presence => true,
                           :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
                           :size => { :in => 0..3.megabytes }
