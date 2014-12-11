@@ -3,8 +3,9 @@
 %h1 Здесь зарождаются идеи 
 .row
   .col-md-8
-    %p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
   .col-md-4
+    -unless current_user
+      %p.pages Только зарегистрированные пользователи могут предлагать свои идеи.
     =link_to "Предложи идею", new_idea_path( @idea), class: css_for_link
 - permitted_to? :moderate, :ideas do 
   - if @ideas_drafted.any? 
