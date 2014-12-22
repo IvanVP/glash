@@ -8,6 +8,9 @@
     %br
     %h2= link_to @idea.user.fullname, @idea.user
     %p
+      Категория:&nbsp;
+      =@idea.category.name
+    %p
       Проголосовало за идею:&nbsp;
       =@idea.votes_for.size
     %p 

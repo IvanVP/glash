@@ -12,7 +12,7 @@ class Idea < ActiveRecord::Base
   scope :published, -> { where(published: true).where(moderated: false) }
   scope :active, -> { where(moderated: true).where(archieved: false).order('moderated_at DESC') }
   scope :archieved, -> { where(archieved: true) }
-  scope :newest, -> {order('published_at DESC').active.first(7)}
+  scope :newest, -> {order('moderated_at DESC').active.first(7)}
 
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 

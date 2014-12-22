@@ -35,25 +35,27 @@
         Немного о себе:&nbsp;
         =@user.description
         %br/
+
 .row.user_ideas
   .col-md-12
     - if @active_ideas.any?
-      .row
+      .row.idea_line
+        %hr
         %h4 Идеи (идет голосование)
         = render "ideas/idea", ideas: @active_ideas
     -if @user == current_user
       -if @draft_ideas.any?
         %hr
-        .row
+        .row.idea_line
           %h4 Неопубликованные идеи (черновик)
           = render partial: "ideas/idea", locals: {ideas: @draft_ideas, buttons: true}
       -if @moderating_ideas.any?
-        .row
+        .row.idea_line
           %hr
           %h4 Опубликованные идеи (идет модерирование)
           = render "ideas/idea", ideas: @moderating_ideas 
       -if @archieved_ideas.any? 
-        .row
+        .row.idea_line
           %hr
           %h4 Идеи в архиве
           = render "ideas/idea", ideas: @archieved_ideas
