@@ -29,7 +29,7 @@
                   = f.input :password_confirmation, :label => t(:password_confirmation, scope: "activerecord.attributes.user"), autofocus: true, :input_html => {:class => "form-control"}, :required => false, placeholder: "повторите пароль"
               .form-group
                 .col-md-12
-                  = f.input :terms, as: :boolean, :label => ("Согласен с  #{link_to('правилами сайта', terms_path, target: '_blank')}").html_safe, :input_html => {:class => "boolean-control"}, :required => false
+                  = f.input :terms, as: :boolean, :label => ("Согласен с  #{link_to('Правилами сайта', terms_path, target: '_blank')}").html_safe, :input_html => {:class => "boolean-control"}, :required => false
             = f.actions do
               .form-group
                 .col-md-12
@@ -40,26 +40,22 @@
         %h4
           Помощь
         %p
-          После регистрации на Ваш email придет письмо с инструкциями по активации
+          После регистрации на Ваш email придет письмо с инструкциями по активации.
           %br
           Просто перейдите по ссылке, присланной в письме, для подтверждения регистрации.
         
         = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
-
+      
       .box-content
         %ul.nav.nav-list
         %h4
           Зачем нужна регистрация
-        %p 
-          Регистрация – это авторизация, позволяющая:
-        %li 
-          право принимать участия в различных дискуссиях
-        %li 
-          оставлять свои сообщения, комментарии, выражать свое мнение,
-        %li 
-          право для скачивания различного рода информации
-        %li 
-          возможность пользоваться всеми услугами сайта.
-        %p Одним словом - регистрация нужна.
+        %p Только зарегистрированные пользователи могут:
+        %li публиковать свои идеи,
+        %li комментировать идеи других участников сообщества,
+        %li принимать участие в различных этапах проектов,
+        %li возможность пользоваться всеми услугами сайта.
+        %br
+        %p.lastreg И самое главное - регистрация позволит Вам голосовать за понравившиеся идеи, публиковать свои предложения и становиться соавторами идей, принимая участие в распределении прибыли.
 
             

@@ -26,7 +26,11 @@
       .box-content
         %h4
           Помощь
-        %p  
+        %p.signinhelp Если Вы забыли свой пароль, то Вы можете восстановить его, перейдя по ссылке.
+        %p 
           = link_to t(:forgot_password, scope: 'devise.passwords'), new_password_path(resource_name)
-        %p
+        %p.signinhelp Если по каким-то причинам Вы не получили письмо с инструкциями по активации и не смогли своевременно активировать свой аккаунт, Вы можете запросить письмо с инструкциями по активации повторно.
+        %p.signinlast
           = link_to t(:resend_confirmation_instructions, scope: 'devise.confirmations'), new_confirmation_path(resource_name)
+
+      

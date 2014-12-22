@@ -2,44 +2,16 @@
   .container
     .row
       .col-md-3
-        .logo_footer= link_to image_tag('logo-footer.png', alt: "Glash!"), root_path
-        %h1.zagfooter
-          Это сайт об идеях и изобретениях, которые мы делаем реальностью. Присылайте нам свои идеи, комментируйте идеи других и зарабатывайте с нами!
-        
-        -if signed_in?
-          =render "shared/contact_user"
-        -else
-          =render "shared/subscribe_news"
-        
-        =render "shared/social_footer"
-        
-            
-        .clearfix
+        =render "shared/about"
 
       .col-md-3
         =render "shared/newest_ideas"
-       
 
       .col-md-3
         =render "shared/texts"
 
       .col-md-3
         =render "shared/most_active"
+
   =render "shared/copyright"
-  -#      
-    .footer-copyright
-      .container
-        .row
-          .col-md-6
-            %p Glash! © 2014
-          .col-md-6
-            %ul.social-icons
-              %li
-                %a{href: "https://vk.com/public80408399", rel: "tooltip", target: "_blank", title: "VKontakte"}
-                  %i.icon.icon-vk
-              %li
-                %a{href: "https://twitter.com/glash_ru", rel: "tooltip", target: "_blank", title: "Twitter"}
-                  %i.icon.icon-twitter
-              %li
-                %a{href: "https://www.facebook.com/pages/Glash/1539619519617370", rel: "tooltip", target: "_blank", title: "Facebook"}
-                  %i.icon.icon-facebook
+  
