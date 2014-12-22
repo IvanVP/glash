@@ -75,7 +75,8 @@ end
 gem 'unicorn'
 gem 'pg'
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip', '~> 4.2.1'
+# gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'kaminari', '~> 0.16.1'
 gem 'wicked', '~> 1.1.0'
 gem 'acts_as_votable', '~> 0.10.0'
