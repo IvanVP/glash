@@ -5,6 +5,10 @@
 .row .user_ideas{
   margin-top: 20px;
 }
+.row .ideas{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 h2.idea_title {
   margin-bottom: 0px;
@@ -264,4 +268,8 @@ span.moderator {
 .moderate {
     font-size: 0.9em !important;
     padding: 6px 5px !important;
+}
+
+blockquote {
+  letter-spacing: 0;
 }
