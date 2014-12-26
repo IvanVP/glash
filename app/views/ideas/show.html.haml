@@ -7,10 +7,10 @@
     = image_tag @idea.user.avatar.url(:medium), {class: "img-thumbnail img-responsive avatar", title: "#{@idea.user.fullname}"}
     %br
     %h2= link_to @idea.user.fullname, @idea.user
-    - if @idea.category.name
-      %p
-        Категория:&nbsp;
-        =@idea.category.name
+    
+    %p
+      Категория:&nbsp;
+      =@idea.category.name if @idea.category.name
     %p
       Проголосовало за идею:&nbsp;
       =@idea.votes_for.size
