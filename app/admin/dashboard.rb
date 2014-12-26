@@ -85,7 +85,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Сейчас на сайте" do
           ul do
             User.all.map do |user|
-              li link_to(user.fullname, admin_user_path(user)) if user.current_sign_in_at
+              li link_to(user.fullname, admin_user_path(user)) if (user.current_sign_in_at && user.current_sign_in_at.to_date >= Date.today)
             end
           end
         end
