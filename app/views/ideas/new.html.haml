@@ -11,7 +11,7 @@
   .row
     .col-md-12
       = f.inputs do
-        = f.input :agree, as: :boolean, :label => ("Согласен с  #{link_to('правилами идеи', terms_path, target: '_blank')}").html_safe, :input_html => {:class => "boolean-control"}, :required => false
+        = f.input :agree, as: :boolean, :label => ("Согласен с #{link_to('Правилами размещения идеи', '/idea-rules', target: '_blank')}").html_safe, :input_html => {:class => "boolean-control"}, :required => false
   .row
     .col-md-12#wizard
       = f.actions do
