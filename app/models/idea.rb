@@ -14,6 +14,7 @@ class Idea < ActiveRecord::Base
   scope :archieved, -> { where(archieved: true) }
   scope :newest, -> {order('moderated_at DESC').active.first(7)}
 
+
   accepts_nested_attributes_for :assets, allow_destroy: true, :reject_if => lambda { |t| t['data'].nil? }
 
   validates :agree, acceptance: true
@@ -30,6 +31,10 @@ class Idea < ActiveRecord::Base
     val.validates :background, :solution, presence: true 
     val.validates :background, :solution, length: { in: 5..2500 }
     val.validates :links, length: { maximum: 1000 }
+  end
+
+  def self.main_page
+    where(show_on_main_page: true).order('main_position DESC').first(9)
   end
 
   def status_info?

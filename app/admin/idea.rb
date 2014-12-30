@@ -132,7 +132,7 @@ ActiveAdmin.register Idea do
   # permit_params :fname, :mname, :lname, :name, :email, :avatar, :birthdate,
   #               :gender, :description, :slug, :role_id, :country_id
   #
- permit_params :user_id , :category_id , :title , :synopsis , :problem , :background , :solution , :links , :published , :published_at , :moderated , :moderated_at , :archieved , :archieved_at , :created_at , :updated_at , :views , :show_on_main_page , :status
+ permit_params :user_id , :category_id , :title , :synopsis , :problem , :background , :solution , :links , :published , :published_at , :moderated , :moderated_at , :archieved , :archieved_at , :created_at , :updated_at , :views , :show_on_main_page , :status, :main_position
   # or
   #
   # permit_params do

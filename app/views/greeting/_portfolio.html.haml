@@ -1,7 +1,6 @@
 %ul.portfolio-list.sort-destination
-  -if newest_ideas
-    -newest_ideas.each do |idea|
-      =#link_to idea.title, idea
+  -if main_page_ideas
+    -main_page_ideas.each do |idea|
       %li.col-md-4
         .portfolio-item
           %a.thumb-info.secundary{href: idea_path(idea)}
@@ -9,7 +8,6 @@
               %span.thumb-info-act
                 %span.thumb-info-content
                   %h4=idea.title
-                  -# 
-                    %span.date=t(idea.updated_at.strftime("%m %B %Y"))
+                  %span.date=l(idea.moderated_at.to_date, :format => :long)
                   %span.label.label-primary подробнее...
               %img.img-responsive{alt: idea.title, src: image_for_idea(idea) }/
