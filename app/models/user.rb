@@ -91,6 +91,7 @@ class User < ActiveRecord::Base
   def is_administrator?
     role_symbols.include?(:administrator)
   end
+  alias admin? is_administrator?
 
   private
 

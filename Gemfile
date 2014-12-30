@@ -81,3 +81,5 @@ gem 'kaminari', '~> 0.16.1'
 gem 'wicked', '~> 1.1.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'declarative_authorization', git: "git://github.com/stffn/declarative_authorization.git"
+
+gem 'comfortable_mexican_sofa', '~> 1.12.0'

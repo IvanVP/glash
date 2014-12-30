@@ -1,12 +1,15 @@
 Glash::Application.routes.draw do
+  comfy_route :cms_admin, :path => '/cmsadmin'
+
+
   # Static Pages
   scope controller: :pages do
     get 'greetings' => :greetings, as: :greetings
     get 'goodbye' => :goodbye, as: :goodbye
-    get 'faq' => :faq,  as: :faq
-    get 'help' =>:help,  as: :help
-    get 'privacy_policy' =>:privacy_policy,  as: :privacy_policy
-    get 'terms' =>:terms,  as: :terms
+    # get 'faq' => :faq,  as: :faq
+    # get 'help' =>:help,  as: :help
+    # get 'privacy_policy' =>:privacy_policy,  as: :privacy_policy
+    # get 'terms' =>:terms,  as: :terms
   end
    
   ActiveAdmin.routes(self)
@@ -42,6 +45,9 @@ Glash::Application.routes.draw do
   resources :comments, only: [:index, :destroy] do
     member { post :moderate, as: :moderate}
   end
+
+  # Make sure this routeset is defined last
+  comfy_route :cms, :path => '/', :sitemap => false
 
   # # ******Shallow*****
   # resources :articles do
