@@ -1,5 +1,9 @@
 .container
   .row.hite
-    .col-md-12
-      = render :partial => "shared/notice_alert"
-      = yield
+    - if check_help_pages
+      = render :partial => "pages/help_pages"
+    
+    -else
+      .col-md-12
+        = render :partial => "shared/notice_alert"
+        = yield

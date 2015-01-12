@@ -27,6 +27,14 @@ module ApplicationHelper
    end
   end
 
-
+  def check_help_pages
+    if @cms_page && @cms_site.path == "help"
+      help_root = Comfy::Cms::Page.find_by(site_id: 2, full_path: "/")
+      @help_menu_items = help_root.children
+      return @help_menu_items
+    else
+      return nil
+    end
+  end
 
 end

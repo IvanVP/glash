@@ -1,0 +1,11 @@
+-title "Помощь для Вас"
+
+.col-md-3
+  %aside.sidebar
+    %ul.nav.nav-list.primary.push-bottom#help_menu
+      -@help_menu_items.each do |item|
+        %li
+          = active_link_to item.label, "/help#{item.full_path}"
+   
+.col-md-9
+  =yield
